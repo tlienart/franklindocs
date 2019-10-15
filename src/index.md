@@ -56,3 +56,14 @@ true
 julia> JuDoc.JD_CAN_MINIFY
 true
 ```
+
+Lastly, in order to use the one-step `publish()` function, you additionally need to have [`git`](https://git-scm.com/downloads) on your system.
+If you're unsure, and on Windows, do:
+
+```julia-repl
+julia> run(`git --version`)
+git version 2.14.3 (Apple Git-98)
+Process(`git --version`, ProcessExited(0))
+```
+
+if you get an output such as `git version 2.14.3`, you're good to go, otherwise you'll need to install it.
