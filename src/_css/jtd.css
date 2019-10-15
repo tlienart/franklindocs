@@ -538,6 +538,7 @@ body { counter-reset: eqnum; }
 
 .hljs-metap { color: rgb(51, 131, 231); }
 
+.hljs-subst { color: inherit;}
 
 .page-foot {
   margin-top: 2em;
