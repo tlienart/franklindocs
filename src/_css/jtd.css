@@ -245,6 +245,9 @@ input[type=checkbox]:checked ~ #side-menu{display: block;}
     padding-left: 15px;
     width: 150px;} /* middle space */
   .show-menu {display: block;}
+  .side-bar .footer  {
+    display:none;
+  }
 }
 /* side bar adjustments for narrow mode (bar on top) */
 @media (min-width: 31.25rem){
@@ -538,6 +541,7 @@ body { counter-reset: eqnum; }
 
 .hljs-metap { color: rgb(51, 131, 231); }
 
+.hljs-string {color: #ca4418;}
 .hljs-subst { color: inherit;}
 
 .page-foot {
@@ -547,6 +551,22 @@ body { counter-reset: eqnum; }
   padding-bottom:15px;
   color: gray;
   font-size: 90%;
+}
+
+.jd-toc ol > li > ol {list-style-type: lower-alpha;}
+
+code.language-yaml .hljs-attr { color: #ca4418;}
+code.language-yaml .hljs-string { color: green;}
+
+/* ================================================================== */
+/*  PAGE-DIVS
+- .flist = lists with a checkmark
+- .note = highlight the background in light yellow
+*/
+/* ================================================================== */
+
+.blank {
+  height: 1.5em;
 }
 
 .flist p {
@@ -559,4 +579,27 @@ body { counter-reset: eqnum; }
   content: '✓';
   padding-right: 15px;
   margin-left: -10px;
+}
+
+.note {
+  margin-top: 1.5em;
+  width: 95%;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:  aliceblue;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.note .content {
+  padding: 10px;
+  padding-left: 12px;
+}
+.note .title{
+  font-size: 105%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 7px;
+  padding-top: 2px;
+  color: white;
+  background: cornflowerblue;
 }

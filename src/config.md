@@ -1,7 +1,20 @@
-@def generate_rss  = false
 @def author = "Thibaut Lienart"
-@def hasmath = false
+@def hasmath = false              <!-- mostly there's no maths on pages -->
+@def generate_rss = false
 
-@def prepath = "JuDocWeb"
+@def prepath = "JuDocWeb"         <!-- it's a GitHub project website -->
 
+@def mintoclevel = 2              <!-- TOCS only for level h2 and higher -->
+
+<!--
+Useful HTML snippets
+* \blurb{...} for a blurb at the top of a page
+* \refblank{...} for a link with target blank
+* \lineskip forces skipping of a line somewhere
+-->
+\newcommand{\blurb}[1]{~~~<span style="font-size:24px;font-weight:300;">!#1</span>~~~}
 \newcommand{\refblank}[2]{~~~<a href="!#2" target="_blank" rel="noopener noreferrer">#1</a>~~~}
+
+\newcommand{\lineskip}{@@blank@@}
+
+\newcommand{\note}[1]{@@note @@title ⚠ Note@@ @@content #1 @@ @@}

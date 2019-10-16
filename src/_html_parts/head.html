@@ -6,7 +6,7 @@
   {{if hasmath}} {{insert head_katex.html }}     {{end}}
   {{if hascode}} {{insert head_highlight.html }}   {{end}}
   <link rel="stylesheet" href="/css/jtd.css">
-  <link rel="icon" href="/assets/infra/favicon.ico">
+  <link rel="icon" href="/assets/infra/favicon2.gif">
   {{isdef title}} <title>{{fill title}}</title>  {{end}}
 </head>
 <body>                      <!-- closed in foot.html -->
@@ -23,13 +23,17 @@
       <div class="menu" id="side-menu">
         <ul class="menu-list">
           <li class="menu-list-item {{ispage index}}active{{end}}"><a href="/" class="menu-list-link {{ispage index}}active{{end}}">Home</a>
-          <!-- <li class="menu-list-item {{ispage pub/menu1}}active{{end}}"><a href="/pub/menu1.html" class="menu-list-link {{ispage pub/menu1}}active{{end}}">Menu 1</a>
+          <li class="menu-list-item {{ispage pub/workflow}}active{{end}}"><a href="/pub/workflow.html" class="menu-list-link {{ispage pub/workflow}}active{{end}}">Workflow</a>
+          <!--
           <li class="menu-list-item {{ispage pub/menu2}}active{{end}}"><a href="/pub/menu2.html" class="menu-list-link {{ispage pub/menu2}}active{{end}}">Menu 2</a>
           <li class="menu-list-item {{ispage pub/menu3}}active{{end}}"><a href="/pub/menu3.html" class="menu-list-link {{ispage pub/menu3}}active{{end}}">Menu 3</a>
             <ul class="menu-list-child-list ">
               <li class="menu-list-item "><a href="#" class="menu-list-link">Submenu</a>
             </ul> -->
         </ul>
+      </div>
+      <div class="footer">
+        <img style="width:70%;padding-left:10px;margin-bottom:15px;" src="/assets/infra/logo1.svg" alt="JuDoc Logo" />
       </div>
     </div>
     <!-- CONTENT -->
