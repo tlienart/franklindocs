@@ -15,18 +15,47 @@
     <div class="side-bar">
       <div class="header">
         <a href="/" class="title">
-          JuDoc
+          <img style="height:60px;" src="/assets/infra/judoc.svg" alt="judoc" />
+          <style>
+          @media (max-width: 31.25rem){
+            .side-bar .show-menu {height:30px;}
+          }
+          @media (max-width: 50rem) {
+            .side-bar .header .title {padding-top:0; padding-bottom: 0;}
+            .header .title img {height:60px; max-width: 100px !important;}
+          }
+          @media (min-width: 66.5rem){
+            .header .title img {max-width: 120px !important;}
+          }
+          </style>
         </a>
       </div>
       <label for="show-menu" class="show-menu">MENU</label>
       <input type="checkbox" id="show-menu" role="button">
       <div class="menu" id="side-menu">
         <ul class="menu-list">
-          <li class="menu-list-item {{ispage index}}active{{end}}"><a href="/" class="menu-list-link {{ispage index}}active{{end}}">• Home</a>
-          <li class="menu-list-item {{ispage pub/workflow}}active{{end}}"><a href="/pub/workflow.html" class="menu-list-link {{ispage pub/workflow}}active{{end}}">• Workflow</a>
+          <!-- HOME -->
+          <li class="menu-list-item {{ispage index}}active{{end}}"><a href="/" class="menu-list-link">• Home</a>
+          <!-- WORKFLOW -->
+          <li class="menu-list-item {{ispage pub/workflow}}active{{end}}"><a href="/pub/workflow.html" class="menu-list-link">• Workflow</a>
+          <!-- SYNTAX -->
+          <li class="menu-list-parent {{ispage pub/syntax/markdown pub/syntax/divs-commands pub/syntax/page-variables pub/syntax/pre-defined-commands}}active{{end}}"><a href="/pub/syntax/markdown.html">• Syntax</a>
+            <ul class="menu-list-child-list ">
+              <li class="menu-list-item {{ispage pub/syntax/markdown}}active{{end}}"><a href="/pub/syntax/markdown.html" class="menu-list-link">Markdown</a>
+              <li class="menu-list-item {{ispage pub/syntax/divs-commands}}active{{end}}"><a href="/pub/syntax/divs-commands.html" class="menu-list-link">Divs and Commands</a>
+              <li class="menu-list-item {{ispage pub/syntax/page-variables}}active{{end}}"><a href="/pub/syntax/page-variables.html" class="menu-list-link">Page Variables</a>
+                <!-- pre-defined-commands -->
+              <li class="menu-list-item {{ispage pub/syntax/pre-defined-commands}}active{{end}}"><a href="/pub/syntax/pre-defined-commands.html" class="menu-list-link">Base Commands</a>
+            </ul>
+          <!-- CODE -->
+          <li class="menu-list-parent {{ispage pub/code/inserting-code pub/code/eval-tricks pub/code/literate}}active{{end}}"><a href="/pub/code/inserting-code.html">• Code</a>
+            <ul class="menu-list-child-list ">
+              <li class="menu-list-item {{ispage pub/code/inserting-code}}active{{end}}"><a href="/pub/code/inserting-code.html" class="menu-list-link">Inserting code</a>
+              <li class="menu-list-item {{ispage pub/code/eval-tricks}}active{{end}}"><a href="/pub/code/eval-tricks.html" class="menu-list-link">Code tricks</a>
+              <li class="menu-list-item {{ispage pub/code/literate}}active{{end}}"><a href="/pub/code/literate.html" class="menu-list-link">Literate</a>
+            </ul>
           <li class="menu-list-item {{ispage pub/why-o-why}}active{{end}}"><a href="/pub/why-o-why.html" class="menu-list-link {{ispage pub/why-o-why}}active{{end}}">• FAQ</a>
           <!--
-          <li class="menu-list-item {{ispage pub/menu2}}active{{end}}"><a href="/pub/menu2.html" class="menu-list-link {{ispage pub/menu2}}active{{end}}">Menu 2</a>
           <li class="menu-list-item {{ispage pub/menu3}}active{{end}}"><a href="/pub/menu3.html" class="menu-list-link {{ispage pub/menu3}}active{{end}}">Menu 3</a>
             <ul class="menu-list-child-list ">
               <li class="menu-list-item "><a href="#" class="menu-list-link">Submenu</a>
@@ -34,7 +63,7 @@
         </ul>
       </div>
       <div class="footer">
-        <a href="/pub/why-o-why.html"><img style="width:70%;padding-left:10px;margin-bottom:15px;" src="/assets/infra/logo1.svg" alt="JuDoc Logo" /></a>
+        <a href="/pub/why-o-why.html"><img style="width:60%;padding-left:10px;margin-bottom:15px;" src="/assets/infra/logo1.svg" alt="JuDoc Logo" /></a>
       </div>
     </div>
     <!-- CONTENT -->

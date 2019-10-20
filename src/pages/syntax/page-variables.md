@@ -1,0 +1,3 @@
+# Page variables
+
+and config

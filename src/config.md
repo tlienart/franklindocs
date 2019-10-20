@@ -5,6 +5,7 @@
 @def prepath = "JuDocWeb"         <!-- it's a GitHub project website -->
 
 @def mintoclevel = 2              <!-- TOCS only for level h2 and higher -->
+@def maxtoclevel = 3              <!-- TOCS only up to level 3 included -->
 
 <!--
 Useful HTML snippets

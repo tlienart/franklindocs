@@ -2,7 +2,7 @@
 
 # Working with JuDoc
 
-\blurb{Set things up in minutes and focus on writing great content!}
+\blurb{Set things up in minutes and focus on writing great content.}
 
 \lineskip
 
@@ -107,7 +107,7 @@ The first step is to create a repository for a personal or a project website:
 
 Once the repository is created, clone it on your computer, remove whatever GitHub added there for you and copy the content of your website folder.
 
-If it's your personal website (base URL: `username.github.io/`) just do the usual `git add -A; git commit -am "Initial files"` and `git push` and your website will be live in a matter of minutes.
+If it's your personal website (base URL: `username.github.io/`) just use `publish()` and your website will be live in a matter of minutes.
 
 If it's a project website (base URL: `username.github.io/MyProject/`) there is one extra step needed, add this line in your `src/config.md` file:
 
@@ -115,7 +115,8 @@ If it's a project website (base URL: `username.github.io/MyProject/`) there is o
 @def prepath = "MyProject"
 ```
 
-this will make sure all links are adjusted to reflect the base URL.
+then use `publish()`.
+This will make sure all links are adjusted to reflect the base URL.
 
 ### On GitLab
 
@@ -168,4 +169,4 @@ The `optimize` function can
 See `?optimize` for options.
 
 Those two steps may lead to faster loading pages.
-Note that in order to run these, you will need a couple of external dependencies mentioned in the [installation section](/index.html#installing_optional_extras).
+Note that in order to run them, you will need a couple of external dependencies as mentioned in the [installation section](/index.html#installing_optional_extras).

@@ -6,16 +6,18 @@
 
 ## Key features
 
+\newcommand{\goto}[1]{~~~<a href="!#1" id="goto"><span id="check">&check;</span><span id="arrow"><b>&rarr;</b></span></a>~~~}
+
 @@flist
-* Augmented markdown allowing definition of LaTeX-like commands,
-* Easy inclusion of user-defined div-blocks,
-* Maths rendered via [KaTeX](https://katex.org/), code via [highlight.js](https://highlightjs.org) both can be pre-rendered,
-* Can live-evaluate Julia code blocks,
-* Simple HTML templating,
-* Live preview of modifications,
-* Easy optimisation step to compress and optionally pre-render the website,
-* Easy publication step to deploy the website,
-* Straightforward integration with [Literate.jl](https://github.com/fredrikekre/Literate.jl).
+* \goto{/pub/syntax/markdown.html} Augmented markdown allowing definition of LaTeX-like commands,
+* \goto{/pub/syntax/divs-commands.html} Easy inclusion of user-defined div-blocks,
+* \goto{/pub/syntax/divs-commands.html} Maths rendered via [KaTeX](https://katex.org/), code via [highlight.js](https://highlightjs.org) both can be pre-rendered,
+* \goto{#} Can live-evaluate Julia code blocks,
+* \goto{#} Simple HTML templating,
+* \goto{/pub/workflow.html#creating_your_website} Live preview of modifications,
+* \goto{/pub/workflow.html#optimisation_step} Easy optimisation step to compress and pre-render the website,
+* \goto{/pub/workflow.html#publication_step} Easy publication step to deploy the website,
+* \goto{/pub/code/literate.html} Straightforward integration with [Literate.jl](https://github.com/fredrikekre/Literate.jl).
 @@
 
 ## Quick start
