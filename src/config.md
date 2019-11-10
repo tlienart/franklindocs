@@ -13,9 +13,25 @@ Useful HTML snippets
 * \refblank{...} for a link with target blank
 * \lineskip forces skipping of a line somewhere
 -->
-\newcommand{\blurb}[1]{~~~<span style="font-size:24px;font-weight:300;">!#1</span>~~~}
-\newcommand{\refblank}[2]{~~~<a href="!#2" target="_blank" rel="noopener noreferrer">#1</a>~~~}
 
+\newcommand{\blurb}[1]{
+    ~~~
+    <span style="font-size:24px;font-weight:300;">!#1</span>
+    ~~~
+}
+\newcommand{\refblank}[2]{
+    ~~~
+    <a href="!#2" target="_blank" rel="noopener noreferrer">#1</a>
+    ~~~
+}
 \newcommand{\lineskip}{@@blank@@}
-
 \newcommand{\note}[1]{@@note @@title ⚠ Note@@ @@content #1 @@ @@}
+
+\newcommand{\esc}[1]{
+    ```julia:esc__
+    #hideall
+    using Markdown
+    println("\`\`\`\`\`plaintext $(Markdown.htmlesc(raw"""#1""")) \`\`\`\`\`")
+    ```
+    \textoutput{esc__}
+}
