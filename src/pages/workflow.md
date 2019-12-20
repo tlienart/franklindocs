@@ -1,5 +1,9 @@
 @def hascode = true
 
+<!--
+reviewed: 23/11/19
+-->
+
 # Working with JuDoc
 
 \blurb{Set things up in minutes and focus on writing great content.}
@@ -103,7 +107,7 @@ Services like Netlify also provide an easy setup to link to a repo that contains
 
 The first step is to create a repository for a personal or a project website:
 
-* Follow the [guide on GitHub](https://pages.github.com/#user-site)
+* Follow the [guide on GitHub](https://pages.github.com/#user-site).
 
 Once the repository is created, clone it on your computer, remove whatever GitHub added there for you and copy the content of your website folder.
 
@@ -122,14 +126,14 @@ This will make sure all links are adjusted to reflect the base URL.
 
 The first step is to create a repository for a personal or a project website:
 
-* Follow the [guide on GitLab](https://about.gitlab.com/product/pages/)
+* Follow the [guide on GitLab](https://about.gitlab.com/product/pages/).
 
 Then there are two small differences with the GitHub process:
 
 1. your website needs to be in a `public/` directory of the repository,
 1. you need to specify a CI/CD script that tells GitLab how to deploy the website.
 
-Luckily both of these can be done in one shot, all you need to do is add the following script to your repository:
+Luckily both of these can be done in one shot, all you need to do is add the following script to the `.gitlab-ci.yml` file in your repository:
 
 ```yaml
 pages:
@@ -157,7 +161,7 @@ The `publish` function is an easy way to deploy your website after making some c
 Basically it:
 
 - applies an optional optimisation step (see below)
-- does a `git add -A; git commit -am "judoc-update"; git push`
+- does a `git add -A; git commit -am "jd-update"; git push`
 
 ### Optimisation step
 

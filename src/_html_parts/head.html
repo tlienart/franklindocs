@@ -39,16 +39,16 @@
           <!-- WORKFLOW -->
           <li class="menu-list-item {{ispage pub/workflow}}active{{end}}"><a href="/pub/workflow.html" class="menu-list-link">• Workflow</a>
           <!-- SYNTAX -->
-          <li class="menu-list-parent {{ispage pub/syntax/markdown pub/syntax/divs-commands pub/syntax/page-variables pub/syntax/pre-defined-commands}}active{{end}}"><a href="/pub/syntax/markdown.html">• Syntax</a>
+          <!-- NOTE: if adding a menu item, add ref to first item! -->
+          <li class="menu-list-parent {{ispage pub/syntax/*}}active{{end}}"><a href="/pub/syntax/markdown.html">• Syntax</a>
             <ul class="menu-list-child-list ">
               <li class="menu-list-item {{ispage pub/syntax/markdown}}active{{end}}"><a href="/pub/syntax/markdown.html" class="menu-list-link">Markdown</a>
               <li class="menu-list-item {{ispage pub/syntax/divs-commands}}active{{end}}"><a href="/pub/syntax/divs-commands.html" class="menu-list-link">Divs and Commands</a>
               <li class="menu-list-item {{ispage pub/syntax/page-variables}}active{{end}}"><a href="/pub/syntax/page-variables.html" class="menu-list-link">Page Variables</a>
-                <!-- pre-defined-commands -->
-              <li class="menu-list-item {{ispage pub/syntax/pre-defined-commands}}active{{end}}"><a href="/pub/syntax/pre-defined-commands.html" class="menu-list-link">Base Commands</a>
+              <li class="menu-list-item {{ispage pub/syntax/html-functions}}active{{end}}"><a href="/pub/syntax/html-functions.html" class="menu-list-link">HTML Functions</a>
             </ul>
           <!-- CODE -->
-          <li class="menu-list-parent {{ispage pub/code/inserting-code pub/code/eval-tricks pub/code/literate}}active{{end}}"><a href="/pub/code/inserting-code.html">• Code</a>
+          <li class="menu-list-parent {{ispage pub/code/*}}active{{end}}"><a href="/pub/code/inserting-code.html">• Code</a>
             <ul class="menu-list-child-list ">
               <li class="menu-list-item {{ispage pub/code/inserting-code}}active{{end}}"><a href="/pub/code/inserting-code.html" class="menu-list-link">Inserting code</a>
               <li class="menu-list-item {{ispage pub/code/eval-tricks}}active{{end}}"><a href="/pub/code/eval-tricks.html" class="menu-list-link">Code tricks</a>

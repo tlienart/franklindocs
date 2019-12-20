@@ -1,5 +1,6 @@
 # This file was generated, do not modify it. # hide
-#hideall
+-evtr2
+    #hideall
     using Markdown
     println("\`\`\`\`\`plaintext $(Markdown.htmlesc(raw""" \newcommand{\card}[4]{
     @@card
@@ -8,7 +9,7 @@
         ~~~
         <h2>#1</h2>
         ~~~
-        @@title #2 @@
+        @@title  ex-evtr2 @@
         @@vitae #3 @@
         @@email #4 @@
         ~~~

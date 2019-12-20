@@ -483,7 +483,7 @@ td.fndef-backref {
 
 
 .jd-content .fndef table {
-  margin; 0;
+  margin: 0;
   margin-bottom: 1em;
   border: 0;
 }
@@ -667,14 +667,19 @@ ul.menu-list-child-list a.menu-list-link {
   border: 1px solid black;
 }
 
-.colors {
+.ccols {
   margin-top:1.5em;
   margin-bottom:1.5em;
   margin-left:auto;
   margin-right:auto;
   width: 60%;
-  text-align: center;
+  text-align: center;}
+.ccols svg {
+  width:30px;}
+
+.lalign td {
+  text-align: left;
 }
-.colors svg {
-  width:30px;
+.lalign tr:first-of-type > td {
+  text-align: center;
 }

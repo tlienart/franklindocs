@@ -2,6 +2,10 @@
 @def hasmath = true
 @def showall = true
 
+<!--
+reviewed: 23/11/19
+-->
+
 # Markdown syntax
 
 \blurb{JuDoc aims to support most of Common Mark with a few differences and some useful extensions.}
@@ -269,4 +273,4 @@ A simple example is if you want to colour your text; for instance with a `<span 
 
 You could also use this to locally customise a layout etc.
 
-\note{In a raw HTML block, you cannot use markdown, maths, etc. For this reason, it is often preferable to use nested `@@divname...@@` blocks instead of raw HTML since those _can_ have markdown, maths, etc. in them. (See [inserting divs](/pub/syntax/divs-commands.html))}
+\note{Inside a raw HTML block, you cannot use markdown, maths, etc. For this reason, it is often preferable to use nested `@@divname...@@` blocks instead of raw HTML since those _can_ have markdown, maths, etc. in them. (See [inserting divs](/pub/syntax/divs-commands.html).)}

@@ -1,6 +1,10 @@
 @def hascode = true
 @def hasmath = true
 
+<!--
+reviewed: 23/11/19
+-->
+
 # Divs and Commands
 
 \blurb{Style your content quickly and easily with custom divs, make everything reproducible and maintainable with commands.}
@@ -11,7 +15,7 @@
 
 ## Div blocks
 
-In order to locally style your content, you can use `@@divname ... @@` which will wrap some content in a `<div class="divname"> ... </div>` block which you can then style as you wish in your CSS stylesheet.
+In order to locally style your content, you can use `@@divname ... @@` which will wrap the content in a `<div class="divname"> ... </div>` block which you can then style as you wish in your CSS stylesheet.
 For instance, you may want to highlight some content with a light yellow background:
 
 ```plaintext
@@ -40,7 +44,7 @@ which will look like
 ### Nesting
 
 Such div blocks can be nested as in standard HTML.
-The distinction with inserting raw HTML div blocks with the `~~~...~~~` syntax is that the content  of div blocks is processed as well:
+The distinction with inserting raw HTML div blocks with the `~~~...~~~` syntax is that the content  of div blocks is processed as well (i.e.: can contain JuDoc markdown):
 
 ```plaintext
 @@important
@@ -83,9 +87,11 @@ where:
 As in LaTeX, command definitions can be anywhere as long as they appear before they are used.
 If you want a command to be available on all your pages, put the definition in the `config.md` file.
 
+\note{JuDoc currently cannot just take the content of a `.tex` document and convert it, this may be (partially) supported in the future if it is deemed useful. Mainly it would require pre-defining all standard commands such as `\textbf`, `\section`, etc.}
+
 ### Math examples
 
-If you end up writing a lot of equations on your site, defining commands can quickly becomes very useful:
+If you end up writing a lot of equations on your site, defining commands can become rather useful:
 
 ```plaintext
 \newcommand{\R}{\mathbb R}
@@ -110,12 +116,15 @@ $$ \mathcal W_\psi[f] = \int_\R f(s)\psi(s)\mathrm{d}s = \scal{f,\psi} $$
 Commands can also be useful outside of maths environment.
 For instance, you could define a command to quickly set the style of some text:
 
-\esc{
+\esc{dc1}{
   \newcommand{\styletext}[2]{~~~<span style="#1">#2</span>~~~}
-  Here is \styletext{color:magenta;font-size:14px;}{some formatted text}.
+
+  Here is \styletext{color:magenta;font-size:14px;}{formatted text}.
 }
+
 \newcommand{\styletext}[2]{~~~<span style="#1">#2</span>~~~}
-Here is \styletext{color:magenta;font-size:14px;font-variant:small-caps;}{some formatted text}.
+
+Here is \styletext{color:magenta;font-size:14px;font-variant:small-caps;}{formatted text}.
 
 ### Nesting examples
 
@@ -142,13 +151,14 @@ Let $x\in\R^n$, there exists $0 < C_1 \le C_2$ such that
 $$ C_1 \anorm{x} \le \bnorm{x} \le C_2\anorm{x}. $$
 
 As indicated earlier, commands can contain further JuDoc markdown that is processed recursively.
-Consider for instance this slightly more sophisticated example of a "definition" command such that this:
+For example, here is a more sophisticated example of a "definition" command such that this:
 
 ```plaintext
 \definition{angle between vectors}{
   Let $x, y \in \R^n$ and let $\scal{\cdot, \cdot}$ denote
-  the usual inner product. Then, the angle $\theta$ between $x$ and $y$ is
-  given by $$ \cos(\theta) = {\scal{x,y}\over \scal{x,x} \scal{y,y}}. $$
+  the usual inner product. Then, the angle $\theta$ between
+  $x$ and $y$ is given by
+  $$ \cos(\theta) = {\scal{x,y}\over \scal{x,x} \scal{y,y}}. $$
 }
 ```
 
@@ -164,9 +174,14 @@ leads to this:
 
 To do this, you would define the command:
 
-```plaintext
-\newcommand{\definition}[2]{@@definition **Definition**: (_!#1_) #2 @@}
-```
+\esc{dt3}{
+  \newcommand{\definition}[2]{
+    @@definition
+    **Definition**: (_!#1_)
+    #2
+    @@
+  }
+}
 
 and specify the styling of the `definition` div in your CSS:
 
@@ -260,21 +275,21 @@ In the case above, the text will lead to
 ... refer to (Noether (1915), Bezanson et al. (2017)) while ...
 ```
 
-You can use
+You can use either
 
 @@tlist
-* `\cite{short1, short2}` or `\citet{short3}`: will not add parentheses around the link(s),
-* `\citep{short4, short5}`: will add parentheses around the link(s).
+* `\cite{short1, short2}` or `\citet{short3}`: which will not add parentheses around the link(s),
+* `\citep{short4, short5}`: which will add parentheses around the link(s).
 @@
 
-As in LaTeX, if the reference is undefined, the command will be replaced by **(??)**.
+As in LaTeX, if the reference is undefined on the page, the command will be replaced by **(??)**.
 
 ### Anchor points
 
 You can specify anchor points on the page using `\label{name of the anchor}` anywhere on the page _outside_ of maths environment.
 This will insert an anchor:
 
-\esc{
+\esc{dc2}{
   <a id="name-of-the-anchor"></a>
 }
 
@@ -297,4 +312,4 @@ Note also that all section headers are anchor points for instance
 ```
 
 can be linked to with `#some-subtitle`.
-If there are multiple headers with the same name, the second and subsequent ones can be referred to with `#some-subtitle__2`, `#some-subtitle__3` etc.
+If there are multiple headers with the same name, the second and subsequent ones can be referred to with `#some-subtitle__2`, `#some-subtitle__3` etc. (note the double underscore).

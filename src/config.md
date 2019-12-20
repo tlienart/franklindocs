@@ -27,11 +27,20 @@ Useful HTML snippets
 \newcommand{\lineskip}{@@blank@@}
 \newcommand{\note}[1]{@@note @@title ⚠ Note@@ @@content #1 @@ @@}
 
-\newcommand{\esc}[1]{
-    ```julia:esc__
+\newcommand{\esc}[2]{
+    ```julia:esc__!#1
     #hideall
     using Markdown
-    println("\`\`\`\`\`plaintext $(Markdown.htmlesc(raw"""#1""")) \`\`\`\`\`")
+    println("\`\`\`\`\`plaintext $(Markdown.htmlesc(raw"""#2""")) \`\`\`\`\`")
     ```
-    \textoutput{esc__}
+    \textoutput{esc__!#1}
+}
+
+\newcommand{\esch}[2]{
+    ```julia:esc__!#1
+    #hideall
+    using Markdown
+    println("\`\`\`\`\`html $(Markdown.htmlesc(raw"""#2""")) \`\`\`\`\`")
+    ```
+    \textoutput{esc__!#1}
 }

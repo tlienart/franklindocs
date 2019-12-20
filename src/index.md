@@ -1,5 +1,9 @@
 @def hascode = true
 
+<!--
+reviewed: 23/11/19
+-->
+
 # Building static websites in Julia
 
 \blurb{JuDoc is a simple and fast static site generator oriented towards technical blogging and light, fast-loading pages.}
@@ -15,8 +19,8 @@
 * \goto{#} Can live-evaluate Julia code blocks,
 * \goto{#} Simple HTML templating,
 * \goto{/pub/workflow.html#creating_your_website} Live preview of modifications,
-* \goto{/pub/workflow.html#optimisation_step} Easy optimisation step to compress and pre-render the website,
-* \goto{/pub/workflow.html#publication_step} Easy publication step to deploy the website,
+* \goto{/pub/workflow.html#optimisation_step} Simple optimisation step to compress and pre-render the website,
+* \goto{/pub/workflow.html#publication_step} Simple publication step to deploy the website,
 * \goto{/pub/code/literate.html} Straightforward integration with [Literate.jl](https://github.com/fredrikekre/Literate.jl).
 @@
 
@@ -28,7 +32,7 @@ To install JuDoc with Julia **≥ 1.1**,
 (v1.3) pkg> add JuDoc
 ```
 
-You can then just try JuDoc out:
+You can then just try it out:
 
 ```julia-repl
 julia> using JuDoc
@@ -43,10 +47,8 @@ julia> serve()
   (use CTRL+C to shut down)
 ```
 
-If you navigate to the given URL in your browser, you will be the website being live-rendered.
-
-Now open `src/index.md` in an  editor and follow the examples, modifying at will, the changes will be live rendered in your browser.
-You can then also inspect the file `src/pages/menu1.md` which offers more examples of what JuDoc can do.
+If you navigate to that URL in your browser, you will see the website. If you then open `src/index.md` in an  editor and modify it at will, the changes will be live rendered in your browser.
+You can also inspect the file `src/pages/menu1.md` which offers more examples of what JuDoc can do.
 
 ## Installing optional extras
 
