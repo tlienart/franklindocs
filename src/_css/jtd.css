@@ -573,6 +573,7 @@ body { counter-reset: eqnum; }
 /* code.language-plaintext {color: purple;} */
 
 .jd-toc ol > li > ol {list-style-type: lower-alpha;}
+.jd-toc ol > li > ol > li > ol {list-style-type: lower-roman;}
 
 code.language-yaml .hljs-attr { color: #ca4418;}
 code.language-yaml .hljs-string { color: green;}

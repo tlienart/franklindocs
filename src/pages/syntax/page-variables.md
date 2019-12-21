@@ -126,99 +126,104 @@ This is used for the navbar of this very page in fact where the (simplified) HTM
   </ul>
 } <!--*-->
 
-This allows a javascript-free way of having a menu that depends on which page is currently active.
-
-
-## Local page variables
-
-
+This allows a simple, javascript-free, way of having a navigation menu that is styled depending on which page is currently active.
 
 ## Global page variables
 
+The table below list global page variables that you can set.
+These variables are best defined in your `config.md` file though you can overwrite the value locally by redefining the variable on a given page (this will then only have an effect on that page).
 
-and config
+@@lalign
+| Name | Type(s) | Default value | Comment
+| ---- | ---- | ------------- | -------
+| `author` | `String, Nothing` | `"THE AUTHOR"` |
+| `date_format` | `String`  | `"U dd, yyyy"` | Must be a format recognised by Julia's `Dates.format`
+| `prepath`     | `String`  | `""` | Use if your website is a project website (\*)
+| `website_title`| `String` | `""` | (RSS) (\*\*)
+| `website_descr`| `String` | `""` | (RSS)
+| `website_url`  | `String` | `""` | (RSS)
+| `generate_rss` | `Bool` | `true` |
+@@
 
+**Notes**:
 
+(\*) say you're using GitHub pages and your username is `darth`, by default JuDoc will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`.
 
-<!-- ## Page variables
+(\*\*) these **must** be defined for RSS to be generated for your site (on top of `generate_rss` being `true`). See also the [RSS subsection](#rss) below.
 
-Page variables are a way to interact with the HTML templating.
-In essence, you can define variables in the markdown which can then be called or used in the HTML building blocks that are in `src/_html_parts/`.
+## Local page variables
 
-!!! note
+The tables below list local page variables that you can set.
+These variables are typically set locally in a page.
+Remember that:
+- you can also define your own variables (with different names),
+- you can change the default value of a variable by defining it in your `config.md`.
 
-    Page variables are still somewhat rudimentary and while the syntax for declaring a variable will likely not change, the way they are used will almost certainly be refined in the future (see also [Templating](@ref)). -->
+Note that variables shown below  that have a  name starting with  `jd_` are _not meant to be defined_ as their value is  typically  computed  on the fly (but they can be used).
 
-<!-- ### Local page variables
+### Basic settings
 
-The syntax to define a page variable in markdown is to write on a new line:
+@@lalign
+| Name | Type | Default value | Comment
+| ---- | ---- | ------------- | -------
+| `title` | `String, Nothing` | `nothing` | page title
+| `hasmath` | `Bool` | `true` | whether to activate KaTeX for that page
+| `hascode` | `Bool` | `false` | whether to activate highlight.js for that page
+| `date`    | `String, Date, Nothing` | `Date(1)` | a date object (e.g. if you want to set a publication date)
+| `lang` | `String` | `julia` | default highlighting for code on the page
+| `reflinks` | `Bool` | `true`  | whether there are things like `[ID]: URL` on your page (\*)
+| `indented_code` | `Bool` | `true` | whether indented blocks should be considered as code (\*\*)
+| `mintoclevel` | `Int` | `1` | minimum title level to go in the table of content (often you'll want this to  be `2`)
+| `maxtoclevel` | `Int` | `100` | maximum title level to go in the table of content
+| `jd_ctime` | `Date` | see comment | time of creation of the markdown file
+| `jd_mtime` | `Date` | see comment | time of last modification of the markdown file
+| `jd_rpath` | `String` | see comment | local path to file `src/(...)/thispage.md`
+@@
 
-```judoc
-@def variable_name = ...
-```
+**Notes**:
 
-where whatever is after the `=` sign should be a valid Julia expression (Julia will try to parse it and will throw an error if it can't).
-Multiline definitions are not (yet) allowed but if you have a need for that, please open an issue.
-The idea is that these variables are likely to be rather simple: strings, bools, ints, dates, ...
-I don't yet see a usecase for more involved things.
+(\*) there may  be cases where you want to literally type `]:` in some code or other without it meaning a link reference, to avoid ambiguities, set `reflinks` to `false` if  you intend to do that.
 
-Once such a variable is defined you can use it with the templating syntax (see [Templating](@ref)).
-For instance in your `src/index.md` you could have
+(\*\*) it is recommended to fence your code blocks as it's not ambiguous for the parser whether indented blocks can be. If you're fine with only using code blocks then set `indented_code` to `false` and it will reduce the risk of ambiguities if you use indentation in your markdown (e.g. in div blocks or LaTeX).
 
-```judoc
-@def contributors = "Chuck Norris"
-```
+### Code evaluation
 
-and in your `src/_html_parts/head.html` you could have
+For more informations on these, see the section on [inserting and evaluating code](/pub/code/inserting-code.html).
 
-```html
-{{isdef contributors}}
-This page was written with the help of {{fill contributors}}
-{{end}}
-```
+@@lalign
+| Name | Type | Default value | Comment
+| ---- | ---- | ------------- | -------
+| `reeval` | `Bool` | `false` | whether to reevaluate all code blocks on the page
+| `freezecode` | `Bool` | `false` | prevents evaluation of any code block on the  page
+| `showall` | `Bool` | `false` | notebook mode if `true` where the output of the code block is shown below
+| `literate_only` | `Bool` | `true` | when using Literate, if this is `true` then JuDoc will assume that the included literate script is the only source of code on the page
+| `jd_code`      | `String` | `""` | the raw script corresponding to the active code blocks on the page
+@@
 
-since `contributors` is a _local page variable_ that is defined in `src/index.md`, the corresponding `index.html` will show "_This page was written with the help of Chuck Norris_"; however on any other page, this will not show (unless, again, you define `@def contributors = ...` there).
-See also [Templating](@ref) for how page variables can be used in the HTML.
+### RSS
 
-#### Default variables
+These are variables related to [RSS 2.0 specifications](https://cyber.harvard.edu/rss/rss.html)  and must match the format indicated there.
+If you want proper RSS to be generated, you **must** define at least the `rss_description` or `rss` (which is an alias for `rss_description`).
+All these variables expect a `String`.
 
-A few variables are already present and used in the basic templates (you can still modify their value though it has to match the type):
+@@lalign
+| Name | Default value |
+| ---- | ------------- |
+| `rss`, `rss_description` | `""` |
+| `rss_title` | current page title |
+| `rss_author` | current author |
+| `rss_category` | `""` |
+| `rss_comments` | `""` |
+| `rss_enclosure` | `""` |
+| `rss_pubdate`   | `""` |
+@@
 
-| Name      | Accepted types | Default value | Function |
-| :-------- | :------------- | :------------ | :------- |
-| `title`   | `Nothing`, `String` | `nothing` | title of the page (tab name)
-| `hasmath` | `Bool` | `true` | if `true` the KaTeX stylesheet and script will be added to the page
-| `hascode` | `Bool` | `false` | if `false` the highlight stylesheet and script will be added to the page
-| `date`    | `String`, `Date`, `Nothing` | `Date(1)` | a date variable
-| `lang`    | `String` | `"julia"` | the default language to use for code blocks
-| `reflinks`| `Bool` | `true` | whether there may be referred links like like `[link][id]` and `[id]: some/url`, turn this to false if your code has patterns like `[...]: ...` which are **not** link definitions (see also [quirks](#Quirks-1))
+To recapitulate, for a working RSS feed to be generated you need:
 
-Then there are some variables that are automatically assigned and that you should therefore **not** assign  yourself (but you can use them):
+- to set the `website_*` variables in your  `config.md` (see [global page variables](#global_page_variables)),
+- on appropriate pages, to define at least `rss` to a valid description.
 
-| Name | Type | Value | Function |
-| :--- | :------------- | :------------ | :------- |
-| `jd_ctime` | `Date` | `stat(file).ctime` | page creation date
-| `jd_mtime` | `Date` | `stat(file).mtime` | last page modification date
+For an example, see [this mirror of the Julia blog posts](https://github.com/cormullion/julialangblog) with:
 
-
-### Global page variables
-
-You can also define _global page variables_ by simply putting the definition in the `src/config.md` file.
-For instance you may want to have a single main author across all pages and would then write
-
-```judoc
-@def author = "Septimia Zenobia"
-```
-
-in the `src/config.md` file.
-
-You can overwrite global variables in any page by redefining it locally.
-For instance you could set `hasmath` globally to `false` and `hascode` globally to `true` and then modify it locally as appropriate.
-
-There are also a few pre-defined global variables:
-
-| Name          | Accepted types | Default value | Function |
-| :------------ | :------------- | :------------ | :------- |
-| `author`      | `String`, `Nothing` | `THE AUTHOR` | author (e.g. may appear in footer)
-| `date_format` | `String` | `U dd, yyyy` | a valid date format specifier
-| `prepath`     | `String` | "" | if the website is meant to be a _project_ website on GitHub for instance corresponding to a repo `github.com/username/repo` as opposed to `github.com/username.github.io`, then all url paths should be prepended with `repo/` which you can do by specifying `@def prepath = "repo"` (see also [hosting the website as a project website](/man/workflow/#Hosting-the-website-as-a-project-website-1))| -->
+- [the config file](https://github.com/cormullion/julialangblog/blob/master/src/config.md)
+- an [example of page](https://github.com/cormullion/julialangblog/blob/master/src/pages/2012-02-14-why-we-created-julia.md).

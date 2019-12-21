@@ -14,6 +14,15 @@ reviewed: 23/11/19
 
 \toc
 
+## Experimenting
+
+Beyond directly experimenting in a project folder, you  can also explore what HTML is generated with the `jd2html` function:
+
+```julia-repl
+julia> """Set `x` to 1, see [the docs](http://example.com).""" |> jd2html
+"&lt;p&gt;Set &lt;code&gt;x&lt;/code&gt; to 1, see &lt;a href&#61;&quot;http://example.com&quot;&gt;the docs&lt;/a&gt;.&lt;/p&gt;\n"
+```
+
 ## Basics
 
 If you're already familiar with Markdown, you can skip this section, though it may serve as a useful reminder.

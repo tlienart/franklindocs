@@ -1,0 +1,77 @@
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocWeb/libs/highlight/github.min.css"> <link rel=stylesheet  href="/JuDocWeb/css/jtd.css"> <link rel=icon  href="/JuDocWeb/assets/infra/favicon2.gif"> <title></title> <div class=page-wrap > <div class=side-bar > <div class=header > <a href="/JuDocWeb/" class=title > <img style="height:60px;" src="/JuDocWeb/assets/infra/judoc.svg" alt=judoc  /> <style> @media (max-width: 31.25rem){ .side-bar .show-menu {height:30px;} } @media (max-width: 50rem) { .side-bar .header .title {padding-top:0; padding-bottom: 0;} .header .title img {height:60px; max-width: 100px !important;} } @media (min-width: 66.5rem){ .header .title img {max-width: 120px !important;} } </style> </a> </div> <label for=show-menu  class=show-menu >MENU</label> <input type=checkbox  id=show-menu  role=button > <div class=menu  id=side-menu > <ul class=menu-list > <li class="menu-list-item "><a href="/JuDocWeb/" class=menu-list-link >• Home</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/workflow.html" class=menu-list-link >• Workflow</a> <li class="menu-list-parent "><a href="/JuDocWeb/pub/syntax/markdown.html">• Syntax</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/JuDocWeb/pub/syntax/markdown.html" class=menu-list-link >Markdown</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/syntax/divs-commands.html" class=menu-list-link >Divs and Commands</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/syntax/page-variables.html" class=menu-list-link >Page Variables</a> </ul> <li class="menu-list-parent "><a href="/JuDocWeb/pub/code/inserting-code.html">• Code</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/JuDocWeb/pub/code/inserting-code.html" class=menu-list-link >Inserting code</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/code/eval-tricks.html" class=menu-list-link >Code tricks</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/code/literate.html" class=menu-list-link >Literate.jl</a> </ul> <li class="menu-list-parent active"><a href="/JuDocWeb/pub/faq/technical.html">• FAQ</a> <ul class="menu-list-child-list "> <li class="menu-list-item active"><a href="/JuDocWeb/pub/faq/technical.html" class=menu-list-link >Technical</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/faq/why-o-why.html" class=menu-list-link >Meta</a> </ul> <!-- <li class="menu-list-item {{ispage pub/menu3}}active{{end}}"><a href="/JuDocWeb/pub/menu3.html" class="menu-list-link {{ispage pub/menu3}}active{{end}}">Menu 3</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="#" class=menu-list-link >Submenu</a> </ul> --> </ul> </div> <div class=footer > <a href="/JuDocWeb/pub/why-o-why.html"><img style="width:60%;padding-left:10px;margin-bottom:15px;" src="/JuDocWeb/assets/infra/logo1.svg" alt="JuDoc Logo" /></a> </div> </div> <div class=main-content-wrap > <div class=main-content > <div class=main-header > <a name=pagetop ></a> <a id=github  href="/JuDocWeb//github.com/tlienart/JuDoc.jl">GitHub Repo</a> </div> <div class=jd-content > <h1 id=faq_-_technical ><a href="/JuDocWeb/pub/faq/technical.html#faq_-_technical">FAQ - Technical</a></h1> <p>If you have a question that is not already answered, don&#39;t hesitate to <a href="https://github.com/tlienart/JuDoc.jl/issues/new">open an issue</a> on GitHub.</p> <div class=jd-toc ><ol><li><a href="/JuDocWeb/pub/faq/technical.html#styling">Styling</a><ol><li><a href="/JuDocWeb/pub/faq/technical.html#can_you_style_footnote_text">Can you style footnote text?</a></ol><li><a href="/JuDocWeb/pub/faq/technical.html#code">Code</a><ol><li><a href="/JuDocWeb/pub/faq/technical.html#how_to_use_loops_for_templating">How to use loops for templating?</a><li><a href="/JuDocWeb/pub/faq/technical.html#how_to_show_html_code">How to show HTML code?</a></ol></ol></div> <h2 id=styling ><a href="/JuDocWeb/pub/faq/technical.html#styling">Styling</a></h2> <h3 id=can_you_style_footnote_text ><a href="/JuDocWeb/pub/faq/technical.html#can_you_style_footnote_text">Can you style footnote text?</a></h3> <p><strong>Reference</strong>: <a href="https://github.com/tlienart/JuDoc.jl/issues/243">issue 243</a>, <strong>more on this</strong>: <a href="/JuDocWeb/pub/styling/classes.html">styling</a>.</p> <p>For the reference basically a footnote is inserted as</p> <pre><code class="html hljs">&amp;lt;sup id&amp;#61;&amp;quot;fnref:1&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/pub/menu1.html#fndef:1&amp;quot; class&amp;#61;&amp;quot;fnref&amp;quot;&amp;gt;&amp;#91;1&amp;#93;&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt;</code></pre>
+<p>So you can style that with the class <code>.jd_content sup a.fnref</code>.</p>
+<p>For definitions, it&#39;s inserted as a table like:</p>
+     <pre><code class="html hljs">&amp;lt;table class&amp;#61;&amp;quot;fndef&amp;quot; id&amp;#61;&amp;quot;fndef:blah&amp;quot;&amp;gt;
+    &amp;lt;tr&amp;gt;
+        &amp;lt;td class&amp;#61;&amp;quot;fndef-backref&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/pub/menu1.html#fnref:blah&amp;quot;&amp;gt;&amp;#91;2&amp;#93;&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;
+        &amp;lt;td class&amp;#61;&amp;quot;fndef-content&amp;quot;&amp;gt;this is another footnote&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;</code></pre>
+<p>so you can style the back-reference via the <code>.jd-content fndef td.fndef-backref</code> and the text of the definition via <code>.jd-content fndef td.fndef-content</code>; for instance, consider the following base styling:</p>
+<pre><code class="css hljs"><span class=hljs-selector-class >.jd-content</span> <span class=hljs-selector-tag >table</span><span class=hljs-selector-class >.fndef</span>  {
+    <span class=hljs-attribute >margin</span>: <span class=hljs-number >0</span>;
+    <span class=hljs-attribute >margin-bottom</span>: <span class=hljs-number >10px</span>;}
+<span class=hljs-selector-class >.jd-content</span> <span class=hljs-selector-class >.fndef</span> <span class=hljs-selector-tag >tr</span>, <span class=hljs-selector-tag >td</span> {
+    <span class=hljs-attribute >padding</span>: <span class=hljs-number >0</span>;
+    <span class=hljs-attribute >border</span>: <span class=hljs-number >0</span>;
+    <span class=hljs-attribute >text-align</span>: left;}
+<span class=hljs-selector-class >.jd-content</span> <span class=hljs-selector-class >.fndef</span> <span class=hljs-selector-tag >tr</span> {
+    <span class=hljs-attribute >border-left</span>: <span class=hljs-number >2px</span> solid lightgray;
+    }
+<span class=hljs-selector-class >.jd-content</span> <span class=hljs-selector-class >.fndef</span> <span class=hljs-selector-tag >td</span><span class=hljs-selector-class >.fndef-backref</span> {
+    <span class=hljs-attribute >vertical-align</span>: top;
+    <span class=hljs-attribute >font-size</span>: <span class=hljs-number >70%</span>;
+    <span class=hljs-attribute >padding-left</span>: <span class=hljs-number >5px</span>;}
+<span class=hljs-selector-class >.jd-content</span> <span class=hljs-selector-class >.fndef</span> <span class=hljs-selector-tag >td</span><span class=hljs-selector-class >.fndef-content</span> {
+    <span class=hljs-attribute >font-size</span>: <span class=hljs-number >80%</span>;
+    <span class=hljs-attribute >padding-left</span>: <span class=hljs-number >10px</span>;}</code></pre>
+<h2 id=code ><a href="/JuDocWeb/pub/faq/technical.html#code">Code</a></h2>
+<h3 id=how_to_use_loops_for_templating ><a href="/JuDocWeb/pub/faq/technical.html#how_to_use_loops_for_templating">How to use loops for templating?</a></h3>
+<p><strong>Reference</strong>: <a href="https://github.com/tlienart/JuDoc.jl/issues/251">issue 251</a>, <strong>more on this</strong>: <a href="/JuDocWeb/pub/code/eval-tricks.html">styling</a>.</p>
+<p>Since you can show the output of any Julia code block &#40;and interpret that output as JuDoc markdown&#41;, you can use this to help with templating. For instance:</p>
+<pre><code class="md hljs"><span class=hljs-code >```julia:./ex
+#hideall
+for name in ("Shinzo", "Donald", "Angela", "Christine")
+    println("""
+    @@card
+    ### $name
+    ![]("$(lowercase(name)).jpg")
+    @@
+    """)
+end
+```</span>
+\textoutput{./ex}</code></pre>
+<p>Generates</p>
+     <pre><code class="html hljs">&amp;lt;div class&amp;#61;&amp;quot;card&amp;quot;&amp;gt;&amp;lt;h3 id&amp;#61;&amp;quot;shinzo&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/index.html#shinzo&amp;quot;&amp;gt;Shinzo&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  &amp;lt;img src&amp;#61;&amp;quot;shinzo.jpg&amp;quot; alt&amp;#61;&amp;quot;&amp;quot; /&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class&amp;#61;&amp;quot;card&amp;quot;&amp;gt;&amp;lt;h3 id&amp;#61;&amp;quot;donald&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/index.html#donald&amp;quot;&amp;gt;Donald&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  &amp;lt;img src&amp;#61;&amp;quot;donald.jpg&amp;quot; alt&amp;#61;&amp;quot;&amp;quot; /&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class&amp;#61;&amp;quot;card&amp;quot;&amp;gt;&amp;lt;h3 id&amp;#61;&amp;quot;angela&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/index.html#angela&amp;quot;&amp;gt;Angela&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  &amp;lt;img src&amp;#61;&amp;quot;angela.jpg&amp;quot; alt&amp;#61;&amp;quot;&amp;quot; /&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class&amp;#61;&amp;quot;card&amp;quot;&amp;gt;&amp;lt;h3 id&amp;#61;&amp;quot;christine&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/index.html#christine&amp;quot;&amp;gt;Christine&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;  &amp;lt;img src&amp;#61;&amp;quot;christine.jpg&amp;quot; alt&amp;#61;&amp;quot;&amp;quot; /&amp;gt;&amp;lt;/div&amp;gt;</code></pre>
+<h3 id=how_to_show_html_code ><a href="/JuDocWeb/pub/faq/technical.html#how_to_show_html_code">How to show HTML code?</a></h3>
+<p>In order to show HTML code like:</p>
+     <pre><code class="html hljs">&amp;lt;div class&amp;#61;&amp;quot;hello&amp;quot;&amp;gt;example&amp;lt;/div&amp;gt;</code></pre>
+<p>you will need to <em>escape</em> it, otherwise the HTML will be interpreted &#40;even though it&#39;s in a <code>&lt;pre&gt;&lt;code&gt;</code> block&#41;. One way to do this is to use Julia&#39;s Markdown <code>htmlesc</code> function on the HTML string and show the output of that function. The command below does all that for you:</p>
+<pre><code class="julia hljs">\newcommand{\esch}[<span class=hljs-number >2</span>]{
+    <span class=hljs-string >``</span><span class=hljs-string >`julia:esc__!#1
+    #hideall
+    using Markdown
+    println("\`\`\`\`\`html <span class=hljs-subst >$(Markdown.htmlesc(<span class=hljs-string >raw"""#2"""</span>)</span>) \`\`\`\`\`")
+    `</span><span class=hljs-string >``</span>
+    \textoutput{esc__!<span class=hljs-comment >#1}</span>
+}</code></pre>
+<p>What it does is: create a small Julia code block which is hidden, run a <code>htmlesc</code> on the string, and show the output. Note that you <strong>must</strong> give a name to the block so that it doesn&#39;t clash with other such blocks on the page. So, for instance, the code earlier was written:</p>
+     <pre><code class="plaintext hljs">\esch&amp;#123;html_1&amp;#125;&amp;#123;
+    &amp;lt;div class&amp;#61;&amp;quot;hello&amp;quot;&amp;gt;example&amp;lt;/div&amp;gt;
+&amp;#125;</code></pre>
+<p>and what&#39;s effectively put in the page HTML is</p>
+     <pre><code class="plaintext hljs">&amp;lt;pre&amp;gt;&amp;lt;code class&amp;#61;&amp;quot;language-html&amp;quot;&amp;gt;&amp;amp;lt;div class&amp;amp;#61;&amp;amp;quot;hello&amp;amp;quot;&amp;amp;gt;example&amp;amp;lt;/div&amp;amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;</code></pre>
+<div class=page-foot >
+  <div class=copyright >
+    &copy; Thibaut Lienart. Last modified: December 21, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
+  </div>
+</div>
+
+</div>
+
+    </div> 
+    </div> 
+    </div> <!-- end of class page-wrap-->
