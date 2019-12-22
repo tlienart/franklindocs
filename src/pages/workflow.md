@@ -1,7 +1,7 @@
 @def hascode = true
 
 <!--
-reviewed: 23/11/19
+reviewed: 22/12/19
 -->
 
 # Working with JuDoc
@@ -52,11 +52,13 @@ The initial call to `newsite` generates a folder with the following structure:
 After running `serve` the first time, two additional folders are generated: `css/` and `pub/` along with the landing page `index.html`.
 Among these folders:
 
+@@tlist
 * the **main folder** is `src/` and its subfolders, this is where the source files for your site are,
 * you should *not modify* the `css/` and `pub/` folder as these are *generated* and any changes you do in there will be silently over-written whenever you modify files in `src/`; the same holds for `index.html`,
 * the folders `assets/` and `libs/` contain *auxiliary files* supporting your site:
   * `assets/` will contain images, code snippets, etc.
   * `libs/` will contain javascript libraries.
+@@
 
 ### Source folder
 
@@ -80,10 +82,12 @@ That folder has the following structure:
 
 In this folder,
 
+@@tlist
 * `index.md` will generate the site's landing page,
 * `pages/page1.md` would correspond to pages on your website (you can have whatever subfolder structure you want in here)
 * `_html_parts` contains the scaffolding of the pages which are assembled when the website HTML is generated. Among these files you will typically want to tweak `head.html` so that it calls the right `css` files etc.
 * `_css` contains the `css` style sheets for your website.
+@@
 
 \note{You can also write pages in plain HTML and place them in the `src/` folder. These files will be copied over to the `pub/` folder as they are. For instance you may prefer to directly write an `index.html` file instead of generating it via the `index.md`. You will still need to put it at the  exact same place (`src/index.html`) and let JuDoc copy the files appropriately.}
 
@@ -95,6 +99,19 @@ Alternatively, you could keep assets in `src/pages` and subfolders with the adva
 If you decide to do this, do bear in mind that whatever is in `src/pages` gets copied to the generated `pub/` folder during the initial generation pass.
 While this will be imperceptible for a few light assets, it could incur a slowdown if you have heavy assets (e.g. a big PDF file).
 In that case you'll  be better off with the recommended approach and putting the big file in `assets/`.
+
+### Editing and testing your website
+
+The `serve` function can be used to launch a server which will track and render modifications.
+There are a few useful options you can use beyond the barebone `serve()`, do `?serve` in your REPL for all options, we list a few noteworthy one below:
+
+@@tlist
+* `single=false`, if set to `true`, does a single build pass generating all pages and does not start the server.
+* `prerender=false`, if set to `true`, will prerender code blocks and maths (see the [optimisation step](#optimisation_step))
+* `verb=false`, whether to show information about which page is being processed etc,
+* `silent=false`, if set to `true`, will suppress any informative messages that could otherwise appear in  your console when editing your site, this goes one step further than `verb=false` as it also  applies for code evaluation,
+* `eval_all=false`, if set to `true`, will re-evaluate all code blocks on all pages.
+@@
 
 ## Deploying your website
 
@@ -129,10 +146,10 @@ The first step is to create a repository for a personal or a project website:
 * Follow the [guide on GitLab](https://about.gitlab.com/product/pages/).
 
 Then there are two small differences with the GitHub process:
-
+@@tlist
 1. your website needs to be in a `public/` directory of the repository,
 1. you need to specify a CI/CD script that tells GitLab how to deploy the website.
-
+@@
 Luckily both of these can be done in one shot, all you need to do is add the following script to the `.gitlab-ci.yml` file in your repository:
 
 ```yaml
@@ -159,17 +176,33 @@ Note that this will not create a directory in your repo; it will just create one
 
 The `publish` function is an easy way to deploy your website after making some changes locally.
 Basically it:
-
+@@tlist
 - applies an optional optimisation step (see below)
 - does a `git add -A; git commit -am "jd-update"; git push`
+@@
+
+Before publishing, you may also want to verify that all links on your site are valid. For this use the function `verify_links`:
+
+```julia-repl
+julia> verify_links()
+Verifying links... [you seem online ✓]
+- internal link issue on page index.md: pub/menu3.html.
+```
+
+then after fixing and re-generating pages:
+
+```julia-repl
+julia> verify_links()
+All internal and external links verified ✓.
+```
 
 ### Optimisation step
 
 The `optimize` function can
-
+@@tlist
 1. pre-render KaTeX and highlight.js code to HTML so that the pages don't have to load these javascript libraries,
 1. minify all generated HTML and CSS.
-
+@@
 See `?optimize` for options.
 
 Those two steps may lead to faster loading pages.

@@ -54,10 +54,10 @@ You can also inspect the file `src/pages/menu1.md` which offers more examples of
 
 JuDoc allows a post-processing step to compress HTML and CSS and pre-render code blocks and math environments.
 This requires a couple of dependencies:
-
+@@tlist
 * [`python3`](https://www.python.org/downloads/) for the minification of the site,
 * [`node.js`](https://nodejs.org/en/) for the pre-rendering of KaTeX and code highlighting.
-
+@@
 You will then need to install `highlight.js`, which you should do from Julia using the [NodeJS.jl](https://github.com/davidanthoff/NodeJS.jl) package:
 
 ```julia-repl

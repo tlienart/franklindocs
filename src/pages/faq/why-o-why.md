@@ -4,7 +4,7 @@
 reviewed: 20/12/19
 -->
 
-# FAQ
+# FAQ - Meta
 
 ## Why bother with yet another SSG?
 

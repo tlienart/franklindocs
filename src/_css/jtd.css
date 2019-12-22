@@ -589,6 +589,54 @@ ul.menu-list-child-list a.menu-list-link {
   font-size: 14px !important;
 }
 
+
+/* LUNR */
+.result-title a {
+    /* font-size: 1.2em; */
+    text-decoration: none;
+}
+
+.result-title a:hover {
+    text-decoration: underline;
+}
+
+.result-preview {
+    color: #808080;
+}
+
+/* .search-input {
+    width: 250px;
+} */
+
+.resultCount {
+    color: #808080;
+}
+
+.result-query {
+    font-weight: bold;
+}
+
+#lunrSearchForm {
+  margin-top: 1em;
+}
+
+/* .pagination {
+	text-align: center;
+	margin: 16px 8px 16px 8px;
+}
+.pagination a {
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+} */
+
 /* ================================================================== */
 /*  PAGE-DIVS
 - .flist = lists with a checkmark
@@ -683,4 +731,14 @@ ul.menu-list-child-list a.menu-list-link {
 }
 .lalign tr:first-of-type > td {
   text-align: center;
+}
+
+.lalignb td {
+  text-align: left;
+}
+.lalignb tr:first-of-type > td {
+  text-align: center;
+}
+.lalignb th:nth-child(1){
+  width:100px;
 }

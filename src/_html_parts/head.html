@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="/css/jtd.css">
   <link rel="icon" href="/assets/infra/favicon2.gif">
   {{isdef title}} <title>{{fill title}}</title>  {{end}}
+
+  <!-- LUNR -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+  <script src="/libs/lunr/lunr_index.js"></script>
+  <script src="/libs/lunr/lunrclient.min.js"></script>
 </head>
 <body>                      <!-- closed in foot.html -->
   <div class="page-wrap">   <!-- closed in foot.html -->
@@ -46,6 +51,12 @@
               <li class="menu-list-item {{ispage pub/syntax/divs-commands}}active{{end}}"><a href="/pub/syntax/divs-commands.html" class="menu-list-link">Divs and Commands</a>
               <li class="menu-list-item {{ispage pub/syntax/page-variables}}active{{end}}"><a href="/pub/syntax/page-variables.html" class="menu-list-link">Page Variables</a>
             </ul>
+		  <!-- STYLING -->
+          <li class="menu-list-parent {{ispage pub/styling/*}}active{{end}}"><a href="/pub/styling/templates.html">• Styling</a>
+            <ul class="menu-list-child-list ">
+              <li class="menu-list-item {{ispage pub/styling/templates}}active{{end}}"><a href="/pub/styling/templates.html" class="menu-list-link">Templates</a>
+              <li class="menu-list-item {{ispage pub/styling/classes}}active{{end}}"><a href="/pub/styling/classes.html" class="menu-list-link">Classes</a>
+            </ul>
           <!-- CODE -->
           <li class="menu-list-parent {{ispage pub/code/*}}active{{end}}"><a href="/pub/code/inserting-code.html">• Code</a>
             <ul class="menu-list-child-list ">
@@ -57,17 +68,16 @@
           <li class="menu-list-parent {{ispage pub/faq/*}}active{{end}}"><a href="/pub/faq/technical.html">• FAQ</a>
             <ul class="menu-list-child-list ">
               <li class="menu-list-item {{ispage pub/faq/technical}}active{{end}}"><a href="/pub/faq/technical.html" class="menu-list-link">Technical</a>
+			  <li class="menu-list-item {{ispage pub/faq/troubleshooting}}active{{end}}"><a href="/pub/faq/troubleshooting.html" class="menu-list-link">Troubleshooting</a>
               <li class="menu-list-item {{ispage pub/faq/why-o-why}}active{{end}}"><a href="/pub/faq/why-o-why.html" class="menu-list-link">Meta</a>
             </ul>
-          <!--
-          <li class="menu-list-item {{ispage pub/menu3}}active{{end}}"><a href="/pub/menu3.html" class="menu-list-link {{ispage pub/menu3}}active{{end}}">Menu 3</a>
-            <ul class="menu-list-child-list ">
-              <li class="menu-list-item "><a href="#" class="menu-list-link">Submenu</a>
-            </ul> -->
         </ul>
+			<form id="lunrSearchForm" name="lunrSearchForm">
+				<input class="search-input" name="q" placeholder="Enter search term" type="text"> <input type="submit" value="Search" formaction="/search.html">
+			</form>
       </div>
       <div class="footer">
-        <a href="/pub/why-o-why.html"><img style="width:60%;padding-left:10px;margin-bottom:15px;" src="/assets/infra/logo1.svg" alt="JuDoc Logo" /></a>
+        <a href="/pub/faq/why-o-why.html"><img style="width:60%;padding-left:10px;margin-bottom:15px;" src="/assets/infra/logo1.svg" alt="JuDoc Logo" /></a>
       </div>
     </div>
     <!-- CONTENT -->
@@ -75,7 +85,7 @@
       <div class="main-content">    <!-- closed in foot.html -->
         <div class="main-header">
           <a name="pagetop"></a>
-          <a id="github" href="//github.com/tlienart/JuDoc.jl">GitHub Repo</a>
+          <a id="github" href="https://github.com/tlienart/JuDoc.jl">GitHub Repo</a>
         </div>
 
 

@@ -3,8 +3,11 @@
 # Page variables
 
 <!--
-reviewed: 🔺
+reviewed: Dec 22, 2019
 -->
+
+\newcommand{\smindent}[1]{\span{width:45px;text-align:right;color:slategray;}{#1}}
+
 
 \blurb{Page variables offer a straightforward way to interact with the HTML templating from the markdown.}
 
@@ -20,7 +23,8 @@ The general syntax to define a page variable is to write `@def varname = value` 
 @def author = "Septimia Zenobia"
 ```
 
-where you could set the variable to a string, a number, a date, ... as long as it's on a single line.
+where you could set the variable to a string, a number, a date,... anything, as long as it's on a single line.
+
 These variables can serve multiple purposes but, primarily, they can be accessed from the HTML template via things like
 
 \esch{footex}{
@@ -29,9 +33,9 @@ These variables can serve multiple purposes but, primarily, they can be accessed
   </footer>
 }
 
-where `{{ ... }}` indicates a HTML _function_, `fill` is the function name and the rest of the bracket elements are the arguments of the function (here `author`) which are page variables.
+where `{{ ... }}` indicates a HTML _function_, `fill` is the function name and the rest of the bracket elements are _page variables_ (here `author`) serving as arguments of the function.
 
-_Local_ page variables the variables that are defined on a single page and accessible on that page only by contrast to _global_ page variables which are set globally (in the `config.md` file) and accessible on all pages.
+_Local_ page variables denote the variables that are defined on a single page and accessible on that page only by contrast to _global_ page variables which are set globally (in the `config.md` file) and accessible on all pages.
 
 In both cases there are _default_ page variables with default values which you can change and use.
 You can also define your own variables.
@@ -40,8 +44,8 @@ You can also define your own variables.
 
 Both local and global page variables are meant for essentially two purposes:
 
-@@flist
-1. allow the HTML template to be controlled from the markdown,
+@@tlist
+1. control the HTML template from the markdown,
 1. modify how JuDoc generates HTML.
 @@
 
@@ -55,11 +59,11 @@ In the first case, you can access variables in your HTML template via one of the
 
 ## HTML functions
 
-HTML functions can be used in any one of your `src/_html_parts/*.html` files such as `head.html` (most likely).
+HTML functions can be used in any one of your `src/_html_parts/*.html` files such as `head.html`.
+They are always called with the syntax `{{fname pv1 pv2 ...}}` where `pv1 pv2 ...` are page variable names.
 
 ### Basic functions
 
-Functions are always called with the syntax `{{fname pv1 pv2 ...}}` where `pv1 pv2 ...` are page variable names.
 A few functions are available with the `{{fill ...}}` arguably the most likely to be of use.
 
 @@lalign
@@ -71,9 +75,15 @@ A few functions are available with the `{{fill ...}}` arguably the most likely t
 | `{{toc}}` | places a table of content (_mostly internal use_)
 @@
 
+The `{{insert fpath}}` can be useful if you want to include specific HTML scaffolding on some pages, for instance in example pages you will see in the `head.html`:
+
+\esch{bf1}{
+  {{if hasmath}} {{insert head_katex.html}} {{end}}
+}
+
 ### Conditional blocks
 
-Conditional blocks allow to specify which parts of the HTML template should be active depending on the value of some page variable.
+Conditional blocks allow to specify which parts of the HTML template should be active depending on the value of given page variable(s).
 The format follows this structure:
 
 \esc{condblock}{
@@ -89,19 +99,12 @@ The format follows this structure:
 where `vname` and `vname2` are expected to be page variable evaluating to a boolean.
 Of course you don't have to specify the `{{elseif ...}}` or `{{else}}`.
 
-For instance, you may want to include specific pieces of the HTML scaffolding depending on page variables. In your `index.html` you could have
-
-\esc{condblock2}{
-{{if hasmath}} {{insert head_katex.html}} {{end}}
+\note{
+  The conditional blocks are currently fairly rudimentary; currently operations between page variables are not supported so you can't write something like `{{if hasmath && hascode}}`.
+  This may come in the future if deemed useful.
 }
 
-where in the markdown of a specific page you would have
-
-```
-@def hasmath = true
-```
-
-Additionally, you can also use some dedicated conditional blocks:
+You can also use some dedicated conditional blocks:
 
 @@lalign
 | Format | Role |
@@ -112,10 +115,9 @@ Additionally, you can also use some dedicated conditional blocks:
 | `{{isnotdef vname}}` | opposite of previous
 @@
 
-The `{{ispage ...}}` and `{{isnotpage ...}}` accept a joker syntax such as `{{ispage pub/maths/*}}`.
+The `{{ispage ...}}` and `{{isnotpage ...}}` accept `*` as joker symbol; for instance `{{ispage pub/maths/*}}` is allowed.
 
-As an example, this is useful if you want to highlight a menu item when you are on a subpage of that item.
-This is used for the navbar of this very page in fact where the (simplified) HTML looks like:
+Consider the following example (very similar to what is used on the current page):
 
 \esch{exispage}{
   <li class="{{ispage pub/syntax/*}}active{{end}}">• Syntax
@@ -145,34 +147,33 @@ These variables are best defined in your `config.md` file though you can overwri
 | `generate_rss` | `Bool` | `true` |
 @@
 
-**Notes**:
-
-(\*) say you're using GitHub pages and your username is `darth`, by default JuDoc will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`.
-
-(\*\*) these **must** be defined for RSS to be generated for your site (on top of `generate_rss` being `true`). See also the [RSS subsection](#rss) below.
+**Notes**:\\
+\smindent{(\*)} say you're using GitHub pages and your username is `darth`, by default JuDoc will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`.\\
+\smindent{(\*\*)} these **must** be defined for RSS to be generated for your site (on top of `generate_rss` being `true`). See also the [RSS subsection](#rss) below.
 
 ## Local page variables
 
 The tables below list local page variables that you can set.
-These variables are typically set locally in a page.
+These variables are typically set locally on a page.
 Remember that:
+@@tlist
 - you can also define your own variables (with different names),
 - you can change the default value of a variable by defining it in your `config.md`.
-
-Note that variables shown below  that have a  name starting with  `jd_` are _not meant to be defined_ as their value is  typically  computed  on the fly (but they can be used).
+@@
+Note that variables shown below that have a  name starting with  `jd_` are _not meant to be defined_ as their value is  typically  computed  on the fly (but they can be used).
 
 ### Basic settings
 
 @@lalign
 | Name | Type | Default value | Comment
 | ---- | ---- | ------------- | -------
-| `title` | `String, Nothing` | `nothing` | page title
+| `title` | `String, Nothing` | `nothing` | page title (\*)
 | `hasmath` | `Bool` | `true` | whether to activate KaTeX for that page
 | `hascode` | `Bool` | `false` | whether to activate highlight.js for that page
 | `date`    | `String, Date, Nothing` | `Date(1)` | a date object (e.g. if you want to set a publication date)
 | `lang` | `String` | `julia` | default highlighting for code on the page
-| `reflinks` | `Bool` | `true`  | whether there are things like `[ID]: URL` on your page (\*)
-| `indented_code` | `Bool` | `true` | whether indented blocks should be considered as code (\*\*)
+| `reflinks` | `Bool` | `true`  | whether there are things like `[ID]: URL` on your page (\*\*)
+| `indented_code` | `Bool` | `true` | whether indented blocks should be considered as code (\*\*\*)
 | `mintoclevel` | `Int` | `1` | minimum title level to go in the table of content (often you'll want this to  be `2`)
 | `maxtoclevel` | `Int` | `100` | maximum title level to go in the table of content
 | `jd_ctime` | `Date` | see comment | time of creation of the markdown file
@@ -180,11 +181,10 @@ Note that variables shown below  that have a  name starting with  `jd_` are _not
 | `jd_rpath` | `String` | see comment | local path to file `src/(...)/thispage.md`
 @@
 
-**Notes**:
-
-(\*) there may  be cases where you want to literally type `]:` in some code or other without it meaning a link reference, to avoid ambiguities, set `reflinks` to `false` if  you intend to do that.
-
-(\*\*) it is recommended to fence your code blocks as it's not ambiguous for the parser whether indented blocks can be. If you're fine with only using code blocks then set `indented_code` to `false` and it will reduce the risk of ambiguities if you use indentation in your markdown (e.g. in div blocks or LaTeX).
+**Notes**:\\
+\smindent{(\*)} if the title is not set, the first header will be used as title.\\
+\smindent{(\*\*)} there may  be cases where you want to literally type `]:` in some code without it indicating a link reference. In such case, set `reflinks` to `false` to avoid ambiguities.\\
+\smindent{(\*\*\*)} it is recommended to fence your code blocks (use backticks) as it's not ambiguous for the parser whereas indented blocks can be. If you're fine with only using fenced code blocks then set `indented_code` to `false` and it will reduce the risk of ambiguities if you use indentation elsewhere in your markdown (e.g. in div blocks or LaTeX).
 
 ### Code evaluation
 
@@ -220,10 +220,14 @@ All these variables expect a `String`.
 
 To recapitulate, for a working RSS feed to be generated you need:
 
+@@tlist
 - to set the `website_*` variables in your  `config.md` (see [global page variables](#global_page_variables)),
 - on appropriate pages, to define at least `rss` to a valid description.
+@@
 
 For an example, see [this mirror of the Julia blog posts](https://github.com/cormullion/julialangblog) with:
 
+@@tlist
 - [the config file](https://github.com/cormullion/julialangblog/blob/master/src/config.md)
 - an [example of page](https://github.com/cormullion/julialangblog/blob/master/src/pages/2012-02-14-why-we-created-julia.md).
+@@

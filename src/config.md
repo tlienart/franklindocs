@@ -44,3 +44,5 @@ Useful HTML snippets
     ```
     \textoutput{esc__!#1}
 }
+
+\newcommand{\span}[2]{~~~<span style="display:inline-block;!#1">~~~!#2~~~</span>~~~}

@@ -3,7 +3,7 @@
 
 # FAQ - Technical
 
-If you have a question that is not already answered, don't hesitate to [open an issue](https://github.com/tlienart/JuDoc.jl/issues/new) on GitHub.
+If you have a question that you couldn't find an answer to easily, don't hesitate to [open an issue](https://github.com/tlienart/JuDoc.jl/issues/new) on GitHub, it will help me make this section more complete!
 
 \toc
 

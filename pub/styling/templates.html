@@ -1,0 +1,190 @@
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/JuDocWeb/libs/highlight/github.min.css"> <link rel=stylesheet  href="/JuDocWeb/css/jtd.css"> <link rel=icon  href="/JuDocWeb/assets/infra/favicon2.gif"> <title>Templates</title> <script src="https://unpkg.com/lunr/lunr.js"></script> <script src="/JuDocWeb/libs/lunr/lunr_index.js"></script> <script src="/JuDocWeb/libs/lunr/lunrclient.min.js"></script> <div class=page-wrap > <div class=side-bar > <div class=header > <a href="/JuDocWeb/" class=title > <img style="height:60px;" src="/JuDocWeb/assets/infra/judoc.svg" alt=judoc  /> <style> @media (max-width: 31.25rem){ .side-bar .show-menu {height:30px;} } @media (max-width: 50rem) { .side-bar .header .title {padding-top:0; padding-bottom: 0;} .header .title img {height:60px; max-width: 100px !important;} } @media (min-width: 66.5rem){ .header .title img {max-width: 120px !important;} } </style> </a> </div> <label for=show-menu  class=show-menu >MENU</label> <input type=checkbox  id=show-menu  role=button > <div class=menu  id=side-menu > <ul class=menu-list > <li class="menu-list-item "><a href="/JuDocWeb/" class=menu-list-link >• Home</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/workflow.html" class=menu-list-link >• Workflow</a> <li class="menu-list-parent "><a href="/JuDocWeb/pub/syntax/markdown.html">• Syntax</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/JuDocWeb/pub/syntax/markdown.html" class=menu-list-link >Markdown</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/syntax/divs-commands.html" class=menu-list-link >Divs and Commands</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/syntax/page-variables.html" class=menu-list-link >Page Variables</a> </ul> <li class="menu-list-parent active"><a href="/JuDocWeb/pub/styling/templates.html">• Styling</a> <ul class="menu-list-child-list "> <li class="menu-list-item active"><a href="/JuDocWeb/pub/styling/templates.html" class=menu-list-link >Templates</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/styling/classes.html" class=menu-list-link >Classes</a> </ul> <li class="menu-list-parent "><a href="/JuDocWeb/pub/code/inserting-code.html">• Code</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/JuDocWeb/pub/code/inserting-code.html" class=menu-list-link >Inserting code</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/code/eval-tricks.html" class=menu-list-link >Code tricks</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/code/literate.html" class=menu-list-link >Literate.jl</a> </ul> <li class="menu-list-parent "><a href="/JuDocWeb/pub/faq/technical.html">• FAQ</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/JuDocWeb/pub/faq/technical.html" class=menu-list-link >Technical</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/faq/troubleshooting.html" class=menu-list-link >Troubleshooting</a> <li class="menu-list-item "><a href="/JuDocWeb/pub/faq/why-o-why.html" class=menu-list-link >Meta</a> </ul> </ul> <form id=lunrSearchForm  name=lunrSearchForm > <input class=search-input  name=q  placeholder="Enter search term" type=text > <input type=submit  value=Search  formaction="/search.html"> </form> </div> <div class=footer > <a href="/JuDocWeb/pub/faq/why-o-why.html"><img style="width:60%;padding-left:10px;margin-bottom:15px;" src="/JuDocWeb/assets/infra/logo1.svg" alt="JuDoc Logo" /></a> </div> </div> <div class=main-content-wrap > <div class=main-content > <div class=main-header > <a name=pagetop ></a> <a id=github  href="https://github.com/tlienart/JuDoc.jl">GitHub Repo</a> </div> <div class=jd-content > <h1 id=templates ><a href="/JuDocWeb/pub/styling/templates.html#templates">Templates</a></h1> <span style="font-size:24px;font-weight:300;">Start from one of the template or build your own.</span> <div class=blank ></div> <div class=jd-toc ><ol><li><a href="/JuDocWeb/pub/styling/templates.html#adapting_a_theme_to_judoc">Adapting a theme to JuDoc</a><ol><li><a href="/JuDocWeb/pub/styling/templates.html#getting_started">Getting started</a><li><a href="/JuDocWeb/pub/styling/templates.html#adapting_the_head_and_foot">Adapting the head and foot</a><li><a href="/JuDocWeb/pub/styling/templates.html#adapting_the_stylesheet">Adapting the stylesheet</a><li><a href="/JuDocWeb/pub/styling/templates.html#adjusting_other_files">Adjusting other files</a></ol><li><a href="/JuDocWeb/pub/styling/templates.html#making_a_pr_to_the_theme_repo">Making a PR to the theme repo</a><ol><li><a href="/JuDocWeb/pub/styling/templates.html#create_a_new_folder">Create a new folder</a><li><a href="/JuDocWeb/pub/styling/templates.html#add_your_template_to_the_list">Add your template to the list</a><li><a href="/JuDocWeb/pub/styling/templates.html#check_that_things_work">Check that things work</a></ol></ol></div> <div class=blank ></div> <p>The pre-defined templates that are currently available in JuDoc with the <code>newsite</code> function can be viewed <a href="https://tlienart.github.io/JuDocTemplates.jl/" target=_blank  rel="noopener noreferrer">here</a> &#40;<em>opens in a new tab</em>&#41;.</p> <h2 id=adapting_a_theme_to_judoc ><a href="/JuDocWeb/pub/styling/templates.html#adapting_a_theme_to_judoc">Adapting a theme to JuDoc</a></h2> <div class=note ><div class=title >⚠ Note</div> <div class=content >If you end up doing this, please consider making a PR to <a href="https://github.com/tlienart/JuDocTemplates.jl">JuDocTemplates</a>&#33;</div></div> <p>On this page, I&#39;ll take <a href="http://jemdoc.jaboc.net/">Jemdoc&#39;s website layout</a> and show how it can be adapted to be a working JuDoc template. This will hopefully also show you how to adapt / modify an existing template.</p> <p>Jemdoc&#39;s layout looks like this:</p> <p><img src="/JuDocWeb/assets/jemdoc/jemdoc1.png" alt="" /></p> <h3 id=getting_started ><a href="/JuDocWeb/pub/styling/templates.html#getting_started">Getting started</a></h3> <p>In order to get a blueprint for the folder etc, let&#39;s first create a JuDoc site with the <code>basic</code> template:</p> <pre><code class="julia-repl hljs"><span class=hljs-meta >julia&gt;</span><span class=julia > newsite(<span class=hljs-string >"jemdoc"</span>, template=<span class=hljs-string >"basic"</span>)</span></code></pre>
+<p>You can serve the site in order to see the modifications directly in your browser which can be useful to fine tune the port of the layout.</p>
+<p>We will need to provide the appropriate stylesheet in <code>src/_css</code> and adjust the layout part in <code>src/_html_parts</code>.</p>
+<h3 id=adapting_the_head_and_foot ><a href="/JuDocWeb/pub/styling/templates.html#adapting_the_head_and_foot">Adapting the head and foot</a></h3>
+<p>The file <code>src/_html_parts/head.html</code> is the most important one you will have to adjust.</p>
+<p>Let us first change the name of the main stylesheet <code>src/_css/basic.css</code> to <code>src/_css/jemdoc.css</code> which is more appropriate. The reference to the stylesheet in <code>head.html</code> consequently has to be changed to mention <code>jemdoc.css</code> instead of <code>basic.css</code>:</p>
+     <pre><code class="html hljs">&amp;lt;link rel&amp;#61;&amp;quot;stylesheet&amp;quot; href&amp;#61;&amp;quot;/css/jemdoc.css&amp;quot;&amp;gt;</code></pre>
+<p>The following step is fairly simple:</p>
+<div class=tlist ><ol>
+<li><p>look at the original html code,</p>
+
+<li><p>copy whatever is relevant that comes before the content into <code>head.html</code>.</p>
+
+</ol>
+</div>
+<p>Let&#39;s do this gradually. The top of the original HTML can be ignored at this point so we can start modifying starting after <code>&lt;/head&gt;</code>.</p>
+<p>Jemdoc&#39;s body starts with a Google analytics script which I&#39;ll ignore as well. We then have effectively one big table element. Stripped from its content and simplified it looks like:</p>
+     <pre><code class="html hljs">&amp;lt;table id&amp;#61;&amp;quot;tlayout&amp;quot;&amp;gt;
+  &amp;lt;tr valign&amp;#61;&amp;quot;top&amp;quot;&amp;gt;
+    &amp;lt;td id&amp;#61;&amp;quot;layout-menu&amp;quot;&amp;gt;
+      &amp;lt;div class&amp;#61;&amp;quot;menu-category&amp;quot;&amp;gt;jemdoc&amp;lt;/div&amp;gt;
+      &amp;lt;div class&amp;#61;&amp;quot;menu-item&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;index.html&amp;quot; class&amp;#61;&amp;quot;current&amp;quot;&amp;gt;home&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class&amp;#61;&amp;quot;menu-category&amp;quot;&amp;gt;topics&amp;lt;/div&amp;gt;
+      &amp;lt;div class&amp;#61;&amp;quot;menu-item&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/pub/menu1.html&amp;quot;&amp;gt;Menu 1&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+      &amp;lt;div class&amp;#61;&amp;quot;menu-item&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/pub/menu2.html&amp;quot;&amp;gt;Menu 2&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+      &amp;lt;div class&amp;#61;&amp;quot;menu-item&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/pub/menu3.html&amp;quot;&amp;gt;Menu 3&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/td&amp;gt;
+    &amp;lt;td id&amp;#61;&amp;quot;layout-content&amp;quot;&amp;gt;
+      &amp;lt;p&amp;gt; CONTENT HERE &amp;lt;/p&amp;gt;
+      &amp;lt;div id&amp;#61;&amp;quot;footer&amp;quot;&amp;gt;
+        &amp;lt;div id&amp;#61;&amp;quot;footer-text&amp;quot;&amp;gt;
+          Page generated by &amp;lt;a href&amp;#61;&amp;quot;http://jemdoc.jaboc.net/&amp;quot;&amp;gt;jemdoc&amp;lt;/a&amp;gt;.
+        &amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/td&amp;gt;
+  &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;</code></pre>
+<p>Note that I&#39;ve already filled in the <code>href&#61;</code> in the links to sub-menus.</p>
+<p>The &quot;<code>CONTENT HERE</code>&quot; part is where what JuDoc generates from Markdown will go. Therefore, anything that is <em>after</em> that should go in <code>foot.html</code>; in our current case:</p>
+     <pre><code class="html hljs">&amp;lt;&amp;#33;-- ... --&amp;gt;
+      &amp;lt;div id&amp;#61;&amp;quot;footer&amp;quot;&amp;gt;
+        &amp;lt;div id&amp;#61;&amp;quot;footer-text&amp;quot;&amp;gt;
+          Page generated by &amp;lt;a href&amp;#61;&amp;quot;http://jemdoc.jaboc.net/&amp;quot;&amp;gt;jemdoc&amp;lt;/a&amp;gt;.
+        &amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/td&amp;gt;
+  &amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;</code></pre>
+<p>That&#39;s basically it &#40;though we still have to modify the stylesheet of course&#41;. The <code>head.html</code> should be adapted to:</p>
+     <pre><code class="html hljs">&amp;lt;&amp;#33;doctype html&amp;gt;
+&amp;lt;html lang&amp;#61;&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;meta charset&amp;#61;&amp;quot;UTF-8&amp;quot;&amp;gt;
+  &amp;lt;meta name&amp;#61;&amp;quot;viewport&amp;quot; content&amp;#61;&amp;quot;width&amp;#61;device-width, initial-scale&amp;#61;1&amp;quot;&amp;gt;
+  &amp;#123;&amp;#123;if hasmath&amp;#125;&amp;#125; &amp;#123;&amp;#123;insert head_katex.html &amp;#125;&amp;#125;     &amp;#123;&amp;#123;end&amp;#125;&amp;#125;
+  &amp;#123;&amp;#123;if hascode&amp;#125;&amp;#125; &amp;#123;&amp;#123;insert head_highlight.html &amp;#125;&amp;#125;   &amp;#123;&amp;#123;end&amp;#125;&amp;#125;
+  &amp;lt;link rel&amp;#61;&amp;quot;stylesheet&amp;quot; href&amp;#61;&amp;quot;/css/judoc.css&amp;quot;&amp;gt;
+  &amp;lt;link rel&amp;#61;&amp;quot;stylesheet&amp;quot; href&amp;#61;&amp;quot;/css/jemdoc.css&amp;quot;&amp;gt;
+  &amp;lt;link rel&amp;#61;&amp;quot;icon&amp;quot; href&amp;#61;&amp;quot;/assets/infra/favicon.png&amp;quot;&amp;gt;
+  &amp;#123;&amp;#123;isdef title&amp;#125;&amp;#125; &amp;lt;title&amp;gt;&amp;#123;&amp;#123;fill title&amp;#125;&amp;#125;&amp;lt;/title&amp;gt;  &amp;#123;&amp;#123;end&amp;#125;&amp;#125;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;table id&amp;#61;&amp;quot;tlayout&amp;quot;&amp;gt;
+    &amp;lt;tr valign&amp;#61;&amp;quot;top&amp;quot;&amp;gt;
+      &amp;lt;td id&amp;#61;&amp;quot;layout-menu&amp;quot;&amp;gt;
+        &amp;lt;div class&amp;#61;&amp;quot;menu-category&amp;quot;&amp;gt;jemdoc&amp;lt;/div&amp;gt;
+        &amp;lt;div class&amp;#61;&amp;quot;menu-item&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;index.html&amp;quot; class&amp;#61;&amp;quot;current&amp;quot;&amp;gt;home&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+      &amp;lt;div class&amp;#61;&amp;quot;menu-category&amp;quot;&amp;gt;topics&amp;lt;/div&amp;gt;
+        &amp;lt;div class&amp;#61;&amp;quot;menu-item&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/pub/menu1.html&amp;quot;&amp;gt;Menu 1&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class&amp;#61;&amp;quot;menu-item&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/pub/menu2.html&amp;quot;&amp;gt;Menu 2&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class&amp;#61;&amp;quot;menu-item&amp;quot;&amp;gt;&amp;lt;a href&amp;#61;&amp;quot;/pub/menu3.html&amp;quot;&amp;gt;Menu 3&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+      &amp;lt;/td&amp;gt;
+      &amp;lt;td id&amp;#61;&amp;quot;layout-content&amp;quot;&amp;gt;
+
+&amp;lt;&amp;#33;-- Content appended here --&amp;gt;</code></pre>
+<p>and the <code>foot.html</code> should be adapted to:</p>
+     <pre><code class="html hljs">&amp;lt;&amp;#33;-- CONTENT ENDS HERE --&amp;gt;
+        &amp;lt;/td&amp;gt;
+      &amp;lt;/tr&amp;gt;
+    &amp;lt;/table&amp;gt;
+    &amp;#123;&amp;#123; if hasmath &amp;#125;&amp;#125;
+        &amp;#123;&amp;#123; insert foot_katex.html &amp;#125;&amp;#125;
+    &amp;#123;&amp;#123; end &amp;#125;&amp;#125;
+    &amp;#123;&amp;#123; if hascode &amp;#125;&amp;#125;
+        &amp;#123;&amp;#123; insert foot_highlight.html &amp;#125;&amp;#125;
+    &amp;#123;&amp;#123; end &amp;#125;&amp;#125;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;</code></pre>
+<h3 id=adapting_the_stylesheet ><a href="/JuDocWeb/pub/styling/templates.html#adapting_the_stylesheet">Adapting the stylesheet</a></h3>
+<p>By now the page looks pretty bad:</p>
+<p><img src="/JuDocWeb/assets/jemdoc/jemdoc2.png" alt="" /></p>
+<p>the content is not centred in its box and overflows on the right, the menu looks ridiculous, time to do some CSS styling&#33;</p>
+<p>Let&#39;s start by removing everything from <code>src/_css/jemdoc.css</code>. Most of what&#39;s in there was used for the styling of the top navbar which we don&#39;t have anymore &#40;note that the styling of the content itself is in <code>judoc.css</code>, don&#39;t change that for now; note also that <code>jemdoc.css</code> is loaded <em>after</em> <code>judoc.css</code> so that you can overwrite the styles there&#41;.</p>
+<p>Let&#39;s now just copy paste the content of the <a href="http://jemdoc.jaboc.net/jemdoc.css">two</a> <a href="http://jemdoc.jaboc.net/jacob.css">original</a> stylesheets into ours and hope for the best, we may have some fine-tuning to do after this.</p>
+<p>Doing nothing else than copy pasting already helps a lot:</p>
+<p><img src="/JuDocWeb/assets/jemdoc/jemdoc3.png" alt="" /></p>
+<p>A few things should be fixed:</p>
+<div class=tlist ><ol>
+<li><p>there&#39;s too little space at the top</p>
+
+<li><p>the menu is a bit too narrow and there&#39;s a bit too much space between the menu and the content</p>
+
+<li><p>there&#39;s not enough space after <code>&lt;pre&gt;</code> blocks</p>
+
+</ol>
+</div>
+<h4 id=fixing_spacing ><a href="/JuDocWeb/pub/styling/templates.html#fixing_spacing">Fixing spacing</a></h4>
+<p>Firefox or Chrome/ium&#39;s excellent dev-tools are super helpful to fine tune stylesheets. Here things are pretty straightforward though.</p>
+<p>First, we need to add vertical padding above <code>&lt;h1&gt;</code> level title:</p>
+<pre><code class="css hljs"><span class=hljs-selector-tag >h1</span> { <span class=hljs-attribute >padding-top</span>: <span class=hljs-number >2em</span>; }</code></pre>
+<p>Then, let&#39;s widen the menu a little</p>
+<pre><code class="css hljs"><span class=hljs-selector-tag >td</span><span class=hljs-selector-id >#layout-menu</span> {
+  <span class=hljs-attribute >padding-left</span>: <span class=hljs-number >15px</span>;
+  <span class=hljs-attribute >padding-right</span>: <span class=hljs-number >25px</span>;
+}</code></pre>
+<p>and let&#39;s reduce the padding on the left of the <code>jd-content</code> element:</p>
+<pre><code class="css hljs"><span class=hljs-selector-class >.jd-content</span> { <span class=hljs-attribute >padding-left</span>: <span class=hljs-number >5%</span>; }</code></pre>
+<p>Finally, in the original stylesheet there is this element:</p>
+<pre><code class="css hljs"><span class=hljs-selector-tag >pre</span> {
+  <span class=hljs-attribute >padding</span>: <span class=hljs-number >0</span>;
+  <span class=hljs-attribute >margin</span>: <span class=hljs-number >0</span>;
+}</code></pre>
+<p>which you can just remove to have a bit more space around code blocks.</p>
+<p>There&#39;s probably still things that could be done to improve the layout overall &#40;and make it more responsive&#33;&#41; but we&#39;ll leave it at that.</p>
+<p><img src="/JuDocWeb/assets/jemdoc/jemdoc4.png" alt="" /></p>
+<h3 id=adjusting_other_files ><a href="/JuDocWeb/pub/styling/templates.html#adjusting_other_files">Adjusting other files</a></h3>
+<p>Here we don&#39;t need to adjust anything else but, in general, you might want to adjust the other pages:</p>
+<div class=tlist ><ul>
+<li><p><code>head_highlight</code>, <code>head_katex</code>, <code>foot_highlight</code> and <code>foot_katex</code> are probably best left as they are, they will be appended if need be to pages &#40;see in <code>head</code> and <code>foot</code> the <code>&#123;&#123;if hasmath&#125;&#125;</code> and <code>&#123;&#123;if hascode&#125;&#125;</code> blocks&#41;</p>
+
+<li><p><code>page_foot</code> you may want to change, it defines what goes at the bottom of the <code>.jd-content</code> div.</p>
+
+</ul>
+</div>
+<p>By default <code>page_foot</code> looks like</p>
+     <pre><code class="html hljs">&amp;lt;div class&amp;#61;&amp;quot;page-foot&amp;quot;&amp;gt;
+  &amp;lt;div class&amp;#61;&amp;quot;copyright&amp;quot;&amp;gt;
+    &amp;amp;copy; &amp;#123;&amp;#123; fill author &amp;#125;&amp;#125;. Last modified: &amp;#123;&amp;#123; fill jd_mtime &amp;#125;&amp;#125;. Website built with &amp;lt;a href&amp;#61;&amp;quot;https://github.com/tlienart/JuDoc.jl&amp;quot;&amp;gt;JuDoc.jl&amp;lt;/a&amp;gt;.
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;</code></pre>
+<p>It should be fairly straightforward to adapt that to your needs.</p>
+<h2 id=making_a_pr_to_the_theme_repo ><a href="/JuDocWeb/pub/styling/templates.html#making_a_pr_to_the_theme_repo">Making a PR to the theme repo</a></h2>
+<p>Let&#39;s say you&#39;ve built your own template and are pretty happy with the result and you&#39;d like to share it for other users, great, thanks&#33;</p>
+<h3 id=create_a_new_folder ><a href="/JuDocWeb/pub/styling/templates.html#create_a_new_folder">Create a new folder</a></h3>
+<p>Head to the <a href="https://github.com/tlienart/JuDocTemplates.jl">JuDocTemplates.jl</a> repository and make a PR. The key is to keep track of what you&#39;ve modified and what was left as before so that the repo is not cluttered with copies of the same file.</p>
+<p>In the example above the following files were changed:</p>
+<div class=tlist ><ul>
+<li><p><code>head.html</code> and <code>foot.html</code>,</p>
+
+<li><p><code>jemdoc.css</code> the stylesheet.</p>
+
+</ul>
+</div>
+<p>The JuDocTemplates repository automatically fills in the gap so you just have to provide the files that have changed. Imitate the structure corresponding to <a href="https://github.com/tlienart/JuDocTemplates.jl/tree/master/src/templates/basic/src"><code>basic</code></a>:</p>
+<pre><code class="julia hljs">.
+└── src
+    ├── _css
+    │   └── basic.css
+    └── _html_parts
+        └── head.html</code></pre>
+<p>So in the case of <code>jemdoc</code>, I will create a new folder <code>jemdoc</code> in <code>src/templates/</code> with</p>
+<pre><code class="julia hljs">.
+└── src
+    ├── _css
+    │   └── jemdoc.css
+    └── _html_parts
+        ├── foot.html
+        └── head.html</code></pre>
+<h3 id=add_your_template_to_the_list ><a href="/JuDocWeb/pub/styling/templates.html#add_your_template_to_the_list">Add your template to the list</a></h3>
+<p>Next, you need to indicate the new template in <code>JuDocTemplates.jl</code> by simply adding it to the <code>LIST_OF_TEMPLATES</code> constant.</p>
+<p>Then, you need to add a description for your template in <code>docs/make.jl</code> &#40;please respect the alphabetical order and follow the examples&#41;.</p>
+<p>Finally, you need to take a screenshot of what the template looks like of size 480x480, put it in <code>docs/thumb</code> and adjust <code>docs/index_head.html</code> following the example of the other templates:</p>
+<pre><code class="css hljs"><span class=hljs-selector-id >#jemdoc</span> {
+  <span class=hljs-attribute >background</span>: <span class=hljs-built_in >url</span>(<span class=hljs-string >"thumb/jemdoc.png"</span>);
+  <span class=hljs-attribute >background-size</span>: contain;
+}</code></pre>
+<h3 id=check_that_things_work ><a href="/JuDocWeb/pub/styling/templates.html#check_that_things_work">Check that things work</a></h3>
+<p>You will need to check that everything works &#40;which is the first thing I&#39;ll do when reviewing your PR&#41;. For that: first run the file <code>docs/make.jl</code>; this will generate a website in <code>docs/build</code> then using for instance <a href="https://github.com/asprionj/LiveServer.jl"><code>LiveServer.jl</code></a>, check the generated website and that the demo corresponding to your template works as expected.</p>
+<p>And that&#39;s it&#33; thanks a lot&#33;
+<div class=page-foot >
+  <div class=copyright >
+    &copy; Thibaut Lienart. Last modified: December 22, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
+  </div>
+</div>
+
+</div>
+
+    </div> 
+    </div> 
+    </div> <!-- end of class page-wrap-->
