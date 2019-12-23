@@ -3,7 +3,7 @@ var fs      = require("fs");
 var lunr    = require("lunr");
 var cheerio = require("cheerio");
 
-const PATH_PREPEND = "JuDocWeb"; // JuDocWeb or ..
+const PATH_PREPEND = ".."; // JuDocWeb or ..
 
 const HTML_FOLDER  = "../../pub";
 const OUTPUT_INDEX = "lunr_index.js";
