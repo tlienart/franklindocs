@@ -1,3 +1,6 @@
+// This file and its minified version is adapted from https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites which is unlicensed.
+//
+
 "use strict";
 
 var LUNR_CONFIG = {
@@ -29,8 +32,6 @@ function parseLunrResults(results) {
         var link = item["l"];
         var result = ('<li><span class="result-title"><a href="' + link + '">'
                     + title + '</a></span>');
-                    // '<br><span class="result-preview">'
-                    // + preview + '</span></p>');
         html.push(result);
     }
     if (html.length) {
