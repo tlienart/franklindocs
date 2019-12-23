@@ -1,5 +1,6 @@
-<!-- TODO: figure out how to block the SVG code in the code block to be evaluated by the browser
-this must be simple to  do but requires internet to check...-->
+<!--
+reviewed: 22/12/2019
+ -->
 
 @def hascode=true
 
@@ -348,3 +349,68 @@ That's about it! though of course a bit of CSS styling is needed such as:
   width: 100%; }
 .button:hover{ background-color: #555; }
 ```
+
+## Python code blocks
+
+Using [PyCall.jl](https://github.com/JuliaPy/PyCall.jl) you can evaluate Python code in Julia, and so you can do that in JuDoc too.
+The code below could definitely be improved and generalised but the point here is to show how things can work together.
+You could adapt this to work with something like [RCall.jl](https://github.com/JuliaInterop/RCall.jl) as well.
+
+\newcommand{\pycode}[2]{
+```julia:!#1
+#hideall
+using PyCall
+lines = replace("""!#2""", r"(^|\n)([^\n]+)\n?$" => s"\1res = \2")
+py"""
+$$lines
+"""
+println(py"res")
+```
+```python
+#2
+```
+\codeoutput{!#1}
+}
+
+\pycode{py1}{
+import numpy as np
+np.random.seed(2)
+x = np.random.randn(5)
+r = np.linalg.norm(x) / len(x)
+np.round(r, 2)
+}
+
+### Code
+
+We first define a `\pycode` command that takes lines of python code, adds a `res = ` before the last line, runs the lines and finally show `res`.
+It also inputs the lines of code in a fenced block.
+
+`````
+\newcommand{\pycode}[2]{
+```julia:!#1
+#hideall
+using PyCall
+lines = replace("""!#2""", r"(^|\n)([^\n]+)\n?$" => s"\1res = \2")
+py"""
+$$lines
+"""
+println(py"res")
+```
+```python
+#2
+```
+\codeoutput{!#1}
+}
+`````
+
+calling the command is straightforward:
+
+`````
+\pycode{py1}{
+import numpy as np
+np.random.seed(2)
+x = np.random.randn(5)
+r = np.linalg.norm(x) / len(x)
+np.round(r, 2)
+}
+`````

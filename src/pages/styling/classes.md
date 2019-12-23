@@ -66,3 +66,5 @@ and for instance:
 }
 
 gives you: \spstyle{font-variant:small-caps;font-size:15px;color:cornflowerblue}{formatted text}.
+
+in fact, that one is pre-defined in JuDoc, `\textcss{style}{text}` does precisely that.
