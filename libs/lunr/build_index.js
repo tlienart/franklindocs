@@ -8,7 +8,7 @@ const HTML_FOLDER = "../../pub";  // folder with your HTML files
 // Valid search fields: "title", "description", "keywords", "body"
 const SEARCH_FIELDS = ["title", "body"];
 const EXCLUDE_FILES = ["search.html"];
-const MAX_PREVIEW_CHARS = 275;  // Number of characters to show for a given search result
+const MAX_PREVIEW_CHARS = 0;  // Number of characters to show for a given search result
 const OUTPUT_INDEX = "lunr_index.js";  // Index file
 
 
@@ -58,7 +58,7 @@ function readHtml(root, file, fileId) {
     if (typeof body == 'undefined') body = "";
     var data = {
         "id": fileId,
-        "link": file,
+        "link": filename,
         "t": title,
         "d": description,
         "k": keywords,
