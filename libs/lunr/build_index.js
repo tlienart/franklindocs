@@ -93,8 +93,7 @@ function buildPreviews(docs) {
         result[doc["id"]] = {
             "t": doc["t"],
             "p": preview,
-            "l": doc["link"].replace(/^\.\.\/\.\./gi, 'JuDocWeb') // just doc["link"] if no prepend 
-        }
+            "l": doc["link"].replace(/^\.\.\/\.\./gi, '../JuDocWeb') // just doc["link"] if no prepend }
     }
     return result;
 }
