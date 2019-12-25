@@ -3,7 +3,8 @@ var fs      = require("fs");
 var lunr    = require("lunr");
 var cheerio = require("cheerio");
 
-const PATH_PREPEND = ".."; // JuDocWeb or ..
+// don't modify this, it'll be modified on the fly by lunr() in JuDoc
+const PATH_PREPEND = "..";
 
 const HTML_FOLDER  = "../../pub";
 const OUTPUT_INDEX = "lunr_index.js";
