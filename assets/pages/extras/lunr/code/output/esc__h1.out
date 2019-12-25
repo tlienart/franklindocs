@@ -1,0 +1,12 @@
+`````html  &lt;&#33;doctype html&gt;
+&lt;&#33;-- first few lines ... --&gt;
+  &lt;script src&#61;&quot;/libs/lunr/lunr.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src&#61;&quot;/libs/lunr/lunr_index.js&quot;&gt;&lt;/script&gt;
+  &lt;script src&#61;&quot;/libs/lunr/lunrclient.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;&#33;-- ... --&gt;
+&lt;form id&#61;&quot;lunrSearchForm&quot; name&#61;&quot;lunrSearchForm&quot;&gt;
+  &lt;input class&#61;&quot;search-input&quot; name&#61;&quot;q&quot; placeholder&#61;&quot;Enter search term&quot; type&#61;&quot;text&quot;&gt;
+  &lt;input type&#61;&quot;submit&quot; value&#61;&quot;Search&quot; formaction&#61;&quot;/search.html&quot;&gt;
+&lt;/form&gt;
+&lt;-- ... --&gt; `````

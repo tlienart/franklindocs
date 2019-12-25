@@ -123,3 +123,9 @@ and what's effectively put in the page HTML is
 \esc{html_1c}{
     <pre><code class="language-html">&lt;div class&#61;&quot;hello&quot;&gt;example&lt;/div&gt;</code></pre>
 }
+
+### How to insert Plotly plots?
+
+**Reference**: [issue 322](https://github.com/tlienart/JuDoc.jl/issues/322).
+
+See [this tutorial](http://localhost:8000/pub/extras/plotly.html) for a way to do this.

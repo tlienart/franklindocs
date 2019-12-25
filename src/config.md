@@ -7,6 +7,8 @@
 @def mintoclevel = 2              <!-- TOCS only for level h2 and higher -->
 @def maxtoclevel = 3              <!-- TOCS only up to level 3 included -->
 
+@def hasplotly = false
+
 <!--
 Useful HTML snippets
 * \blurb{...} for a blurb at the top of a page
@@ -25,6 +27,7 @@ Useful HTML snippets
     ~~~
 }
 \newcommand{\lineskip}{@@blank@@}
+\newcommand{\skipline}{\lineskip}
 \newcommand{\note}[1]{@@note @@title ⚠ Note@@ @@content #1 @@ @@}
 
 \newcommand{\esc}[2]{
@@ -46,3 +49,5 @@ Useful HTML snippets
 }
 
 \newcommand{\span}[2]{~~~<span style="display:inline-block;!#1">~~~!#2~~~</span>~~~}
+
+\newcommand{\goto}[1]{~~~<a href="!#1" id="goto"><span id="check">&check;</span><span id="arrow"><b>&rarr;</b></span></a>~~~}

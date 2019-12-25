@@ -181,6 +181,8 @@ Basically it:
 - does a `git add -A; git commit -am "jd-update"; git push`
 @@
 
+### Verification
+
 Before publishing, you may also want to verify that all links on your site are valid. For this use the function `verify_links`:
 
 ```julia-repl
@@ -207,3 +209,9 @@ See `?optimize` for options.
 
 Those two steps may lead to faster loading pages.
 Note that in order to run them, you will need a couple of external dependencies as mentioned in the [installation section](/index.html#installing_optional_extras).
+
+### Final step
+
+The `publish` function accepts a `final=` keyword to which you can pass any function `() -> nothing` which may do some final post-processing before pushing updates online.
+
+For instance you can pass `final=lunr` where `lunr` is a function exported by JuDoc which generates a Lunr search index (see [this tutorial](http://localhost:8000/pub/extras/lunr.html) for more details).

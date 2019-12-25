@@ -1,0 +1,11 @@
+`````html  ~~~
+&lt;div id&#61;&quot;tester&quot; style&#61;&quot;width:600px;height:350px;&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+	TESTER &#61; document.getElementById&#40;&#39;tester&#39;&#41;;
+	Plotly.plot&#40; TESTER, &#91;&#123;
+	x: &#91;1, 2, 3, 4, 5&#93;,
+	y: &#91;1, 2, 4, 8, 16&#93; &#125;&#93;, &#123;
+	margin: &#123; t: 0 &#125; &#125; &#41;;
+&lt;/script&gt;
+~~~ `````

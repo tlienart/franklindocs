@@ -1,0 +1,1 @@
+`````plaintext  &#123;&#123;if hasplotly&#125;&#125; &lt;script src&#61;&quot;/libs/plotly/plotly.min.js&quot;&gt;&lt;/script&gt; &#123;&#123;end&#125;&#125; `````

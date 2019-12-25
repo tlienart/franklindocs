@@ -10,14 +10,11 @@ reviewed: 23/11/19
 
 ## Key features
 
-\newcommand{\goto}[1]{~~~<a href="!#1" id="goto"><span id="check">&check;</span><span id="arrow"><b>&rarr;</b></span></a>~~~}
-
 @@flist
 * \goto{/pub/syntax/markdown.html} Augmented markdown allowing definition of LaTeX-like commands,
 * \goto{/pub/syntax/divs-commands.html} Easy inclusion of user-defined div-blocks,
 * \goto{/pub/syntax/divs-commands.html} Maths rendered via [KaTeX](https://katex.org/), code via [highlight.js](https://highlightjs.org) both can be pre-rendered,
-* \goto{#} Can live-evaluate Julia code blocks,
-* \goto{#} Simple HTML templating,
+* \goto{/pub/code/inserting-code.html} Can live-evaluate Julia code blocks,
 * \goto{/pub/workflow.html#creating_your_website} Live preview of modifications,
 * \goto{/pub/workflow.html#optimisation_step} Simple optimisation step to compress and pre-render the website,
 * \goto{/pub/workflow.html#publication_step} Simple publication step to deploy the website,
