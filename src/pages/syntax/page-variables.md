@@ -97,10 +97,10 @@ The format follows this structure:
 }
 
 where `vname` and `vname2` are expected to be page variable evaluating to a boolean.
-Of course you don't have to specify the `{{elseif ...}}` or `{{else}}`.
+Of course you don't have to specify the `{{elseif ...}}` or `{{else}}` if you don't need them.
 
 \note{
-  The conditional blocks are currently fairly rudimentary; currently operations between page variables are not supported so you can't write something like `{{if hasmath && hascode}}`.
+  The conditional blocks are currently fairly rudimentary; in particular operations between page variables are not supported, so you can't write something like `{{if hasmath && hascode}}`.
   This may come in the future if deemed useful.
 }
 

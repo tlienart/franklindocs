@@ -36,8 +36,8 @@
 &#123;&#123;else&#125;&#125;
 ...
 &#123;&#123;end&#125;&#125;</code></pre>
-<p>where <code>vname</code> and <code>vname2</code> are expected to be page variable evaluating to a boolean. Of course you don&#39;t have to specify the <code>&#123;&#123;elseif ...&#125;&#125;</code> or <code>&#123;&#123;else&#125;&#125;</code>.</p>
-<div class=note ><div class=title >⚠ Note</div> <div class=content >The conditional blocks are currently fairly rudimentary; currently operations between page variables are not supported so you can&#39;t write something like <code>&#123;&#123;if hasmath &amp;&amp; hascode&#125;&#125;</code>.   This may come in the future if deemed useful.</div></div>
+<p>where <code>vname</code> and <code>vname2</code> are expected to be page variable evaluating to a boolean. Of course you don&#39;t have to specify the <code>&#123;&#123;elseif ...&#125;&#125;</code> or <code>&#123;&#123;else&#125;&#125;</code> if you don&#39;t need them.</p>
+<div class=note ><div class=title >⚠ Note</div> <div class=content >The conditional blocks are currently fairly rudimentary; in particular operations between page variables are not supported, so you can&#39;t write something like <code>&#123;&#123;if hasmath &amp;&amp; hascode&#125;&#125;</code>.   This may come in the future if deemed useful.</div></div>
 <p>You can also use some dedicated conditional blocks:</p>
 <div class=lalign ><table><tr><th>Format<th>Role<tr><td><code>&#123;&#123;ispage path/to/page&#125;&#125;</code><td>whether the current page corresponds to the path<tr><td><code>&#123;&#123;isnotpage path/to/page&#125;&#125;</code><td>opposite of previous<tr><td><code>&#123;&#123;isdef vname&#125;&#125;</code><td>whether <code>vname</code> is defined<tr><td><code>&#123;&#123;isnotdef vname&#125;&#125;</code><td>opposite of previous</table>
 </div>
@@ -93,7 +93,7 @@
 </div>
 <div class=page-foot >
   <div class=copyright >
-    &copy; Thibaut Lienart. Last modified: December 22, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
+    &copy; Thibaut Lienart. Last modified: December 28, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
   </div>
 </div>
 
