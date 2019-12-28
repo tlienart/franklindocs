@@ -124,7 +124,7 @@ and what's effectively put in the page HTML is
     <pre><code class="language-html">&lt;div class&#61;&quot;hello&quot;&gt;example&lt;/div&gt;</code></pre>
 }
 
-\note{Be aware that if you do this it does not play well with the pre-rendering of code, so use `prerender=false` in the `publish` and `optimize` step.}
+\note{Pre-rendering of html code blocks was fixed with  JuDoc `0.4.1`, with older version use `prerender=false` with `optimize` and `publish`.}
 
 ### How to insert Plotly plots?
 
