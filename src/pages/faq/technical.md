@@ -94,6 +94,9 @@ In order to show HTML code like:
 }
 
 you will need to _escape_ it, otherwise the HTML will be interpreted (even though it's in a `<pre><code>` block).
+
+\note{While this is still necessary for inline code, with JuDoc `0.4.2`, escaping of html in a code block is automatic.}
+
 One way to do this is to use Julia's Markdown `htmlesc` function on the HTML string and show the output of that function.
 The command below does all that for you:
 

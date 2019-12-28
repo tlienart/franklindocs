@@ -49,7 +49,9 @@ end
 <h3 id=how_to_show_html_code ><a href="/JuDocWeb/pub/faq/technical.html#how_to_show_html_code">How to show HTML code?</a></h3>
 <p>In order to show HTML code like:</p>
      <pre><code class=language-html >&lt;div class&#61;&quot;hello&quot;&gt;example&lt;/div&gt;</code></pre>
-<p>you will need to <em>escape</em> it, otherwise the HTML will be interpreted &#40;even though it&#39;s in a <code>&lt;pre&gt;&lt;code&gt;</code> block&#41;. One way to do this is to use Julia&#39;s Markdown <code>htmlesc</code> function on the HTML string and show the output of that function. The command below does all that for you:</p>
+<p>you will need to <em>escape</em> it, otherwise the HTML will be interpreted &#40;even though it&#39;s in a <code>&lt;pre&gt;&lt;code&gt;</code> block&#41;.</p>
+<div class=note ><div class=title >⚠ Note</div> <div class=content >While this is still necessary for inline code, with JuDoc <code>0.4.2</code>, escaping of html in a code block is automatic.</div></div>
+<p>One way to do this is to use Julia&#39;s Markdown <code>htmlesc</code> function on the HTML string and show the output of that function. The command below does all that for you:</p>
 <pre><code class=language-julia >\newcommand{\esch}[2]{
     ```julia:esc__!#1
     #hideall
