@@ -22,36 +22,36 @@
 </div>
 <p>For instance you might prefer:</p>
 <pre><code class="julia hljs">x = randn(<span class=hljs-number >10</span>)</code></pre><div class=code_output ><pre><code class="plaintext hljs">10-element Array{Float64,1}:
-  1.4146388631668756 
-  0.9839901997622607 
- -1.2517939486812255 
- -0.8274128804464108 
-  2.234787697734174  
-  2.2791020675046045 
- -1.9362464405570161 
- -0.06072735754228072
-  0.31503934834320746
- -0.6773809059511792 </code></pre></div>
+  0.21784781953734172
+ -0.8407607101922063 
+ -1.1716211359761153 
+ -0.5604822584212901 
+ -0.0438937417264585 
+ -1.213951174635794  
+ -1.929544318018718  
+ -1.127424890021571  
+  0.2879531444901333 
+ -0.639736574892026  </code></pre></div>
 <p>to just</p>
 <pre><code class="julia hljs">x = randn(<span class=hljs-number >10</span>)</code></pre><div class=code_output ><pre><code class="plaintext hljs">10-element Array{Float64,1}:
-  1.4146388631668756 
-  0.9839901997622607 
- -1.2517939486812255 
- -0.8274128804464108 
-  2.234787697734174  
-  2.2791020675046045 
- -1.9362464405570161 
- -0.06072735754228072
-  0.31503934834320746
- -0.6773809059511792 </code></pre></div>
+  0.21784781953734172
+ -0.8407607101922063 
+ -1.1716211359761153 
+ -0.5604822584212901 
+ -0.0438937417264585 
+ -1.213951174635794  
+ -1.929544318018718  
+ -1.127424890021571  
+  0.2879531444901333 
+ -0.639736574892026  </code></pre></div>
 <p>You can also use <code>@show</code> or <code>println</code> to show specific things beyond the last line</p>
 <pre><code class="julia hljs">x = rand(<span class=hljs-number >10</span>)
 println(sum(x))
-y = <span class=hljs-number >5</span></code></pre><div class=code_output ><pre><code class="plaintext hljs">5.229833235249208
+y = <span class=hljs-number >5</span></code></pre><div class=code_output ><pre><code class="plaintext hljs">4.34583752374008
 5</code></pre></div>
 <p>if the last line is a <code>@show</code> or <code>print</code> then only that is shown:</p>
 <pre><code class="julia hljs">x = randn(<span class=hljs-number >10</span>)
-<span class=hljs-meta >@show</span> x[<span class=hljs-number >1</span>]</code></pre><div class=code_output ><pre><code class="plaintext hljs">x[1] = 2.346286480631331
+<span class=hljs-meta >@show</span> x[<span class=hljs-number >1</span>]</code></pre><div class=code_output ><pre><code class="plaintext hljs">x[1] = -0.1948427259903462
 </code></pre></div>
 <h2 id=example ><a href="/JuDocWeb/pub/code/literate.html#example">Example</a></h2>
 <h3 id=script ><a href="/JuDocWeb/pub/code/literate.html#script">Script</a></h3>
