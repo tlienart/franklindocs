@@ -1,3 +1,7 @@
 # JuDocWeb
 
-Website for JuDoc.jl, WIP as of October 2019. Expected arrival in November.
+Website for [JuDoc.jl](https://github.com/tlienart/JuDoc.jl). 
+
+## Dev note
+
+No prerendering (due to tricky code environments that get destroyed by highlight.js).
