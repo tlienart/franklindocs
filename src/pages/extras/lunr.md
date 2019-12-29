@@ -47,7 +47,7 @@ The file `build_index.js` does the following:
 - it builds an index `lunr_index.js` which can subsequently be queried  upon the user entering search terms.
 @@
 
-By default, the index built is fairly barebone to reduce the size of the generated index. If you want fancier search, you might want to modify this a bit to add a Preview of the page, boost results depending on where there are, add stop words, etc. (Refer to the [Lunr docs](https://lunrjs.com/docs/index.html) for this as well as [the example repo](https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites) mentioned earlier or [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl/blob/master/assets/html/search.js)'s version).
+By default, the index built is fairly barebone to reduce the size of the generated index. If you want fancier search, you might want to modify this a bit to add a preview of the page, boost results depending on where there are (title, keyword, ...), add stop words, etc. (Refer to the [Lunr docs](https://lunrjs.com/docs/index.html) for this as well as [the example repo](https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites) mentioned earlier or [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl/blob/master/assets/html/search.js)'s version).
 
 \note{
     Modify this file at will but be careful with the lines with `PATH_PREPEND` if your website is a project website (i.e. the root URL is something like `username.github.io/project/`). These lines help ensure that the generated links are valid. See also the section on [updating the index](#buildingupdating_the_index).
