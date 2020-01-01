@@ -37,6 +37,13 @@ $> npm install cheerio</code></pre> <p>&#40;you might have to add <code>sudo</co
   &lt;input type&#61;&quot;submit&quot; value&#61;&quot;Search&quot; formaction&#61;&quot;/search.html&quot;&gt;
 &lt;/form&gt;
 &lt;-- ... --&gt;</code></pre>
+<p>You may want to style it a bit like so:</p>
+<pre><code class=language-css >.result-title a { text-decoration: none; }
+.result-title a:hover { text-decoration: underline; }
+.result-preview { color: #808080; }
+.resultCount { color: #808080; }
+.result-query { font-weight: bold; }
+#lunrSearchForm { margin-top: 1em; }</code></pre>
 <h3 id=target_search_page ><a href="/JuDocWeb/pub/extras/lunr.html#target_search_page">Target search page</a></h3>
 <p>You also need to add a <code>src/search.md</code> to display the results with the appropriate divs:</p>
      <pre><code class=language-plaintext >@def title &#61; &quot;Search ⋅ YourWebsite&quot;

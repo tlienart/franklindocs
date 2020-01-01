@@ -89,6 +89,17 @@ The search box on this website is added with the following HTML in `src/_html_pa
 <-- ... -->
 }
 
+You may want to style it a bit like so:
+
+```css
+.result-title a { text-decoration: none; }
+.result-title a:hover { text-decoration: underline; }
+.result-preview { color: #808080; }
+.resultCount { color: #808080; }
+.result-query { font-weight: bold; }
+#lunrSearchForm { margin-top: 1em; }
+```
+
 ### Target search page
 
 You also need to add a `src/search.md` to display the results with the appropriate divs:

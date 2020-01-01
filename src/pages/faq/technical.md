@@ -56,7 +56,7 @@ so you can style the back-reference via the `.jd-content fndef td.fndef-backref`
 
 ### How to use loops for templating?
 
-**Reference**: [issue 251](https://github.com/tlienart/JuDoc.jl/issues/251), **more on this**: [styling](/pub/code/eval-tricks.html).
+**Reference**: [issue 251](https://github.com/tlienart/JuDoc.jl/issues/251), **more on this**: [code tricks](/pub/code/eval-tricks.html).
 
 Since you can show the output of any Julia code block (and interpret that output as JuDoc markdown), you can use this to help with templating.
 For instance:
@@ -133,4 +133,4 @@ and what's effectively put in the page HTML is
 
 **Reference**: [issue 322](https://github.com/tlienart/JuDoc.jl/issues/322).
 
-See [this tutorial](http://localhost:8000/pub/extras/plotly.html) for a way to do this.
+See [this tutorial](/pub/extras/plotly.html) for a way to do this.
