@@ -31,21 +31,23 @@
 <h2 id=live-generated_plot ><a href="/JuDocWeb/pub/extras/plotly.html#live-generated_plot">Live-generated plot</a></h2>
 <p>One step further is to use <code>PlotlyJS</code> to define a  plot then pass the result to  JuDoc. Start by adding <code>PlotlyJS</code> and <code>Random</code> to your environment:</p>
 <pre><code class=language-julia-repl >(myWebsite) pkg> add PlotlyJS Random</code></pre>
-<p>Then to the page, beyond the <code>@def hasplotly &#61; true</code>, add the following code in an evaluated Julia code block on the page:</p>
-<pre><code class=language-julia >import PlotlyJS, Random
+<p>Then, beyond the <code>@def hasplotly &#61; true</code>, add the following code in an evaluated Julia code block:</p>
+<pre><code class=language-julia >#hideall
+import PlotlyJS, Random
 
 function jdplotly(plt, id="jdp"*Random.randstring('a':'z', 3),
 	 	  	  style="width:600px;height:350px;")
 	println("""
 	~~~
-	&lt;div id&#61;&quot;&#36;id&quot; style&#61;&quot;&#36;style&quot;&gt;&lt;/div&gt;
-	&lt;script&gt;
-		var fig &#61; JSON.parse&#40;&#39;&#36;&#40;PlotlyJS.json&#40;plt&#41;&#41;&#39;&#41;;
-		CONTAINER &#61; document.getElementById&#40;&#39;&#36;id&#39;&#41;;
-		Plotly.plot&#40;CONTAINER, fig.data, fig.layout&#41;;
-	&lt;/script&gt;
+	<div id="$id" style="$style"></div>
+	<script>
+        var fig = JSON.parse('$(PlotlyJS.json(plt))');
+        CONTAINER = document.getElementById('$id');
+        Plotly.plot(CONTAINER, fig.data, fig.layout);
+	</script>
 	~~~""")
 end</code></pre>
+
 <p>It defines a function that prints Markdown very similar to what we used earlier to display a Plotly plot.</p>
 <p>You can now use <code>PlotlyJS</code> to define a plot and use <code>jdplotly</code> to display it on your page. The following code:</p>
 <pre><code class=language-julia >```julia:ex1
@@ -72,10 +74,18 @@ jdplotly(plt) # hide
 data   = PlotlyJS.contour(; z=z)
 layout = PlotlyJS.Layout(; title="Basic Contour Plot")
 plt    = PlotlyJS.plot(data, layout)
-</code></pre> There was an error running the code: UndefVarError&#40;:PlotlyJS&#41;
+</code></pre> <pre><code>
+	<div id=jdpzgo  style="width:600px;height:350px;"></div>
+	<script>
+        var fig = JSON.parse('{"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]}');
+        CONTAINER = document.getElementById('jdpzgo');
+        Plotly.plot(CONTAINER, fig.data, fig.layout);
+	</script>
+	</code></pre>
+
 <div class=page-foot >
   <div class=copyright >
-    &copy; Thibaut Lienart. Last modified: December 25, 2019. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
+    &copy; Thibaut Lienart. Last modified: January 01, 2020. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
   </div>
 </div>
 
