@@ -39,12 +39,12 @@ function jdplotly(plt, id="jdp"*Random.randstring('a':'z', 3),
 	 	  	  style="width:600px;height:350px;")
 	println("""
 	~~~
-	<div id="$id" style="$style"></div>
-	<script>
-        var fig = JSON.parse('$(PlotlyJS.json(plt))');
-        CONTAINER = document.getElementById('$id');
-        Plotly.plot(CONTAINER, fig.data, fig.layout);
-	</script>
+	&lt;div id&#61;&quot;&#36;id&quot; style&#61;&quot;&#36;style&quot;&gt;&lt;/div&gt;
+	&lt;script&gt;
+		var fig &#61; JSON.parse&#40;&#39;&#36;&#40;PlotlyJS.json&#40;plt&#41;&#41;&#39;&#41;;
+		CONTAINER &#61; document.getElementById&#40;&#39;&#36;id&#39;&#41;;
+		Plotly.plot&#40;CONTAINER, fig.data, fig.layout&#41;;
+	&lt;/script&gt;
 	~~~""")
 end</code></pre>
 
@@ -75,10 +75,10 @@ data   = PlotlyJS.contour(; z=z)
 layout = PlotlyJS.Layout(; title="Basic Contour Plot")
 plt    = PlotlyJS.plot(data, layout)
 </code></pre> <pre><code>
-	<div id=jdpzgo  style="width:600px;height:350px;"></div>
+	<div id=jdpicl  style="width:600px;height:350px;"></div>
 	<script>
         var fig = JSON.parse('{"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]}');
-        CONTAINER = document.getElementById('jdpzgo');
+        CONTAINER = document.getElementById('jdpicl');
         Plotly.plot(CONTAINER, fig.data, fig.layout);
 	</script>
 	</code></pre>
