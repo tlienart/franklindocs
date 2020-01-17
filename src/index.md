@@ -6,7 +6,7 @@ reviewed: 23/11/19
 
 # Building static websites in Julia
 
-\blurb{Franklin is a simple and fast static site generator oriented towards technical blogging and light, fast-loading pages.}
+\blurb{Franklin is a simple static site generator oriented towards technical blogging and light, fast-loading pages.}
 
 ## Key features
 

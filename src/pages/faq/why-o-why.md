@@ -39,4 +39,10 @@ Initially Franklin was heavily reliant upon the Julia `Markdown` package (part o
 
 ### Did you know?
 
-Judoc is a [fairly obscure saint](https://en.wikipedia.org/wiki/Judoc). (I definitely did not know that before registering the package, but it did inspire me for the logo.)
+Franklin was initially named "_JuDoc_" which happened to be a [fairly obscure saint](https://en.wikipedia.org/wiki/Judoc). (I definitely did not know that before registering the package).
+The name Franklin aims to honour
+
+- [Rosalind Franklin](https://en.wikipedia.org/wiki/Rosalind_Franklin), an English chemist who contributed to the discovery of the structure of DNA, and
+- [Benjamin Franklin](https://en.wikipedia.org/wiki/Benjamin_Franklin), an american polymath and one of the Founding Fathers.
+
+There's also happens to be a turtle and a US president with that name but that's mostly fortuitous.
