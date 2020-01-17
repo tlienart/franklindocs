@@ -2,7 +2,7 @@
 
 # Generating auxiliary files with Literate
 
-See also [how to interact with literate scripts](/pub/pages/code/literate.html).
+See also [how to interact with literate scripts](/pub/code/literate.html).
 
 [Literate.jl](https://github.com/fredrikekre/Literate.jl) allows to pre and post-process a script in order, for instance, to generate a notebook out  of a script.
 This can be convenient if you want to have a tutorial be downloadable as a standalone notebook or as a scrubbed script.
