@@ -1,4 +1,4 @@
-using JuDoc
+using Franklin
 if !(@isdefined msg)
     msg = "jd-update"
 end
