@@ -46,7 +46,7 @@ Both local and global page variables are meant for essentially two purposes:
 
 @@tlist
 1. control the HTML template from the markdown,
-1. modify how JuDoc generates HTML.
+1. modify how Franklin generates HTML.
 @@
 
 The second one is a bit less prevalent but, for instance, you can specify the default programming language for all code blocks so that code blocks that don't specify a language would use the default language for highlighting:
@@ -148,7 +148,7 @@ These variables are best defined in your `config.md` file though you can overwri
 @@
 
 **Notes**:\\
-\smindent{(\*)} say you're using GitHub pages and your username is `darth`, by default JuDoc will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`.\\
+\smindent{(\*)} say you're using GitHub pages and your username is `darth`, by default Franklin will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`.\\
 \smindent{(\*\*)} these **must** be defined for RSS to be generated for your site (on top of `generate_rss` being `true`). See also the [RSS subsection](#rss) below.
 
 ## Local page variables
@@ -196,7 +196,7 @@ For more informations on these, see the section on [inserting and evaluating cod
 | `reeval` | `Bool` | `false` | whether to reevaluate all code blocks on the page
 | `freezecode` | `Bool` | `false` | prevents evaluation of any code block on the  page
 | `showall` | `Bool` | `false` | notebook mode if `true` where the output of the code block is shown below
-| `literate_only` | `Bool` | `true` | when using Literate, if this is `true` then JuDoc will assume that the included literate script is the only source of code on the page
+| `literate_only` | `Bool` | `true` | when using Literate, if this is `true` then Franklin will assume that the included literate script is the only source of code on the page
 | `jd_code`      | `String` | `""` | the raw script corresponding to the active code blocks on the page
 @@
 

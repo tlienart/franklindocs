@@ -3,7 +3,7 @@
 
 # FAQ - Technical
 
-If you have a question that you couldn't find an answer to easily, don't hesitate to [open an issue](https://github.com/tlienart/JuDoc.jl/issues/new) on GitHub, it will help me make this section more complete!
+If you have a question that you couldn't find an answer to easily, don't hesitate to [open an issue](https://github.com/tlienart/Franklin.jl/issues/new) on GitHub, it will help me make this section more complete!
 
 \toc
 
@@ -11,7 +11,7 @@ If you have a question that you couldn't find an answer to easily, don't hesitat
 
 ### Can you style footnote text?
 
-**Reference**: [issue 243](https://github.com/tlienart/JuDoc.jl/issues/243), **more on this**: [styling](/pub/styling/classes.html).
+**Reference**: [issue 243](https://github.com/tlienart/Franklin.jl/issues/243), **more on this**: [styling](/pub/styling/classes.html).
 
 For the reference basically a footnote is inserted as
 
@@ -56,9 +56,9 @@ so you can style the back-reference via the `.jd-content fndef td.fndef-backref`
 
 ### How to use loops for templating?
 
-**Reference**: [issue 251](https://github.com/tlienart/JuDoc.jl/issues/251), **more on this**: [code tricks](/pub/code/eval-tricks.html).
+**Reference**: [issue 251](https://github.com/tlienart/Franklin.jl/issues/251), **more on this**: [code tricks](/pub/code/eval-tricks.html).
 
-Since you can show the output of any Julia code block (and interpret that output as JuDoc markdown), you can use this to help with templating.
+Since you can show the output of any Julia code block (and interpret that output as Franklin markdown), you can use this to help with templating.
 For instance:
 
 `````md
@@ -95,7 +95,7 @@ In order to show HTML code like:
 
 you will need to _escape_ it, otherwise the HTML will be interpreted (even though it's in a `<pre><code>` block).
 
-\note{While this is still necessary for inline code, with JuDoc `0.4.2`, escaping of html in a code block is automatic.}
+\note{While this is still necessary for inline code, with Franklin `0.4.2`, escaping of html in a code block is automatic.}
 
 One way to do this is to use Julia's Markdown `htmlesc` function on the HTML string and show the output of that function.
 The command below does all that for you:
@@ -127,10 +127,10 @@ and what's effectively put in the page HTML is
     <pre><code class="language-html">&lt;div class&#61;&quot;hello&quot;&gt;example&lt;/div&gt;</code></pre>
 }
 
-\note{Pre-rendering of html code blocks was fixed with  JuDoc `0.4.1`, with older version use `prerender=false` with `optimize` and `publish`.}
+\note{Pre-rendering of html code blocks was fixed with  Franklin `0.4.1`, with older version use `prerender=false` with `optimize` and `publish`.}
 
 ### How to insert Plotly plots?
 
-**Reference**: [issue 322](https://github.com/tlienart/JuDoc.jl/issues/322).
+**Reference**: [issue 322](https://github.com/tlienart/Franklin.jl/issues/322).
 
 See [this tutorial](/pub/extras/plotly.html) for a way to do this.

@@ -4,7 +4,7 @@
 
 # Work with Literate.jl
 
-\blurb{JuDoc works seamlessly with Literate to offer a convenient way to write and maintain tutorials.}
+\blurb{Franklin works seamlessly with Literate to offer a convenient way to write and maintain tutorials.}
 
 \lineskip
 
@@ -14,7 +14,7 @@
 
 [Literate.jl](https://github.com/fredrikekre/Literate.jl) is a convenient package that allows you to write scripts in Julia and convert them to markdown pages or Jupyter notebooks.
 
-You can combine this with JuDoc with the `\literate` command which you can call in JuDoc like:
+You can combine this with Franklin with the `\literate` command which you can call in Franklin like:
 
 ```
 \literate{/scripts/script.jl}`
@@ -29,7 +29,7 @@ it does what you expect:
 
 If you want the script to be shown like a notebook where the output of every code block is shown, use  `@def showall = true`.
 
-Combining JuDoc with Literate offers a very convenient way to write and maintain tutorial websites (see for instance the [MLJ Tutorials](https://alan-turing-institute.github.io/MLJTutorials/)).
+Combining Franklin with Literate offers a very convenient way to write and maintain tutorial websites (see for instance the [MLJ Tutorials](https://alan-turing-institute.github.io/MLJTutorials/)).
 
 ### File organisation
 

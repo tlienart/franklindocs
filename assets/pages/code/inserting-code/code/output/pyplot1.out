@@ -1,0 +1,2 @@
+There was an error running the code:
+PyCall.PyError("\$(Expr(:escape, :(ccall(#= /Users/tlienart/.julia/packages/PyCall/ttONZ/src/pyfncall.jl:44 =# @pysym(:PyObject_Call), PyPtr, (PyPtr, PyPtr, PyPtr), o, pyargsptr, kw))))", PyCall.PyObject(Ptr{PyCall.PyObject_struct} @0x000000012d719688), PyCall.PyObject(Ptr{PyCall.PyObject_struct} @0x0000000143178748), PyCall.PyObject(Ptr{PyCall.PyObject_struct} @0x00000001434b54c8))

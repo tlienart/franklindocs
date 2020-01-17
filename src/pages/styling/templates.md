@@ -14,13 +14,13 @@ reviewed: 22/12/19
 
 \lineskip
 
-The pre-defined templates that are currently available in JuDoc with the `newsite` function can be viewed ~~~<a href="https://tlienart.github.io/JuDocTemplates.jl/" target="_blank" rel="noopener noreferrer">here</a>~~~ (_opens in a new tab_).
+The pre-defined templates that are currently available in Franklin with the `newsite` function can be viewed ~~~<a href="https://tlienart.github.io/JuDocTemplates.jl/" target="_blank" rel="noopener noreferrer">here</a>~~~ (_opens in a new tab_).
 
-## Adapting a theme to JuDoc
+## Adapting a theme to Franklin
 
 \note{If you end up doing this, please consider making a PR to [JuDocTemplates](https://github.com/tlienart/JuDocTemplates.jl)!}
 
-On this page, I'll take [Jemdoc's website layout](http://jemdoc.jaboc.net/) and show how it can be adapted to be a working JuDoc template.
+On this page, I'll take [Jemdoc's website layout](http://jemdoc.jaboc.net/) and show how it can be adapted to be a working Franklin template.
 This will hopefully also show you how to adapt / modify an existing template.
 
 Jemdoc's layout looks like this:
@@ -29,7 +29,7 @@ Jemdoc's layout looks like this:
 
 ### Getting started
 
-In order to get a blueprint for the folder etc, let's first create a JuDoc site with the `basic` template:
+In order to get a blueprint for the folder etc, let's first create a Franklin site with the `basic` template:
 
 ```julia-repl
 julia> newsite("jemdoc", template="basic")
@@ -89,7 +89,7 @@ Stripped from its content and simplified it looks like:
 
 Note that I've already filled in the `href=` in the links to sub-menus.
 
-The "`CONTENT HERE`" part is where what JuDoc generates from Markdown will go.
+The "`CONTENT HERE`" part is where what Franklin generates from Markdown will go.
 Therefore, anything that is *after* that should go in `foot.html`; in our current case:
 
 \esch{j3}{
@@ -233,7 +233,7 @@ By default `page_foot` looks like
 \esch{j6}{
 <div class="page-foot">
   <div class="copyright">
-    &copy; {{ fill author }}. Last modified: {{ fill jd_mtime }}. Website built with <a href="https://github.com/tlienart/JuDoc.jl">JuDoc.jl</a>.
+    &copy; {{ fill author }}. Last modified: {{ fill jd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 }
@@ -256,7 +256,7 @@ In the example above the following files were changed:
 * `jemdoc.css` the stylesheet.
 @@
 
-The JuDocTemplates repository automatically fills in the gap so you just have to provide the files that have changed.
+The JuDoc Templates repository automatically fills in the gap so you just have to provide the files that have changed.
 Imitate the structure corresponding to [`basic`](https://github.com/tlienart/JuDocTemplates.jl/tree/master/src/templates/basic/src):
 
 ```

@@ -44,7 +44,7 @@ which will look like
 ### Nesting
 
 Such div blocks can be nested as in standard HTML.
-The distinction with inserting raw HTML div blocks with the `~~~...~~~` syntax is that the content  of div blocks is processed as well (i.e.: can contain JuDoc markdown):
+The distinction with inserting raw HTML div blocks with the `~~~...~~~` syntax is that the content  of div blocks is processed as well (i.e.: can contain Franklin markdown):
 
 ```plaintext
 @@important
@@ -66,7 +66,7 @@ The distinction with inserting raw HTML div blocks with the `~~~...~~~` syntax i
 
 ## LaTeX-like commands
 
-JuDoc allows the definition of commands using a LaTeX-like syntax.
+Franklin allows the definition of commands using a LaTeX-like syntax.
 This can be particularly useful for repeating elements or styling inside or outside of maths environment.
 
 To define a command, you **must** use the following syntax:
@@ -87,7 +87,7 @@ where:
 As in LaTeX, command definitions can be anywhere as long as they appear before they are used.
 If you want a command to be available on all your pages, put the definition in the `config.md` file.
 
-\note{JuDoc currently cannot just take the content of a `.tex` document and convert it, this may be (partially) supported in the future if it is deemed useful. Mainly it would require pre-defining all standard commands such as `\textbf`, `\section`, etc.}
+\note{Franklin currently cannot just take the content of a `.tex` document and convert it, this may be (partially) supported in the future if it is deemed useful. Mainly it would require pre-defining all standard commands such as `\textbf`, `\section`, etc.}
 
 ### Math examples
 
@@ -128,7 +128,7 @@ Here is \styletext{color:magenta;font-size:14px;font-variant:small-caps;}{format
 
 ### Nesting examples
 
-Commands are resolved recursively which means that they can be nested and their definition can contain further JuDoc markdown (again this is similar to how LaTeX works).
+Commands are resolved recursively which means that they can be nested and their definition can contain further Franklin markdown (again this is similar to how LaTeX works).
 
 Consider for instance:
 
@@ -150,7 +150,7 @@ Let $x\in\R^n$, there exists $0 < C_1 \le C_2$ such that
 
 $$ C_1 \anorm{x} \le \bnorm{x} \le C_2\anorm{x}. $$
 
-As indicated earlier, commands can contain further JuDoc markdown that is processed recursively.
+As indicated earlier, commands can contain further Franklin markdown that is processed recursively.
 For example, here is a more sophisticated example of a "definition" command such that this:
 
 ```plaintext
@@ -197,7 +197,7 @@ and specify the styling of the `definition` div in your CSS:
 
 ### Whitespaces
 
-In a JuDoc `newcommand`, to refer to an argument you can use `#k` or `!#k`.
+In a Franklin `newcommand`, to refer to an argument you can use `#k` or `!#k`.
 There is a small difference: the first one _introduces a space_ left of the argument while the second one does not.
 
 In general whitespaces are irrelevant and will not show up on the rendered webpage so that the usual `#k` is the recommended usage.
@@ -226,7 +226,7 @@ If you define commands on a page, the command will be available only on that pag
 
 ## Hyper-references
 
-Three types of hyper-references are supported in JuDoc:
+Three types of hyper-references are supported in Franklin:
 
 @@flist
 1. for equations in display mode,

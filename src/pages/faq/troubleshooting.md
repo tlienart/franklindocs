@@ -2,7 +2,7 @@
 
 # FAQ - Troubleshooting
 
-This page is about some of the known errors you may encounter when using JuDoc and how to deal with them.
+This page is about some of the known errors you may encounter when using Franklin and how to deal with them.
 If you encounter an error that is not mentioned here, then it's probably a bug and it would be great if you could open an issue!
 
 \toc
@@ -10,7 +10,7 @@ If you encounter an error that is not mentioned here, then it's probably a bug a
 ## Error on interruption
 
 You may (rarely) get an an error thrown at you when interrupting the server with `<CTRL>+C`, particularly when using Juno.
-There are a couple of reasons this may happen, both unrelated to JuDoc.
+There are a couple of reasons this may happen, both unrelated to Franklin.
 
 ### Juno
 

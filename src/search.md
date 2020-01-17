@@ -1,4 +1,4 @@
-@def title = "Search ⋅ JuDoc"
+@def title = "Search ⋅ Franklin"
 
 ## Search
 

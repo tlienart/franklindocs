@@ -13,14 +13,14 @@ reviewed: 22/12/19
 
 # Classes
 
-\blurb{Use JuDoc's classes or add your own.}
+\blurb{Use Franklin's classes or add your own.}
 
 \lineskip
 
 By now you know that you can add `@@divname ... @@` anywhere you want in your content in order to define an environment and style it.
 Below we detail the default classes as well as some tricks that can be useful to style  your content.
 
-## JuDoc's classes
+## Franklin's classes
 
 @@lalignb
 | Name | Function |
@@ -67,4 +67,4 @@ and for instance:
 
 gives you: \spstyle{font-variant:small-caps;font-size:15px;color:cornflowerblue}{formatted text}.
 
-in fact, that one is pre-defined in JuDoc, `\textcss{style}{text}` does precisely that.
+in fact, that one is pre-defined in Franklin, `\textcss{style}{text}` does precisely that.

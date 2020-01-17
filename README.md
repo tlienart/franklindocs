@@ -1,6 +1,6 @@
-# JuDocWeb
+# Franklin Docs
 
-Website for [JuDoc.jl](https://github.com/tlienart/JuDoc.jl). 
+Website for [Franklin.jl](https://github.com/tlienart/Franklin.jl).
 
 ## Dev note
 

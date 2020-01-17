@@ -24,7 +24,7 @@ Finally, in your `src/_html_parts/head.html` add
 
 ## Offline-generated plot
 
-Assuming you already have the Plotly code for some plot, displaying  the  result on a page with JuDoc is now pretty straightforward.
+Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward.
 Start by adding
 
 ```
@@ -63,7 +63,7 @@ This will give:
 
 ## Live-generated plot
 
-One step further is to use `PlotlyJS` to define a  plot then pass the result to  JuDoc.
+One step further is to use `PlotlyJS` to define a  plot then pass the result to  Franklin.
 Start by adding `PlotlyJS` and `Random` to your environment:
 
 ```julia-repl

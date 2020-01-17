@@ -24,7 +24,7 @@ $> npm install cheerio
 
 ### Files
 
-Copy [this folder](https://github.com/tlienart/JuDocWeb/tree/master/libs/lunr) to a `/assets/libs/lunr/` directory.
+Copy [this folder](https://github.com/tlienart/FranklinWeb/tree/master/libs/lunr) to a `/assets/libs/lunr/` directory.
 Discard the `lunr_index.js` which is the index of this website, you will rebuild your own of course!
 
 The important files are `build_index.js` and `lunrclient.js` (of  which a minified version is provided which you will want to re-generate if you modify the base file).
@@ -120,7 +120,7 @@ Note that if you modify the `id` of these elements, you  will need to adapt the 
 
 ## Building/updating the index
 
-JuDoc exports a `lunr()` function which
+Franklin exports a `lunr()` function which
 
 @@tlist
 - checks that you have the right files at the right place,
@@ -137,7 +137,7 @@ When you are ready to update your website you  can either:
 @@
 
 The `publish(final=lunr)` calls the `lunr` function as a last step prior to doing a `git push`.
-An advantage of using this is that JuDoc will properly handle the `prepath` if there is one defined in  your `config.md`.
+An advantage of using this is that Franklin will properly handle the `prepath` if there is one defined in  your `config.md`.
 
 \note{
   This `final=` keyword can be used with your own functions `()->nothing` if you need to do some post-processing with the generated files before pushing.

@@ -6,7 +6,7 @@ reviewed: 23/11/19
 
 # Building static websites in Julia
 
-\blurb{JuDoc is a simple and fast static site generator oriented towards technical blogging and light, fast-loading pages.}
+\blurb{Franklin is a simple and fast static site generator oriented towards technical blogging and light, fast-loading pages.}
 
 ## Key features
 
@@ -23,19 +23,19 @@ reviewed: 23/11/19
 
 ## Quick start
 
-To install JuDoc with Julia **≥ 1.1**,
+To install Franklin with Julia **≥ 1.1**,
 
 ```julia-repl
-(v1.3) pkg> add JuDoc
+(v1.3) pkg> add Franklin
 ```
 
 You can then just try it out:
 
 ```julia-repl
-julia> using JuDoc
+julia> using Franklin
 julia> newsite("mySite", template="pure-sm")
 ✓ Website folder generated at "mySite" (now the current directory).
-→ Use serve() from JuDoc to see the website in your browser.
+→ Use serve() from Franklin to see the website in your browser.
 
 julia> serve()
 → Initial full pass...
@@ -45,11 +45,11 @@ julia> serve()
 ```
 
 If you navigate to that URL in your browser, you will see the website. If you then open `src/index.md` in an  editor and modify it at will, the changes will be live rendered in your browser.
-You can also inspect the file `src/pages/menu1.md` which offers more examples of what JuDoc can do.
+You can also inspect the file `src/pages/menu1.md` which offers more examples of what Franklin can do.
 
 ## Installing optional extras
 
-JuDoc allows a post-processing step to compress HTML and CSS and pre-render code blocks and math environments.
+Franklin allows a post-processing step to compress HTML and CSS and pre-render code blocks and math environments.
 This requires a couple of dependencies:
 @@tlist
 * [`python3`](https://www.python.org/downloads/) for the minification of the site,
@@ -62,4 +62,4 @@ julia> using NodeJS
 julia> run(`sudo $(npm_cmd()) install highlight.js`)
 ```
 
-Assuming you have `python3`, JuDoc will try to install the python package [`css_html_js_minify`](https://github.com/juancarlospaco/css-html-js-minify) via `pip3`.
+Assuming you have `python3`, Franklin will try to install the python package [`css_html_js_minify`](https://github.com/juancarlospaco/css-html-js-minify) via `pip3`.

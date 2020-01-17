@@ -6,13 +6,13 @@ reviewed: 22/12/2019
 
 # Tricks with code evaluation
 
-\blurb{JuDoc's recursive nature coupled with code evaluation allows for neat and useful tricks.}
+\blurb{Franklin's recursive nature coupled with code evaluation allows for neat and useful tricks.}
 
 \lineskip
 
 \toc
 
-The basic idea is to exploit the fact that the output of a Julia code block evaluated by JuDoc can be re-processed as JuDoc Markdow when using the `\textoutput` command; this offers a wide range of possibilities best shown through a few examples (more or less in increasing degree of sophistication).
+The basic idea is to exploit the fact that the output of a Julia code block evaluated by Franklin can be re-processed as Franklin Markdow when using the `\textoutput` command; this offers a wide range of possibilities best shown through a few examples (more or less in increasing degree of sophistication).
 
 ## Generating a table
 
@@ -148,7 +148,7 @@ The last thing to do is to style the `colors` div appropriately:
 ## Team cards
 
 You may want to have a page with responsive team cards for instance where every card would follow the same layout but the content would be different.
-There are multiple ways you can do this with JuDoc and a simple one below (adapted from [this tutorial](https://www.w3schools.com/hotwo/howto_css_team.asp)).
+There are multiple ways you can do this with Franklin and a simple one below (adapted from [this tutorial](https://www.w3schools.com/hotwo/howto_css_team.asp)).
 The advantage of doing something like this is that it can help separate the content from the layout making both arguably easier more maintainable.
 
 ### Preview
@@ -352,7 +352,7 @@ That's about it! though of course a bit of CSS styling is needed such as:
 
 ## Python code blocks
 
-Using [PyCall.jl](https://github.com/JuliaPy/PyCall.jl) you can evaluate Python code in Julia, and so you can do that in JuDoc too.
+Using [PyCall.jl](https://github.com/JuliaPy/PyCall.jl) you can evaluate Python code in Julia, and so you can do that in Franklin too.
 The code below could definitely be improved and generalised but the point here is to show how things can work together.
 You could adapt this to work with something like [RCall.jl](https://github.com/JuliaInterop/RCall.jl) as well.
 

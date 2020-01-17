@@ -4,7 +4,7 @@
 reviewed: 22/12/19
 -->
 
-# Working with JuDoc
+# Working with Franklin
 
 \blurb{Set things up in minutes and focus on writing great content.}
 
@@ -21,7 +21,7 @@ You can optionally specify a template:
 ```julia-repl
 julia> newsite("TestWebsite"; template="vela")
 ✓ Website folder generated at "TestWebsite" (now the current directory).
-→ Use serve() from JuDoc to see the website in your browser.
+→ Use serve() from Franklin to see the website in your browser.
 ```
 
 There are a number of [simple templates](https://tlienart.github.io/JuDocTemplates.jl/) you can choose from and tweak.
@@ -89,7 +89,7 @@ In this folder,
 * `_css` contains the `css` style sheets for your website.
 @@
 
-\note{You can also write pages in plain HTML and place them in the `src/` folder. These files will be copied over to the `pub/` folder as they are. For instance you may prefer to directly write an `index.html` file instead of generating it via the `index.md`. You will still need to put it at the  exact same place (`src/index.html`) and let JuDoc copy the files appropriately.}
+\note{You can also write pages in plain HTML and place them in the `src/` folder. These files will be copied over to the `pub/` folder as they are. For instance you may prefer to directly write an `index.html` file instead of generating it via the `index.md`. You will still need to put it at the  exact same place (`src/index.html`) and let Franklin copy the files appropriately.}
 
 ### Organising assets
 
@@ -214,4 +214,4 @@ Note that in order to run them, you will need a couple of external dependencies 
 
 The `publish` function accepts a `final=` keyword to which you can pass any function `() -> nothing` which may do some final post-processing before pushing updates online.
 
-For instance you can pass `final=lunr` where `lunr` is a function exported by JuDoc which generates a Lunr search index (see [this tutorial](http://localhost:8000/pub/extras/lunr.html) for more details).
+For instance you can pass `final=lunr` where `lunr` is a function exported by Franklin which generates a Lunr search index (see [this tutorial](http://localhost:8000/pub/extras/lunr.html) for more details).
