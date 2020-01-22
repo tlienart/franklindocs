@@ -1,11 +1,4 @@
 <!--
-.jd_cntent
-.jd_toc
-.fn*
-...
- -->
-
-<!--
 reviewed: 22/12/19
 -->
 
@@ -25,8 +18,8 @@ Below we detail the default classes as well as some tricks that can be useful to
 @@lalignb
 | Name | Function |
 | ------ | ---- |
-| `jd-content` | wraps around the content of a page, so when a `mypage.md` is converted to some html, it gets inserted in the scaffolding as `<div class="jd-content"> some html </div>`
-| `jd-toc` | wraps around the inserted table of contents
+| `franklin-content` | wraps around the content of a page, so when a `mypage.md` is converted to some html, it gets inserted in the scaffolding as `<div class="franklin-content"> some html </div>`
+| `franklin-toc` | wraps around the inserted table of contents
 | `fnref` | wraps around a footnote reference
 | `fndef` | wraps around footnote definitions
 | `fndef-content` | wraps around the content of footnote definitions

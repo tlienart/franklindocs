@@ -9,4 +9,4 @@ data   = PlotlyJS.contour(; z=z)
 layout = PlotlyJS.Layout(; title="Basic Contour Plot")
 plt    = PlotlyJS.plot(data, layout)
 
-jdplotly(plt) # hide
+fdplotly(plt) # hide

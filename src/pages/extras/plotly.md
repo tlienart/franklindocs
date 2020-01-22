@@ -76,7 +76,7 @@ Then, beyond the `@def hasplotly = true`, add the following code in an evaluated
 #hideall
 import PlotlyJS, Random
 
-function jdplotly(plt, id="jdp"*Random.randstring('a':'z', 3),
+function fdplotly(plt, id="fdp"*Random.randstring('a':'z', 3),
 	 	  	  style="width:600px;height:350px;")
 	println("""
 	~~~
@@ -94,7 +94,7 @@ end
 #hideall
 import PlotlyJS, Random
 
-function jdplotly(plt, id="jdp"*Random.randstring('a':'z', 3),
+function fdplotly(plt, id="fdp"*Random.randstring('a':'z', 3),
 	 	  	  style="width:600px;height:350px;")
 	println("""
 	~~~
@@ -110,7 +110,7 @@ end
 
 It defines a function that prints Markdown very similar to what we used earlier to display a Plotly plot.
 
-You can now use `PlotlyJS` to define a plot and use `jdplotly` to display it on your page.
+You can now use `PlotlyJS` to define a plot and use `fdplotly` to display it on your page.
 The following code:
 
 `````
@@ -125,7 +125,7 @@ data   = PlotlyJS.contour(; z=z)
 layout = PlotlyJS.Layout(; title="Basic Contour Plot")
 plt    = PlotlyJS.plot(data, layout)
 
-jdplotly(plt) # hide
+fdplotly(plt) # hide
 ```
 \textoutput{ex1}
 `````
@@ -143,6 +143,6 @@ data   = PlotlyJS.contour(; z=z)
 layout = PlotlyJS.Layout(; title="Basic Contour Plot")
 plt    = PlotlyJS.plot(data, layout)
 
-jdplotly(plt) # hide
+fdplotly(plt) # hide
 ```
 \textoutput{ex1}

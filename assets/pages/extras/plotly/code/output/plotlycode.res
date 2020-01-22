@@ -1,1 +1,1 @@
-jdplotly (generic function with 3 methods)
+fdplotly (generic function with 3 methods)

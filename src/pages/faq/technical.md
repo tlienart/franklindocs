@@ -17,7 +17,7 @@ For the reference basically a footnote is inserted as
 
 \esch{footnote_1}{<sup id="fnref:1"><a href="/pub/menu1.html#fndef:1" class="fnref">[1]</a></sup>}
 
-So you can style that with the class `.jd_content sup a.fnref`.
+So you can style that with the class `.franklin-content sup a.fnref`.
 
 For definitions, it's inserted as a table like:
 
@@ -30,24 +30,24 @@ For definitions, it's inserted as a table like:
 </table>
 }
 
-so you can style the back-reference via the `.jd-content fndef td.fndef-backref` and the text of the definition via `.jd-content fndef td.fndef-content`; for instance, consider the following base styling:
+so you can style the back-reference via the `.franklin-content fndef td.fndef-backref` and the text of the definition via `.franklin-content fndef td.fndef-content`; for instance, consider the following base styling:
 
 ```css
-.jd-content table.fndef  {
+.franklin-content table.fndef  {
     margin: 0;
     margin-bottom: 10px;}
-.jd-content .fndef tr, td {
+.franklin-content .fndef tr, td {
     padding: 0;
     border: 0;
     text-align: left;}
-.jd-content .fndef tr {
+.franklin-content .fndef tr {
     border-left: 2px solid lightgray;
     }
-.jd-content .fndef td.fndef-backref {
+.franklin-content .fndef td.fndef-backref {
     vertical-align: top;
     font-size: 70%;
     padding-left: 5px;}
-.jd-content .fndef td.fndef-content {
+.franklin-content .fndef td.fndef-content {
     font-size: 80%;
     padding-left: 10px;}
 ```

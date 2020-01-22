@@ -178,7 +178,7 @@ The `publish` function is an easy way to deploy your website after making some c
 Basically it:
 @@tlist
 - applies an optional optimisation step (see below)
-- does a `git add -A; git commit -am "jd-update"; git push`
+- does a `git add -A; git commit -am "franklin-update"; git push`
 @@
 
 ### Verification

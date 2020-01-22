@@ -16,10 +16,10 @@ reviewed: 23/11/19
 
 ## Experimenting
 
-Beyond directly experimenting in a project folder, you  can also explore what HTML is generated with the `jd2html` function:
+Beyond directly experimenting in a project folder, you  can also explore what HTML is generated with the `fd2html` function:
 
 ```julia-repl
-julia> """Set `x` to 1, see [the docs](http://example.com).""" |> jd2html
+julia> """Set `x` to 1, see [the docs](http://example.com).""" |> fd2html
 "&lt;p&gt;Set &lt;code&gt;x&lt;/code&gt; to 1, see &lt;a href&#61;&quot;http://example.com&quot;&gt;the docs&lt;/a&gt;.&lt;/p&gt;\n"
 ```
 
@@ -133,7 +133,7 @@ Outside code environments, there are a few quirks in dealing with symbols:
 ## Table of contents
 
 Franklin can insert an automatically generated table of contents simply by using `\toc` or `\tableofcontents` somewhere appropriate in your markdown.
-The table of contents will be generated in a `jd-toc` div block, so if you would like to modify the styling, you should modify `.jd-toc ol`, `.jd-toc li` etc in your CSS.
+The table of contents will be generated in a `franklin-toc` div block, so if you would like to modify the styling, you should modify `.franklin-toc ol`, `.franklin-toc li` etc in your CSS.
 
 You can specify the minimum and maximum header level to control the table of contents nesting using `@def mintoclevel=2` and `@def maxtoclevel=3` where, here, it would build a table of contents with the `h2` and `h3` headers only (this is the setting used here for instance).
 
@@ -194,6 +194,8 @@ If you do this, you might want to slightly modify it to ensure that the Julia-re
 ```plaintext
 hljs.registerLanguage("julia-repl",function(a){return{c:[{cN:"meta",b:/^julia>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"julia"}},{cN:"metas",b:/^shell>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"bash"}},{cN:"metap",b:/^\(.*\)\spkg>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"julia"}}]}});
 ```
+
+(see also [the README](https://github.com/tlienart/FranklinTemplates.jl#notes) of FranklinTemplates).
 
 ### Evaluated code blocks
 

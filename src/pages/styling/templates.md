@@ -198,10 +198,10 @@ td#layout-menu {
 }
 ```
 
-and let's reduce the padding on the left of the `jd-content` element:
+and let's reduce the padding on the left of the `franklin-content` element:
 
 ```css
-.jd-content { padding-left: 5%; }
+.franklin-content { padding-left: 5%; }
 ```
 
 Finally, in the original stylesheet there is this element:
@@ -225,7 +225,7 @@ Here we don't need to adjust anything else but, in general, you might want to ad
 
 @@tlist
 * `head_highlight`, `head_katex`, `foot_highlight` and `foot_katex` are probably best left as they are, they will be appended if need be to pages (see in `head` and `foot` the `{{if hasmath}}` and `{{if hascode}}` blocks)
-* `page_foot` you may want to change, it defines what goes at the bottom of the `.jd-content` div.
+* `page_foot` you may want to change, it defines what goes at the bottom of the `.franklin-content` div.
 @@
 
 By default `page_foot` looks like

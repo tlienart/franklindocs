@@ -160,7 +160,7 @@ Remember that:
 - you can also define your own variables (with different names),
 - you can change the default value of a variable by defining it in your `config.md`.
 @@
-Note that variables shown below that have a  name starting with  `jd_` are _not meant to be defined_ as their value is  typically  computed  on the fly (but they can be used).
+Note that variables shown below that have a  name starting with  `fd_` are _not meant to be defined_ as their value is  typically  computed  on the fly (but they can be used).
 
 ### Basic settings
 
@@ -178,7 +178,7 @@ Note that variables shown below that have a  name starting with  `jd_` are _not 
 | `maxtoclevel` | `Int` | `100` | maximum title level to go in the table of content
 | `fd_ctime` | `Date` | see comment | time of creation of the markdown file
 | `fd_mtime` | `Date` | see comment | time of last modification of the markdown file
-| `jd_rpath` | `String` | see comment | local path to file `src/(...)/thispage.md`
+| `fd_rpath` | `String` | see comment | local path to file `src/(...)/thispage.md`
 @@
 
 **Notes**:\\
@@ -197,7 +197,7 @@ For more informations on these, see the section on [inserting and evaluating cod
 | `freezecode` | `Bool` | `false` | prevents evaluation of any code block on the  page
 | `showall` | `Bool` | `false` | notebook mode if `true` where the output of the code block is shown below
 | `literate_only` | `Bool` | `true` | when using Literate, if this is `true` then Franklin will assume that the included literate script is the only source of code on the page
-| `jd_code`      | `String` | `""` | the raw script corresponding to the active code blocks on the page
+| `fd_code`      | `String` | `""` | the raw script corresponding to the active code blocks on the page
 @@
 
 ### RSS

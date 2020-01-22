@@ -236,11 +236,11 @@ Three types of hyper-references are supported in Franklin:
 
 The syntax for all three is close to that of standard LaTeX.
 
-To style the appearance of the maths or bib links in CSS, use `.jd-content.eqref a` and `.jd-content.bibref a` classes; for instance:
+To style the appearance of the maths or bib links in CSS, use `.franklin-content.eqref a` and `.franklin-content.bibref a` classes; for instance:
 
 ```css
-.jd-content .eqref a  {color: blue;}
-.jd-content .bibref a {color: green;}
+.franklin-content .eqref a  {color: blue;}
+.franklin-content .bibref a {color: green;}
 ```
 
 ### Equations

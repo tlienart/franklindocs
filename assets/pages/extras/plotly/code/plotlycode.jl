@@ -2,7 +2,7 @@
 #hideall
 import PlotlyJS, Random
 
-function jdplotly(plt, id="jdp"*Random.randstring('a':'z', 3),
+function fdplotly(plt, id="fdp"*Random.randstring('a':'z', 3),
 	 	  	  style="width:600px;height:350px;")
 	println("""
 	~~~
