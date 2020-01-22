@@ -24,7 +24,7 @@ julia> newsite("TestWebsite"; template="vela")
 → Use serve() from Franklin to see the website in your browser.
 ```
 
-There are a number of [simple templates](https://tlienart.github.io/JuDocTemplates.jl/) you can choose from and tweak.
+There are a number of [simple templates](https://tlienart.github.io/FranklinTemplates.jl/) you can choose from and tweak.
 
 Once you have created a new website folder, you can start the live-rendering of your website with
 
