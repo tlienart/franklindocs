@@ -14,11 +14,11 @@ reviewed: 22/12/19
 
 \lineskip
 
-The pre-defined templates that are currently available in Franklin with the `newsite` function can be viewed ~~~<a href="https://tlienart.github.io/JuDocTemplates.jl/" target="_blank" rel="noopener noreferrer">here</a>~~~ (_opens in a new tab_).
+The pre-defined templates that are currently available in Franklin with the `newsite` function can be viewed ~~~<a href="https://tlienart.github.io/FranklinTemplates.jl/" target="_blank" rel="noopener noreferrer">here</a>~~~ (_opens in a new tab_).
 
 ## Adapting a theme to Franklin
 
-\note{If you end up doing this, please consider making a PR to [JuDocTemplates](https://github.com/tlienart/JuDocTemplates.jl)!}
+\note{If you end up doing this, please consider making a PR to [FranklinTemplates](https://github.com/tlienart/FranklinTemplates.jl)!}
 
 On this page, I'll take [Jemdoc's website layout](http://jemdoc.jaboc.net/) and show how it can be adapted to be a working Franklin template.
 This will hopefully also show you how to adapt / modify an existing template.
@@ -246,7 +246,7 @@ Let's say you've built your own template and are pretty happy with the result an
 
 ### Create a new folder
 
-Head to the [JuDocTemplates.jl](https://github.com/tlienart/JuDocTemplates.jl) repository and make a PR.
+Head to the [FranklinTemplates.jl](https://github.com/tlienart/FranklinTemplates.jl) repository and make a PR.
 The key is to keep track of what you've modified and what was left as before so that the repo is not cluttered with copies of the same file.
 
 In the example above the following files were changed:
@@ -257,7 +257,7 @@ In the example above the following files were changed:
 @@
 
 The JuDoc Templates repository automatically fills in the gap so you just have to provide the files that have changed.
-Imitate the structure corresponding to [`basic`](https://github.com/tlienart/JuDocTemplates.jl/tree/master/src/templates/basic/src):
+Imitate the structure corresponding to [`basic`](https://github.com/tlienart/FranklinTemplates.jl/tree/master/src/templates/basic/src):
 
 ```
 .
@@ -282,7 +282,7 @@ So in the case of `jemdoc`, I will create a new folder `jemdoc` in `src/template
 
 ### Add your template to the list
 
-Next, you need to indicate the new template in `JuDocTemplates.jl` by simply adding it to the `LIST_OF_TEMPLATES` constant.
+Next, you need to indicate the new template in `FranklinTemplates.jl` by simply adding it to the `LIST_OF_TEMPLATES` constant.
 
 Then, you need to add a description for your template in `docs/make.jl` (please respect the alphabetical order and follow the examples).
 
