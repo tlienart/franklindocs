@@ -5,7 +5,7 @@
   &lt;meta name&#61;&quot;viewport&quot; content&#61;&quot;width&#61;device-width, initial-scale&#61;1&quot;&gt;
   &#123;&#123;if hasmath&#125;&#125; &#123;&#123;insert head_katex.html &#125;&#125;     &#123;&#123;end&#125;&#125;
   &#123;&#123;if hascode&#125;&#125; &#123;&#123;insert head_highlight.html &#125;&#125;   &#123;&#123;end&#125;&#125;
-  &lt;link rel&#61;&quot;stylesheet&quot; href&#61;&quot;/css/judoc.css&quot;&gt;
+  &lt;link rel&#61;&quot;stylesheet&quot; href&#61;&quot;/css/franklin.css&quot;&gt;
   &lt;link rel&#61;&quot;stylesheet&quot; href&#61;&quot;/css/jemdoc.css&quot;&gt;
   &lt;link rel&#61;&quot;icon&quot; href&#61;&quot;/assets/infra/favicon.png&quot;&gt;
   &#123;&#123;isdef title&#125;&#125; &lt;title&gt;&#123;&#123;fill title&#125;&#125;&lt;/title&gt;  &#123;&#123;end&#125;&#125;

@@ -68,7 +68,7 @@ That folder has the following structure:
 ```plaintext
 .
 ├── _css
-│   ├── judoc.css
+│   ├── franklin.css
 │   └── ...
 ├── _html_parts
 │   ├── head.html

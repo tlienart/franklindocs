@@ -115,7 +115,7 @@ The `head.html` should be adapted to:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{if hasmath}} {{insert head_katex.html }}     {{end}}
   {{if hascode}} {{insert head_highlight.html }}   {{end}}
-  <link rel="stylesheet" href="/css/judoc.css">
+  <link rel="stylesheet" href="/css/franklin.css">
   <link rel="stylesheet" href="/css/jemdoc.css">
   <link rel="icon" href="/assets/infra/favicon.png">
   {{isdef title}} <title>{{fill title}}</title>  {{end}}
@@ -162,7 +162,7 @@ By now the page looks pretty bad:
 the content is not centred in its box and overflows on the right, the menu looks ridiculous, time to do some CSS styling!
 
 Let's start by removing everything from `src/_css/jemdoc.css`.
-Most of what's in there was used for the styling of the top navbar which we don't have anymore (note that the styling of the content itself is in `judoc.css`, don't change that for now; note also that `jemdoc.css` is loaded *after* `judoc.css` so that you can overwrite the styles there).
+Most of what's in there was used for the styling of the top navbar which we don't have anymore (note that the styling of the content itself is in `franklin.css`, don't change that for now; note also that `jemdoc.css` is loaded *after* `franklin.css` so that you can overwrite the styles there).
 
 Let's now just copy paste the content of the [two](http://jemdoc.jaboc.net/jemdoc.css) [original](http://jemdoc.jaboc.net/jacob.css) stylesheets into ours and hope for the best, we may have some fine-tuning to do after this.
 
@@ -233,7 +233,7 @@ By default `page_foot` looks like
 \esch{j6}{
 <div class="page-foot">
   <div class="copyright">
-    &copy; {{ fill author }}. Last modified: {{ fill jd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 }
@@ -256,7 +256,7 @@ In the example above the following files were changed:
 * `jemdoc.css` the stylesheet.
 @@
 
-The JuDoc Templates repository automatically fills in the gap so you just have to provide the files that have changed.
+The Franklin Templates repository automatically fills in the gap so you just have to provide the files that have changed.
 Imitate the structure corresponding to [`basic`](https://github.com/tlienart/FranklinTemplates.jl/tree/master/src/templates/basic/src):
 
 ```
