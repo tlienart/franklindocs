@@ -1,6 +1,5 @@
 @def hascode = true
 @def hasplotly = true
-@def reeval = true
 
 # Work with Plotly
 
