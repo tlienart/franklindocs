@@ -33,9 +33,9 @@ These files are adapted from [this repository](https://github.com/BLE-LTER/Lunr-
 
 You can choose whether to serve your own copy of `lunr.min.js` (done here) or to use an online version via
 
-\esch{h0}{
-  <script src="https://unpkg.com/lunr/lunr.js"></script>
-}
+```html
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+```
 
 
 ### Index builder
@@ -74,7 +74,7 @@ You might want to modify the `parseLunrResults` if you want the results to be  d
 
 The search box on this website is added with the following HTML in `src/_html_parts/head.html`:
 
-\esch{h1}{
+```html
 <!doctype html>
 <!-- first few lines ... -->
   <script src="/libs/lunr/lunr.min.js"></script>
@@ -87,7 +87,7 @@ The search box on this website is added with the following HTML in `src/_html_pa
   <input type="submit" value="Search" formaction="/search.html">
 </form>
 <-- ... -->
-}
+```
 
 You may want to style it a bit like so:
 
@@ -104,7 +104,7 @@ You may want to style it a bit like so:
 
 You also need to add a `src/search.md` to display the results with the appropriate divs:
 
-\esc{m0}{
+```html
 @def title = "Search ⋅ YourWebsite"
 
 ## Search
@@ -114,7 +114,7 @@ Number of results found: ~~~<span id="resultCount"></span>~~~
 ~~~
 <div id="searchResults"></div>
 ~~~
-}
+```
 
 Note that if you modify the `id` of these elements, you  will need to adapt the  `lunrclient` file(s) accordingly.
 

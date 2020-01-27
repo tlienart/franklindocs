@@ -1,0 +1,16 @@
+PyError ($(Expr(:escape, :(ccall(#= /Users/tlienart/.julia/packages/PyCall/ttONZ/src/pyfncall.jl:44 =# @pysym(:PyObject_Call), PyPtr, (PyPtr, PyPtr, PyPtr), o, pyargsptr, kw))))) <class 'FileNotFoundError'>
+FileNotFoundError(2, 'No such file or directory')
+  File "/Users/tlienart/.julia/conda/3/lib/python3.7/site-packages/matplotlib/pyplot.py", line 689, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/Users/tlienart/.julia/conda/3/lib/python3.7/site-packages/matplotlib/figure.py", line 2094, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/Users/tlienart/.julia/conda/3/lib/python3.7/site-packages/matplotlib/backend_bases.py", line 2075, in print_figure
+    **kwargs)
+  File "/Users/tlienart/.julia/conda/3/lib/python3.7/site-packages/matplotlib/backends/backend_svg.py", line 1206, in print_svg
+    with cbook.open_file_cm(filename, "w", encoding="utf-8") as fh:
+  File "/Users/tlienart/.julia/conda/3/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/Users/tlienart/.julia/conda/3/lib/python3.7/site-packages/matplotlib/cbook/__init__.py", line 407, in open_file_cm
+    fh, opened = to_filehandle(path_or_file, mode, True, encoding)
+  File "/Users/tlienart/.julia/conda/3/lib/python3.7/site-packages/matplotlib/cbook/__init__.py", line 392, in to_filehandle
+    fh = open(fname, flag, encoding=encoding)

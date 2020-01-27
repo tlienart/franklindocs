@@ -116,11 +116,11 @@ $$ \mathcal W_\psi[f] = \int_\R f(s)\psi(s)\mathrm{d}s = \scal{f,\psi} $$
 Commands can also be useful outside of maths environment.
 For instance, you could define a command to quickly set the style of some text:
 
-\esc{dc1}{
-  \newcommand{\styletext}[2]{~~~<span style="#1">#2</span>~~~}
+```html
+\newcommand{\styletext}[2]{~~~<span style="#1">#2</span>~~~}
 
-  Here is \styletext{color:magenta;font-size:14px;}{formatted text}.
-}
+Here is \styletext{color:magenta;font-size:14px;}{formatted text}.
+```
 
 \newcommand{\styletext}[2]{~~~<span style="#1">#2</span>~~~}
 
@@ -174,14 +174,14 @@ leads to this:
 
 To do this, you would define the command:
 
-\esc{dt3}{
-  \newcommand{\definition}[2]{
-    @@definition
-    **Definition**: (_!#1_)
-    #2
-    @@
-  }
+```html
+\newcommand{\definition}[2]{
+  @@definition
+  **Definition**: (_!#1_)
+  #2
+  @@
 }
+```
 
 and specify the styling of the `definition` div in your CSS:
 
@@ -289,9 +289,9 @@ As in LaTeX, if the reference is undefined on the page, the command will be repl
 You can specify anchor points on the page using `\label{name of the anchor}` anywhere on the page _outside_ of maths environment.
 This will insert an anchor:
 
-\esc{dc2}{
-  <a id="name-of-the-anchor"></a>
-}
+```html
+<a id="name-of-the-anchor"></a>
+```
 
 You can subsequently link to it on the same page:
 

@@ -60,11 +60,6 @@ Julia code blocks can be evaluated on the fly and their output either displayed 
     That being said, if you don't modify the code block, it will only be executed **once** as the output is saved to file.
 }
 
-\note{
-    **Sandboxing**: on-the-fly evaluation of code blocks is still a bit experimental. Among other things, the code is _not sandboxed_ which means that if you have two code blocks one after the other, the second one has access to what's defined in the first (like a notebook). This is natural within the same page, but it also works _across_ pages and  you should ensure that you don't rely on  this as the order in which pages are compiled depends on what you modify.
-}
-
-In short: take a page as a Julia notebook and make sure all your variables and functions you use are defined on that page.
 Code blocks that _should not_ be evaluated should be added as per standard markdown, so for instance:
 
 `````
@@ -124,7 +119,7 @@ a = [1, 2, 3]
 ```
 `````
 
-In order to show the raw output as a code block, write
+In order to show the raw output (whatever was captured in STDOUT) as a code block, write
 
 ```
 \output{./code_pg1/ex1}
@@ -132,7 +127,9 @@ In order to show the raw output as a code block, write
 
 which in the present example will introduce exactly the following HTML
 
-\esch{h1}{<pre><code class="language-julia">dot(a, a) = 14</code></pre>}
+```html
+<pre><code class="language-julia">dot(a, a) = 14</code></pre>
+```
 
 and will look like
 
@@ -163,6 +160,27 @@ println("The _average_ temperature is **$(mean(temps))°C**.")
 ```
 
 The _average_ temperature is **16.3°C**.
+
+Finally if you want to show your code "notebook-style", i.e. both STDOUT and the result  of the last line, use `\show`:
+
+`````
+```julia:ex_show
+x = 5
+println("hello")
+x^2
+```
+\show{ex_show}
+`````
+
+resulting in:
+
+```julia:ex_show
+x = 5
+println("hello")
+x^2
+```
+\show{ex_show}
+
 
 ### Hiding lines
 
@@ -195,12 +213,12 @@ The _average_ temperature is **16.3°C**.
 ### Project.toml
 
 It can be convenient to set up your website as you would a Julia environment: _activating_ it and _adding_ the packages that you will use in code blocks.
-For this, just activate the environment as you would otherwise, this will generate a `Project.toml` which will subsequently  be used by Franklin without  you having to worry about it.
+In order to do this, just activate the environment as you would otherwise, this will generate a `Project.toml` which will subsequently  be used by Franklin without  you having to worry about it.
 
 For instance, let's say that you want to use `PyCall` in some code blocks, then before starting the Franklin server do
 
 ```julia-repl
-1.x pkg> activate .
+(1.x) pkg> activate .
 (myWebsite) pkg> add PyCall
 ```
 
@@ -219,7 +237,7 @@ This is particularly useful if you intend to write a tutorial website (for a liv
 Using the machinery introduced above, you can also evaluate  code that generates a  plot which you can then include on the page.
 In the example below, `PyPlot` is  used but you could do something  similar with  other frameworks.
 
-Assuming you've added `PyPlot` to your environment, and that the directory `/assets/pages/figs` exists, this markdown
+Assuming you've added `PyPlot` to your environment, this markdown
 
 `````markdown
 ```julia:pyplot1
@@ -229,10 +247,10 @@ x = range(-2, 2, length=500)
 for α in 1:5
     plot(x, sinc.(α .* x))
 end
-savefig("assets/pages/figs/sinc.svg") # hide
+savefig(joinpath(@OUTPUT, "sinc.svg")) # hide
 ```
 
-![](/assets/pages/figs/sinc.svg)
+\fig{sinc}
 `````
 
 will give:
@@ -244,10 +262,12 @@ x = range(-2, 2, length=500)
 for α in 1:5
     plot(x, sinc.(α .* x))
 end
-savefig("assets/pages/figs/sinc.svg") # hide
+savefig(joinpath(@OUTPUT, "sinc.svg")) # hide
 ```
 
-![](/assets/pages/figs/sinc.svg)
+\fig{sinc}
+
+**Note**: observe that here everything is done with relative paths, `pyplot1` is placed in the  `/assets/` folder relatively to the path of the current page and the `\fig` since it's given a path that doesn't start with  `/` or `./` will also  look in  that folder to try to find a figure which starts with the name `sinc`. See also [more about paths](#more_on_paths).
 
 ### Troubleshooting
 
@@ -255,13 +275,20 @@ A few  things can go  wrong when attempting to use and evaluate code blocks.
 The first thing to do  if no output is shown or an error appears is to  make sure that:
 
 @@tlist
-1. if the code uses packages, these packages are in the local environment,
+1. if the code uses packages, these packages are available in the local environment,
 1. the code "just works" in the REPL.
 @@
 
-If this is the case and you  still have issues, then  you may want to force re-evaluation of the code on the page as, sometimes, the cached code may become stale (particluarly if you have many code blocks on the  page).
+If this is the case and you  still have issues, then  you may want to force re-evaluation of the code on the page.
 In such a case, try adding `@def reeval = true` on the page which will cause **all** code blocks on the page to be completely re-evaluated and their output re-generated.
 Assuming that helped, you will then want to remove that line as  otherwise that page will be fully  re-evaluated _every single time the page is modified_ which will cause  an unnecessary overhead.
+
+**Important note**: unless you explicitly use `@def reeval = true`, code blocks are evaluated *only* if:
+@@tlist
+- an earlier code block has been evaluated (in which case, since their results may depend on  it, all subsequent blocks  are  re-evaluated),
+- the content of the code block has changed.
+@@
+An example where this can be a bit tricky is if your code block calls a function on a file, for instance `read(file, String)`; if the underlying *file* is changed, the code block will **not** be re-evaluated (since the code doesn't change), so in such cases you will want to use a `@def reeval = true`.
 
 ## Offline evaluation (any language)
 
@@ -275,7 +302,7 @@ The philosophy here is:
 
 That way, if you modify the code, everything will be updated on the website too while ensuring that the code actually runs and generates the output you're displaying.
 
-Again, the script files can contain `# hide` at the end of lines you do not want to show.
+Again, the script files can contain `# hide` at the end of lines you do not want to show (`#` to be replaced by whatever symbol indicates comments in that language).
 
 The `generate_results.jl` file should run the scripts and redirect outputs to the `assets/[path]/output` directory.
 You can use something like the script below (if you generate an example website with `newsite`, it's already in there) though you can of course modify it as you wish.
@@ -323,21 +350,21 @@ In order to insert the code of a script and have it highlighted you can use
 \input{julia}{scripts/script1.jl}
 ```
 
-or `\input{code:julia}{scripts/script1.jl}`. This will insert the content of the file `/assets/scripts/script1.jl` (see also the section earlier on paths) into a block that will be highlighted as julia code.
+This will insert the content of the file `/assets/scripts/script1.jl` (see also the section earlier on paths) into a block that will be highlighted as julia code.
 
 ### Plain-text output
 
 In order to insert the plain-text output of a script, you can use
 
 ```
-\input{output}{scripts/script1.jl}
+\output{scripts/script1.jl}
 ```
 
-or `\input{output:plain}{scripts/script1.jl}`. This will insert the content of the file `/assets/scripts/script1.out` into a non-highlighted code-block.
+This will insert the content of the file `/assets/scripts/script1.out` into a non-highlighted code-block.
 
 ### Plot output
 
-In order to insert a plot generated by a script, you can use
+In order to insert a plot generated by a script, you can use `\fig` as indicated earlier or
 
 ```
 \input{plot}{scripts/script1.jl}

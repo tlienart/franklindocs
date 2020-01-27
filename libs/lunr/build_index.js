@@ -3,7 +3,7 @@ var fs      = require("fs");
 var lunr    = require("lunr");
 var cheerio = require("cheerio");
 
-// don't modify this, it'll be modified on the fly by lunr() in Franlin
+// don't modify this, it'll be modified on the fly by lunr() in Franklin
 const PATH_PREPEND = "..";
 
 const HTML_FOLDER  = "../../pub";

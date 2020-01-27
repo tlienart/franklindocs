@@ -24,7 +24,7 @@ names = (:Taimur, :Catherine, :Maria, :Arvind, :Jose, :Minjie)
 numbers = (1525, 5134, 4214, 9019, 8918, 5757)
 println("@@simple-table")
 println("Name | Number")
-println("--- | ---")
+println(":--- | :---")
 println.("$name | $number" for (name, number) in zip(names, numbers))
 println("@@")
 raw"""
@@ -51,7 +51,7 @@ That can be obtained with:
 names = (:Taimur, :Catherine, :Maria, :Arvind, :Jose, :Minjie)
 numbers = (1525, 5134, 4214, 9019, 8918, 5757)
 println("Name | Number")
-println("--- | ---")
+println(":--- | :---")
 println.("$name | $number" for (name, number) in zip(names, numbers))
 ```
 
@@ -63,7 +63,7 @@ In practice, the code generates the markdown
 
 ```markdown
 Name | Number
---- | ---
+:--- | :---
 Bob | 1525
 ...
 Minjie | 5757
@@ -95,13 +95,14 @@ println("@@")
 
 That can obtained with (see detailed explanations further below)
 
-\esc{evtricks1}{\newcommand{\circle}[1]{
+```html
+\newcommand{\circle}[1]{
   ~~~
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 4">
   <circle cx="2" cy="2" r="1.5" fill="#1"/></svg>
   ~~~
-  }
 }
+```
 
 and
 
@@ -260,24 +261,24 @@ raw"""
 
 In order to do this you could first define a `\card` command:
 
-\esc{evtricks2}{
-  \newcommand{\card}[4]{
-    @@card
-      ![#1](/assets/pages/code/img/postcard.jpg)
-      @@container
-        ~~~
-        <h2>#1</h2>
-        ~~~
-        @@title #2 @@
-        @@vitae #3 @@
-        @@email #4 @@
-        ~~~
-        <p><button class="button">Contact</button></p>
-        ~~~
-      @@
+```html
+\newcommand{\card}[4]{
+  @@card
+    ![#1](/assets/pages/code/img/postcard.jpg)
+    @@container
+      ~~~
+      <h2>#1</h2>
+      ~~~
+      @@title #2 @@
+      @@vitae #3 @@
+      @@email #4 @@
+      ~~~
+      <p><button class="button">Contact</button></p>
+      ~~~
     @@
-  }
+  @@
 }
+```
 
 And then use it in a loop that goes over each person:
 
@@ -385,7 +386,7 @@ np.round(r, 2)
 We first define a `\pycode` command that takes lines of python code, adds a `res = ` before the last line, runs the lines and finally show `res`.
 It also inputs the lines of code in a fenced block.
 
-`````
+`````plaintext
 \newcommand{\pycode}[2]{
 ```julia:!#1
 #hideall
@@ -407,10 +408,10 @@ calling the command is straightforward:
 
 `````
 \pycode{py1}{
-import numpy as np
-np.random.seed(2)
-x = np.random.randn(5)
-r = np.linalg.norm(x) / len(x)
-np.round(r, 2)
+  import numpy as np
+  np.random.seed(2)
+  x = np.random.randn(5)
+  r = np.linalg.norm(x) / len(x)
+  np.round(r, 2)
 }
 `````

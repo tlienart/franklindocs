@@ -1,0 +1,5 @@
+`````html  &lt;div class&#61;&quot;page-foot&quot;&gt;
+  &lt;div class&#61;&quot;copyright&quot;&gt;
+    &amp;copy; &#123;&#123; fill author &#125;&#125;. Last modified: &#123;&#123; fill fd_mtime &#125;&#125;. Website built with &lt;a href&#61;&quot;https://github.com/tlienart/Franklin.jl&quot;&gt;Franklin.jl&lt;/a&gt;.
+  &lt;/div&gt;
+&lt;/div&gt; `````

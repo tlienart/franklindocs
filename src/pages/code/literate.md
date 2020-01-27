@@ -17,7 +17,7 @@
 You can combine this with Franklin with the `\literate` command which you can call in Franklin like:
 
 ```
-\literate{/scripts/script.jl}`
+\literate{/scripts/script.jl}
 ```
 
 it does what you expect:

@@ -1,0 +1,9 @@
+`````plaintext  @def title &#61; &quot;Search ⋅ YourWebsite&quot;
+
+## Search
+
+Number of results found: ~~~&lt;span id&#61;&quot;resultCount&quot;&gt;&lt;/span&gt;~~~
+
+~~~
+&lt;div id&#61;&quot;searchResults&quot;&gt;&lt;/div&gt;
+~~~ `````

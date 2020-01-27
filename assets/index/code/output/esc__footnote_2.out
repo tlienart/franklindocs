@@ -1,0 +1,6 @@
+`````html  &lt;table class&#61;&quot;fndef&quot; id&#61;&quot;fndef:blah&quot;&gt;
+    &lt;tr&gt;
+        &lt;td class&#61;&quot;fndef-backref&quot;&gt;&lt;a href&#61;&quot;/pub/menu1.html#fnref:blah&quot;&gt;&#91;2&#93;&lt;/a&gt;&lt;/td&gt;
+        &lt;td class&#61;&quot;fndef-content&quot;&gt;this is another footnote&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt; `````

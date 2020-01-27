@@ -1,11 +1,11 @@
-<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/franklindocs/libs/highlight/github.min.css"> <link rel=stylesheet  href="/franklindocs/css/jtd.css"> <link rel=icon  href="/franklindocs/assets/infra/logoF_square.gif"> <title>Work with Plotly</title> <script src="/franklindocs/libs/lunr/lunr.min.js"></script> <script src="/franklindocs/libs/lunr/lunr_index.js"></script> <script src="/franklindocs/libs/lunr/lunrclient.min.js"></script> <script src="/franklindocs/libs/plotly/plotly.min.js"></script> <div class=page-wrap > <div class=side-bar > <div class=header > <a href="/franklindocs/" class=title > <img style="height:60px;" src="/franklindocs/assets/infra/franklin.svg" alt=franklin  /> <style> @media (max-width: 31.25rem){ .side-bar .show-menu {height:30px;} } @media (max-width: 50rem) { .side-bar .header .title {padding-top:0; padding-bottom: 0;} .header .title img {height:60px; max-width: 100px !important;} } @media (min-width: 66.5rem){ .header .title img {max-width: 140px !important;} } </style> </a> </div> <label for=show-menu  class=show-menu >MENU</label> <input type=checkbox  id=show-menu  role=button > <div class=menu  id=side-menu > <ul class=menu-list > <li class="menu-list-item "><a href="/franklindocs/" class=menu-list-link >• Home</a> <li class="menu-list-item "><a href="/franklindocs/pub/workflow.html" class=menu-list-link >• Workflow</a> <li class="menu-list-parent "><a href="/franklindocs/pub/syntax/markdown.html" class=menu-list-link >• Syntax</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/syntax/markdown.html" class=menu-list-link >Markdown</a> <li class="menu-list-item "><a href="/franklindocs/pub/syntax/divs-commands.html" class=menu-list-link >Divs and Commands</a> <li class="menu-list-item "><a href="/franklindocs/pub/syntax/page-variables.html" class=menu-list-link >Page Variables</a> </ul> <li class="menu-list-parent "><a href="/franklindocs/pub/styling/templates.html" class=menu-list-link >• Styling</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/styling/templates.html" class=menu-list-link >Templates</a> <li class="menu-list-item "><a href="/franklindocs/pub/styling/classes.html" class=menu-list-link >Classes</a> </ul> <li class="menu-list-parent "><a href="/franklindocs/pub/code/inserting-code.html" class=menu-list-link >• Code</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/code/inserting-code.html" class=menu-list-link >Inserting code</a> <li class="menu-list-item "><a href="/franklindocs/pub/code/eval-tricks.html" class=menu-list-link >Code tricks</a> <li class="menu-list-item "><a href="/franklindocs/pub/code/literate.html" class=menu-list-link >Literate.jl</a> </ul> <li class="menu-list-parent active"><a href="/franklindocs/pub/extras/extras.html" class=menu-list-link >• Extras</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/extras/extras.html" class=menu-list-link >Extras</a> <li class="menu-list-item "><a href="/franklindocs/pub/extras/lunr.html" class=menu-list-link >Lunr search</a> <li class="menu-list-item "><a href="/franklindocs/pub/extras/literate.html" class=menu-list-link >Literate</a> <li class="menu-list-item active"><a href="/franklindocs/pub/extras/plotly.html" class=menu-list-link >Plotly</a> </ul> <li class="menu-list-parent "><a href="/franklindocs/pub/faq/technical.html" class=menu-list-link >• FAQ</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/faq/technical.html" class=menu-list-link >Technical</a> <li class="menu-list-item "><a href="/franklindocs/pub/faq/troubleshooting.html" class=menu-list-link >Troubleshooting</a> <li class="menu-list-item "><a href="/franklindocs/pub/faq/why-o-why.html" class=menu-list-link >Meta</a> </ul> </ul> <form id=lunrSearchForm  name=lunrSearchForm > <input class=search-input  name=q  placeholder="Enter search term" type=text > <input type=submit  value=Search  formaction="/franklindocs/search.html"> </form> </div> <div class=footer > <a href="/franklindocs/pub/faq/why-o-why.html"><img style="width:40%;padding-left:10px;margin-bottom:15px;" src="/franklindocs/assets/infra/logoF2.svg" alt="Franlin Logo" /></a> </div> </div> <div class=main-content-wrap > <div class=main-content > <div class=main-header > <a name=pagetop ></a> <a id=github  href="https://github.com/tlienart/Franlin.jl">GitHub Repository</a> </div> <div class=franklin-content > <h1 id=work_with_plotly ><a href="/franklindocs/pub/extras/plotly.html#work_with_plotly">Work with Plotly</a></h1> <p>If you want interactive plots on some pages and are not afraid of using heavy javascript libraries, then <a href="https://plot.ly/javascript/">Plotly</a> is a nice library. The Julia wrapper <a href="https://github.com/sglyon/PlotlyJS.jl">PlotlyJS.jl</a> can be used to generate Plotly plots.</p> <h2 id=pre-requisites ><a href="/franklindocs/pub/extras/plotly.html#pre-requisites">Pre-requisites</a></h2> <p>Download <a href="https://cdn.plot.ly/plotly-latest.min.js"><code>plotly.min.js</code></a> saving it to <code>/libs/plotly/plotly.min.js</code>.</p> <p>Then create a variable <code>hasplotly</code> with default value <code>false</code>: in your <code>config.md</code> write</p> <pre><code class=language-julia >@def hasplotly = false</code></pre>
+<!doctype html> <html lang=en > <meta charset=UTF-8 > <meta name=viewport  content="width=device-width, initial-scale=1"> <link rel=stylesheet  href="/franklindocs/libs/highlight/github.min.css"> <link rel=stylesheet  href="/franklindocs/css/jtd.css"> <link rel=icon  href="/franklindocs/assets/infra/logoF_square.gif"> <title>Work with Plotly</title> <script src="/franklindocs/libs/lunr/lunr.min.js"></script> <script src="/franklindocs/libs/lunr/lunr_index.js"></script> <script src="/franklindocs/libs/lunr/lunrclient.min.js"></script> <script src="/franklindocs/libs/plotly/plotly.min.js"></script> <div class=page-wrap > <div class=side-bar > <div class=header > <a href="/franklindocs/" class=title > <img style="height:60px;" src="/franklindocs/assets/infra/franklin.svg" alt=franklin  /> <style> @media (max-width: 31.25rem){ .side-bar .show-menu {height:30px;} } @media (max-width: 50rem) { .side-bar .header .title {padding-top:0; padding-bottom: 0;} .header .title img {height:60px; max-width: 100px !important;} } @media (min-width: 66.5rem){ .header .title img {max-width: 140px !important;} } </style> </a> </div> <label for=show-menu  class=show-menu >MENU</label> <input type=checkbox  id=show-menu  role=button > <div class=menu  id=side-menu > <ul class=menu-list > <li class="menu-list-item "><a href="/franklindocs/" class=menu-list-link >• Home</a> <li class="menu-list-item "><a href="/franklindocs/pub/workflow.html" class=menu-list-link >• Workflow</a> <li class="menu-list-parent "><a href="/franklindocs/pub/syntax/markdown.html" class=menu-list-link >• Syntax</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/syntax/markdown.html" class=menu-list-link >Markdown</a> <li class="menu-list-item "><a href="/franklindocs/pub/syntax/divs-commands.html" class=menu-list-link >Divs and Commands</a> <li class="menu-list-item "><a href="/franklindocs/pub/syntax/page-variables.html" class=menu-list-link >Page Variables</a> </ul> <li class="menu-list-parent "><a href="/franklindocs/pub/styling/templates.html" class=menu-list-link >• Styling</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/styling/templates.html" class=menu-list-link >Templates</a> <li class="menu-list-item "><a href="/franklindocs/pub/styling/classes.html" class=menu-list-link >Classes</a> </ul> <li class="menu-list-parent "><a href="/franklindocs/pub/code/inserting-code.html" class=menu-list-link >• Code</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/code/inserting-code.html" class=menu-list-link >Inserting code</a> <li class="menu-list-item "><a href="/franklindocs/pub/code/eval-tricks.html" class=menu-list-link >Code tricks</a> <li class="menu-list-item "><a href="/franklindocs/pub/code/literate.html" class=menu-list-link >Literate.jl</a> </ul> <li class="menu-list-parent active"><a href="/franklindocs/pub/extras/extras.html" class=menu-list-link >• Extras</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/extras/extras.html" class=menu-list-link >Extras</a> <li class="menu-list-item "><a href="/franklindocs/pub/extras/lunr.html" class=menu-list-link >Lunr search</a> <li class="menu-list-item "><a href="/franklindocs/pub/extras/literate.html" class=menu-list-link >Literate</a> <li class="menu-list-item active"><a href="/franklindocs/pub/extras/plotly.html" class=menu-list-link >Plotly</a> </ul> <li class="menu-list-parent "><a href="/franklindocs/pub/faq/technical.html" class=menu-list-link >• FAQ</a> <ul class="menu-list-child-list "> <li class="menu-list-item "><a href="/franklindocs/pub/faq/technical.html" class=menu-list-link >Technical</a> <li class="menu-list-item "><a href="/franklindocs/pub/faq/troubleshooting.html" class=menu-list-link >Troubleshooting</a> <li class="menu-list-item "><a href="/franklindocs/pub/faq/why-o-why.html" class=menu-list-link >Meta</a> </ul> </ul> <form id=lunrSearchForm  name=lunrSearchForm > <input class=search-input  name=q  placeholder="Enter search term" type=text > <input type=submit  value=Search  formaction="/franklindocs/search.html"> </form> </div> <div class=footer > <a href="/franklindocs/pub/faq/why-o-why.html"><img style="width:40%;padding-left:10px;margin-bottom:15px;" src="/franklindocs/assets/infra/logoF2.svg" alt="Franklin Logo" /></a> </div> </div> <div class=main-content-wrap > <div class=main-content > <div class=main-header > <a name=pagetop ></a> <a id=github  href="https://github.com/tlienart/Franklin.jl">GitHub Repository</a> </div> <div class=franklin-content > <h1 id=work_with_plotly ><a href="/franklindocs/pub/extras/plotly.html#work_with_plotly">Work with Plotly</a></h1> <p>If you want interactive plots on some pages and are not afraid of using heavy javascript libraries, then <a href="https://plot.ly/javascript/">Plotly</a> is a nice library. The Julia wrapper <a href="https://github.com/sglyon/PlotlyJS.jl">PlotlyJS.jl</a> can be used to generate Plotly plots.</p> <h2 id=pre-requisites ><a href="/franklindocs/pub/extras/plotly.html#pre-requisites">Pre-requisites</a></h2> <p>Download <a href="https://cdn.plot.ly/plotly-latest.min.js"><code>plotly.min.js</code></a> saving it to <code>/libs/plotly/plotly.min.js</code>.</p> <p>Then create a variable <code>hasplotly</code> with default value <code>false</code>: in your <code>config.md</code> write</p> <pre><code class=language-julia >@def hasplotly = false</code></pre>
 <p>Finally, in your <code>src/_html_parts/head.html</code> add</p>
-     <pre><code class=language-plaintext >&#123;&#123;if hasplotly&#125;&#125; &lt;script src&#61;&quot;/libs/plotly/plotly.min.js&quot;&gt;&lt;/script&gt; &#123;&#123;end&#125;&#125;</code></pre>
+<pre><code class=language-html >&#123;&#123;if hasplotly&#125;&#125; &lt;script src&#61;&quot;/libs/plotly/plotly.min.js&quot;&gt;&lt;/script&gt; &#123;&#123;end&#125;&#125;</code></pre>
 <h2 id=offline-generated_plot ><a href="/franklindocs/pub/extras/plotly.html#offline-generated_plot">Offline-generated plot</a></h2>
 <p>Assuming you already have the Plotly code for some plot, displaying  the  result on a page with Franklin is now pretty straightforward. Start by adding</p>
 <pre><code class=language-julia >@def hasplotly = true</code></pre>
 <p>so that the JS library  will be  loaded then somewhere appropriate add:</p>
-     <pre><code class=language-html >~~~
+<pre><code class=language-html >~~~
 &lt;div id&#61;&quot;tester&quot; style&#61;&quot;width:600px;height:350px;&quot;&gt;&lt;/div&gt;
 
 &lt;script&gt;
@@ -29,63 +29,45 @@
 </script>
 
 <h2 id=live-generated_plot ><a href="/franklindocs/pub/extras/plotly.html#live-generated_plot">Live-generated plot</a></h2>
-<p>One step further is to use <code>PlotlyJS</code> to define a  plot then pass the result to  Franklin. Start by adding <code>PlotlyJS</code> and <code>Random</code> to your environment:</p>
+<p>One step further is to use <code>PlotlyJS</code> to define a  plot then pass the result to Franklin. Start by adding <code>PlotlyJS</code> and <code>Random</code> to your environment:</p>
 <pre><code class=language-julia-repl >(myWebsite) pkg> add PlotlyJS Random</code></pre>
-<p>Then, beyond the <code>@def hasplotly &#61; true</code>, add the following code in an evaluated Julia code block:</p>
-<pre><code class=language-julia >#hideall
-import PlotlyJS, Random
-
-function fdplotly(plt, id="fdp"*Random.randstring('a':'z', 3),
-	 	  	  style="width:600px;height:350px;")
-	println("""
-	~~~
-	&lt;div id&#61;&quot;&#36;id&quot; style&#61;&quot;&#36;style&quot;&gt;&lt;/div&gt;
-	&lt;script&gt;
-		var fig &#61; JSON.parse&#40;&#39;&#36;&#40;PlotlyJS.json&#40;plt&#41;&#41;&#39;&#41;;
-		CONTAINER &#61; document.getElementById&#40;&#39;&#36;id&#39;&#41;;
-		Plotly.plot&#40;CONTAINER, fig.data, fig.layout&#41;;
-	&lt;/script&gt;
-	~~~""")
-end</code></pre>
-
-<p>It defines a function that prints Markdown very similar to what we used earlier to display a Plotly plot.</p>
-<p>You can now use <code>PlotlyJS</code> to define a plot and use <code>fdplotly</code> to display it on your page. The following code:</p>
-<pre><code class=language-julia >```julia:ex1
+<p>Then, beyond the <code>@def hasplotly &#61; true</code>, add the following code:</p>
+<pre><code class=language-plaintext >```julia:ex1
 z =  [10     10.625  12.5  15.625  20
      5.625  6.25    8.125 11.25   15.625
      2.5    3.125   5.    8.125   12.5
      0.625  1.25    3.125 6.25    10.625
      0      0.625   2.5   5.625   10]
 
-data   = PlotlyJS.contour(; z=z)
-layout = PlotlyJS.Layout(; title="Basic Contour Plot")
-plt    = PlotlyJS.plot(data, layout)
+data   = contour(; z=z)
+layout = Layout(; title="Basic Contour Plot")
+plt    = plot(data, layout)
 
 fdplotly(plt) # hide
 ```
 \textoutput{ex1}</code></pre>
-<p>gives:</p>
+<p><strong>Note</strong>: the <code>fdplotly</code> is a convenience function exported by <code>Franklin</code>; it just prints the required HTML such that a plotly object gets placed. It takes two optional keyword arguments: <code>id</code> &#40;to specify the name of the div the plotly object is associated to, it&#39;s randomly generated by default&#41; and <code>style</code> which takes a string indicating the desired CSS for the div e.g. the default is <code>&quot;width:600px;height:350px&quot;</code>.</p>
+<p>The code block above gives:</p>
 <pre><code class=language-julia >z =  [10     10.625  12.5  15.625  20
      5.625  6.25    8.125 11.25   15.625
      2.5    3.125   5.    8.125   12.5
      0.625  1.25    3.125 6.25    10.625
      0      0.625   2.5   5.625   10]
 
-data   = PlotlyJS.contour(; z=z)
-layout = PlotlyJS.Layout(; title="Basic Contour Plot")
-plt    = PlotlyJS.plot(data, layout)
-</code></pre> <pre><code>
-	<div id=jdpcao  style="width:600px;height:350px;"></div>
-	<script>
-        var fig = JSON.parse('{"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]}');
-        CONTAINER = document.getElementById('jdpcao');
-        Plotly.plot(CONTAINER, fig.data, fig.layout);
-	</script>
-	</code></pre>
+data   = contour(; z=z)
+layout = Layout(; title="Basic Contour Plot")
+plt    = plot(data, layout)</code></pre> 
+<div id=fdpvkh  style="width:600px;height:350px"></div>
+
+<script>
+	var fig = {"layout":{"margin":{"l":50,"b":50,"r":50,"t":60},"title":"Basic Contour Plot"},"data":[{"type":"contour","z":[[10.0,5.625,2.5,0.625,0.0],[10.625,6.25,3.125,1.25,0.625],[12.5,8.125,5.0,3.125,2.5],[15.625,11.25,8.125,6.25,5.625],[20.0,15.625,12.5,10.625,10.0]]}]};
+	CONTAINER = document.getElementById('fdpvkh');
+	Plotly.newPlot(CONTAINER, fig.data, fig.layout)
+</script>
 
 <div class=page-foot >
   <div class=copyright >
-    &copy; Thibaut Lienart. Last modified: January 22, 2020. Website built with <a href="https://github.com/tlienart/Franlin.jl">Franlin.jl</a>.
+    &copy; Thibaut Lienart. Last modified: January 27, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 

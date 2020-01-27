@@ -27,11 +27,11 @@ where you could set the variable to a string, a number, a date,... anything, as 
 
 These variables can serve multiple purposes but, primarily, they can be accessed from the HTML template via things like
 
-\esch{footex}{
-  <footer>
-    This is the footer. &copy; {{fill author}}.
-  </footer>
-}
+```html
+<footer>
+  This is the footer. &copy; {{fill author}}.
+</footer>
+```
 
 where `{{ ... }}` indicates a HTML _function_, `fill` is the function name and the rest of the bracket elements are _page variables_ (here `author`) serving as arguments of the function.
 
@@ -68,7 +68,7 @@ A few functions are available with the `{{fill ...}}` arguably the most likely t
 
 @@lalign
 | Format | Role |
-| ------ | ---- |
+| :----: | :--: |
 | `{{fill vname}}` | place the value of page variable `vname`
 | `{{insert fpath}}` | insert the content of the file at `fpath`
 | `{{href  vname}}` | inserts a reference (_mostly internal use_)
@@ -77,16 +77,16 @@ A few functions are available with the `{{fill ...}}` arguably the most likely t
 
 The `{{insert fpath}}` can be useful if you want to include specific HTML scaffolding on some pages, for instance in example pages you will see in the `head.html`:
 
-\esch{bf1}{
-  {{if hasmath}} {{insert head_katex.html}} {{end}}
-}
+```html
+{{if hasmath}} {{insert head_katex.html}} {{end}}
+```
 
 ### Conditional blocks
 
 Conditional blocks allow to specify which parts of the HTML template should be active depending on the value of given page variable(s).
 The format follows this structure:
 
-\esc{condblock}{
+```html
 {{if vname}}
 ...
 {{elseif vname2}}
@@ -94,7 +94,7 @@ The format follows this structure:
 {{else}}
 ...
 {{end}}
-}
+```
 
 where `vname` and `vname2` are expected to be page variable evaluating to a boolean.
 Of course you don't have to specify the `{{elseif ...}}` or `{{else}}` if you don't need them.
@@ -108,7 +108,7 @@ You can also use some dedicated conditional blocks:
 
 @@lalign
 | Format | Role |
-| ------ | ---- |
+| :----: | :--: |
 | `{{ispage path/to/page}}` | whether the current page corresponds to the path
 | `{{isnotpage path/to/page}}` | opposite of previous
 | `{{isdef vname}}` | whether `vname` is defined
@@ -119,14 +119,14 @@ The `{{ispage ...}}` and `{{isnotpage ...}}` accept `*` as joker symbol; for ins
 
 Consider the following example (very similar to what is used on the current page):
 
-\esch{exispage}{
-  <li class="{{ispage pub/syntax/*}}active{{end}}">• Syntax
-  <ul>
-    <!-- ... -->
-    <li class="{{ispage pub/syntax/page-variables}}active{{end}}">Page Variables
-    <!-- ... -->
-  </ul>
-} <!--*-->
+```html
+<li class="{{ispage pub/syntax/*}}active{{end}}">• Syntax
+<ul>
+  <!-- ... -->
+  <li class="{{ispage pub/syntax/page-variables}}active{{end}}">Page Variables
+  <!-- ... -->
+</ul>
+```
 
 This allows a simple, javascript-free, way of having a navigation menu that is styled depending on which page is currently active.
 
@@ -137,7 +137,7 @@ These variables are best defined in your `config.md` file though you can overwri
 
 @@lalign
 | Name | Type(s) | Default value | Comment
-| ---- | ---- | ------------- | -------
+| :--: | :-----: | :-----------: | :-----:
 | `author` | `String, Nothing` | `"THE AUTHOR"` |
 | `date_format` | `String`  | `"U dd, yyyy"` | Must be a format recognised by Julia's `Dates.format`
 | `prepath`     | `String`  | `""` | Use if your website is a project website (\*)
@@ -175,10 +175,10 @@ Note that variables shown below that have a  name starting with  `fd_` are _not 
 | `reflinks` | `Bool` | `true`  | whether there are things like `[ID]: URL` on your page (\*\*)
 | `indented_code` | `Bool` | `true` | whether indented blocks should be considered as code (\*\*\*)
 | `mintoclevel` | `Int` | `1` | minimum title level to go in the table of content (often you'll want this to  be `2`)
-| `maxtoclevel` | `Int` | `100` | maximum title level to go in the table of content
-| `fd_ctime` | `Date` | see comment | time of creation of the markdown file
-| `fd_mtime` | `Date` | see comment | time of last modification of the markdown file
-| `fd_rpath` | `String` | see comment | local path to file `src/(...)/thispage.md`
+| `maxtoclevel` | `Int` | `10` | maximum title level to go in the table of content
+| `fd_ctime` | `Date` |  | time of creation of the markdown file
+| `fd_mtime` | `Date` |  | time of last modification of the markdown file
+| `fd_rpath` | `String` |  | relative path to file `src/[(...)/thispage.md]`
 @@
 
 **Notes**:\\
@@ -194,10 +194,8 @@ For more informations on these, see the section on [inserting and evaluating cod
 | Name | Type | Default value | Comment
 | ---- | ---- | ------------- | -------
 | `reeval` | `Bool` | `false` | whether to reevaluate all code blocks on the page
-| `freezecode` | `Bool` | `false` | prevents evaluation of any code block on the  page
 | `showall` | `Bool` | `false` | notebook mode if `true` where the output of the code block is shown below
-| `literate_only` | `Bool` | `true` | when using Literate, if this is `true` then Franklin will assume that the included literate script is the only source of code on the page
-| `fd_code`      | `String` | `""` | the raw script corresponding to the active code blocks on the page
+| `fd_eval` | `Bool` | `false` | internal variable to keep track of whether the scope is stale (in which case all subsequent blocks are re-evaluated)
 @@
 
 ### RSS

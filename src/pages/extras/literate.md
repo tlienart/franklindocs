@@ -65,9 +65,9 @@ You can see this live on the [MLJTutorials repo](https://github.com/alan-turing-
 
 You can link to these generated notebooks with links adapted from:
 
-\esch{h00}{
-   https://raw.githubusercontent.com/username/project/gh-pages/notebooks/theNotebook.ipynb
-}
+```plaintext
+https://raw.githubusercontent.com/username/project/gh-pages/notebooks/theNotebook.ipynb
+```
 
 See [this page](https://alan-turing-institute.github.io/MLJTutorials/pub/isl/lab-2.html) for example.
 

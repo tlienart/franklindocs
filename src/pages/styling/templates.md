@@ -46,9 +46,9 @@ The file `src/_html_parts/head.html` is the most important one you will have to 
 Let us first change the name of the main stylesheet `src/_css/basic.css` to `src/_css/jemdoc.css` which is more appropriate.
 The reference to the stylesheet in `head.html` consequently has to be changed to mention `jemdoc.css` instead of `basic.css`:
 
-\esch{j1}{
+```html
 <link rel="stylesheet" href="/css/jemdoc.css">
-}
+```
 
 The following step is fairly simple:
 
@@ -64,7 +64,7 @@ Jemdoc's body starts with a Google analytics script which I'll ignore as well.
 We then have effectively one big table element.
 Stripped from its content and simplified it looks like:
 
-\esch{j2}{
+```html
 <table id="tlayout">
   <tr valign="top">
     <td id="layout-menu">
@@ -85,14 +85,14 @@ Stripped from its content and simplified it looks like:
     </td>
   </tr>
 </table>
-}
+```
 
 Note that I've already filled in the `href=` in the links to sub-menus.
 
 The "`CONTENT HERE`" part is where what Franklin generates from Markdown will go.
 Therefore, anything that is *after* that should go in `foot.html`; in our current case:
 
-\esch{j3}{
+```html
 <!-- ... -->
       <div id="footer">
         <div id="footer-text">
@@ -102,12 +102,12 @@ Therefore, anything that is *after* that should go in `foot.html`; in our curren
     </td>
   </tr>
 </table>
-}
+```
 
 That's basically it (though we still have to modify the stylesheet of course).
 The `head.html` should be adapted to:
 
-\esch{j4}{
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -134,11 +134,11 @@ The `head.html` should be adapted to:
       <td id="layout-content">
 
 <!-- Content appended here -->
-}
+```
 
 and the `foot.html` should be adapted to:
 
-\esch{j5}{
+```html
 <!-- CONTENT ENDS HERE -->
         </td>
       </tr>
@@ -151,7 +151,7 @@ and the `foot.html` should be adapted to:
     {{ end }}
   </body>
 </html>
-}
+```
 
 ### Adapting the stylesheet
 
@@ -230,13 +230,13 @@ Here we don't need to adjust anything else but, in general, you might want to ad
 
 By default `page_foot` looks like
 
-\esch{j6}{
+```html
 <div class="page-foot">
   <div class="copyright">
     &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
-}
+```
 
 It should be fairly straightforward to adapt that to your needs.
 

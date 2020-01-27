@@ -1,0 +1,26 @@
+`````html  &lt;&#33;doctype html&gt;
+&lt;html lang&#61;&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset&#61;&quot;UTF-8&quot;&gt;
+  &lt;meta name&#61;&quot;viewport&quot; content&#61;&quot;width&#61;device-width, initial-scale&#61;1&quot;&gt;
+  &#123;&#123;if hasmath&#125;&#125; &#123;&#123;insert head_katex.html &#125;&#125;     &#123;&#123;end&#125;&#125;
+  &#123;&#123;if hascode&#125;&#125; &#123;&#123;insert head_highlight.html &#125;&#125;   &#123;&#123;end&#125;&#125;
+  &lt;link rel&#61;&quot;stylesheet&quot; href&#61;&quot;/css/franklin.css&quot;&gt;
+  &lt;link rel&#61;&quot;stylesheet&quot; href&#61;&quot;/css/jemdoc.css&quot;&gt;
+  &lt;link rel&#61;&quot;icon&quot; href&#61;&quot;/assets/infra/favicon.png&quot;&gt;
+  &#123;&#123;isdef title&#125;&#125; &lt;title&gt;&#123;&#123;fill title&#125;&#125;&lt;/title&gt;  &#123;&#123;end&#125;&#125;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;table id&#61;&quot;tlayout&quot;&gt;
+    &lt;tr valign&#61;&quot;top&quot;&gt;
+      &lt;td id&#61;&quot;layout-menu&quot;&gt;
+        &lt;div class&#61;&quot;menu-category&quot;&gt;jemdoc&lt;/div&gt;
+        &lt;div class&#61;&quot;menu-item&quot;&gt;&lt;a href&#61;&quot;index.html&quot; class&#61;&quot;current&quot;&gt;home&lt;/a&gt;&lt;/div&gt;
+      &lt;div class&#61;&quot;menu-category&quot;&gt;topics&lt;/div&gt;
+        &lt;div class&#61;&quot;menu-item&quot;&gt;&lt;a href&#61;&quot;/pub/menu1.html&quot;&gt;Menu 1&lt;/a&gt;&lt;/div&gt;
+        &lt;div class&#61;&quot;menu-item&quot;&gt;&lt;a href&#61;&quot;/pub/menu2.html&quot;&gt;Menu 2&lt;/a&gt;&lt;/div&gt;
+        &lt;div class&#61;&quot;menu-item&quot;&gt;&lt;a href&#61;&quot;/pub/menu3.html&quot;&gt;Menu 3&lt;/a&gt;&lt;/div&gt;
+      &lt;/td&gt;
+      &lt;td id&#61;&quot;layout-content&quot;&gt;
+
+&lt;&#33;-- Content appended here --&gt; `````

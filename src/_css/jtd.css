@@ -246,7 +246,7 @@ input[type=checkbox]{display: none;}
 input[type=checkbox]:checked ~ #side-menu{display: block;}
 
 /* side bar adjustments for narrow mode (bar on top) */
-@media (max-width : 50rem){
+@media (max-width : 49.99rem){
   /* Toggle menu off */
   .side-bar .menu {
     display: none;
@@ -741,4 +741,14 @@ ul.menu-list-child-list a.menu-list-link {
 }
 .lalignb th:nth-child(1){
   width:100px;
+}
+
+/* ================================================================== */
+/* Small additional divs */
+/* ================================================================== */
+
+.small-img {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
