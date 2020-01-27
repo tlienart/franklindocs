@@ -1,6 +1,0 @@
-`````html  &lt;li class&#61;&quot;&#123;&#123;ispage pub/syntax/*&#125;&#125;active&#123;&#123;end&#125;&#125;&quot;&gt;• Syntax
-&lt;ul&gt;
-  &lt;&#33;-- ... --&gt;
-  &lt;li class&#61;&quot;&#123;&#123;ispage pub/syntax/page-variables&#125;&#125;active&#123;&#123;end&#125;&#125;&quot;&gt;Page Variables
-  &lt;&#33;-- ... --&gt;
-&lt;/ul&gt; `````

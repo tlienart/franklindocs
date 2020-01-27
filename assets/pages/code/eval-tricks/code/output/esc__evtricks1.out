@@ -1,6 +1,0 @@
-`````plaintext  \newcommand&#123;\circle&#125;&#91;1&#93;&#123;
-~~~
-&lt;svg xmlns&#61;&quot;http://www.w3.org/2000/svg&quot; viewBox&#61;&quot;0 0 4 4&quot;&gt;
-&lt;circle cx&#61;&quot;2&quot; cy&#61;&quot;2&quot; r&#61;&quot;1.5&quot; fill&#61;&quot;#1&quot;/&gt;&lt;/svg&gt;
-~~~
-&#125; `````
