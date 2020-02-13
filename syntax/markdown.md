@@ -170,7 +170,7 @@ Code block:
 
 ### Highlighting
 
-Syntax highlighting is done via [highlight.js](https://highlightjs.org/) and you can find the relevant script in the  `libs/highlight/` folder.
+Syntax highlighting is done via [highlight.js](https://highlightjs.org/) and you can find the relevant script in the  `/_libs/highlight/` folder.
 The default one supports highlighting for Bash, CSS, Ini, Julia, Julia-repl, Markdown, plaintext, Python, R, Ruby, Xml and Yaml.
 Note that if you use pre-rendering, then the full `highlight.js` is used with support for over 100 languages.
 
@@ -183,7 +183,7 @@ this will not be highlighted
 ```
 `````
 
-If you wish to have higlighting for more languages outside of the pre-rendering mode, head to [highlight.js](https://highlightjs.org/), make a selection of languages and place the resulting `higlight.pack.js` in the `/libs/highlight/` folder.
+If you wish to have higlighting for more languages outside of the pre-rendering mode, head to [highlight.js](https://highlightjs.org/), make a selection of languages and place the resulting `higlight.pack.js` in the `/_libs/highlight/` folder.
 If you do this, you might want to slightly modify it to ensure that the Julia-repl mode is properly highlighted (e.g. `shell>`):
 
 @@tlist
@@ -224,7 +224,7 @@ round(norm(a), sigdigits=4)
 
 \show{snippet1}
 
-For more information on using evaluated code blocks, please head to the [code section](/pub/code/inserting-code.html) of the manual.
+For more information on using evaluated code blocks, please head to the [section on code insertion](/code/).
 
 ## Maths
 
@@ -312,6 +312,8 @@ savefig(joinpath(@OUTPUT, "test.png"))
 \fig{./output/test}
 `````
 
+This gives:
+
 ```julia:./ex1
 using PyPlot
 figure()
@@ -328,6 +330,8 @@ In fact the syntax `\fig{./test}` is also allowed, Franklin will then first look
 @@small-img
   \fig{./test}
 @@
+
+\note{Remember that these docs are written in Franklin so you can inspect the source directory if you would like to see the source markdown.}
 
 ### Inserting markdown
 

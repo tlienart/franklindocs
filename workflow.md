@@ -26,6 +26,8 @@ julia> newsite("TestWebsite"; template="vela")
 
 There are a number of [simple templates](https://tlienart.github.io/FranklinTemplates.jl/) you can choose from and tweak.
 
+\note{The templates are meant to be used as _starting points_ and will likely require some fixes to match what you want. Your help to make them better is very welcome.}
+
 Once you have created a new website folder, you can start the live-rendering of your website with
 
 ```julia-repl
@@ -56,8 +58,8 @@ After running `serve` the first time, an additional folder is generated: `__site
 Among these folders:
 
 @@tlist
-* the **main folder** is the top one and its subfolders, this is where the source files like `index.md` for your site are,
-* you should *not modify* the content of `__site` as it's *generated* and any changes you do in there will be silently over-written whenever you modify files elsewhere,
+* the files in the top folder such as `index.md` are the source files for the generated pages, you must have an `index.md` or `index.html` at the top level but can then use whatever folder structure you want (see further),
+* you should **not** modify the content of `__site` as it's *generated* and any changes you do in there may be silently over-written whenever you modify files elsewhere,
 * the folders `_assets/`, `_libs/`, `_layout` and  `_css` contain *auxiliary files* supporting your site:
   * `_assets/` will contain images, code snippets, etc.,
   * `_css/` will contain the style sheets,
@@ -72,10 +74,10 @@ In this folder,
 @@tlist
 * `index.md` will generate the site's landing page,
 * `pages/page1.md` would correspond to pages on your website (you can have whatever subfolder structure you want in here),
-* `config.md` allows to specify variables that help steer the page generation.
+* `config.md` allows to specify variables that help steer the page generation, you can also use it to declare global variables or definitions that can then be used on all pages.
 @@
 
-\note{You can also write pages in plain HTML. For instance you may prefer to directly write an `index.html` file instead of generating it via the `index.md`. You will still need to put it at the exact same place and let Franklin copy the files appropriately.}
+\note{You can also write pages in plain HTML. For instance you may want to write an `index.html` file instead of generating it via the `index.md`. You will still need to put it at the exact same place and let Franklin copy the files appropriately.}
 
 Note that Franklin generates a folder structure in `__site` which allows to have URLs like `[website]/page1/`. The following rules are applied:
 
@@ -138,76 +140,69 @@ There are a few useful options you can use beyond the barebone `serve()`, do `?s
 * `eval_all=false`, if set to `true`, will re-evaluate all code blocks on all pages.
 @@
 
-You can also verify that links on your website lead somewhere, to do so use the `verify_links()` function before deploying.
-It will take a few second to verify all links on every pages but can be quite helpful to identify dead links or links with typos.
+### Verifying links
+
+Before deploying you may want to verify that links on your website lead somewhere, to do so use the `verify_links()`.
+It will take a few second to verify all links on every generated pages but can be quite helpful to identify dead links or links with typos.
 
 ## Deploying your website
 
 In this section we'll assume that you want to host your website on GitHub or GitLab, either on a personal page or a project page.
-If you're using your own hosting server, you just need to copy/clone the content of your folder there.
+If you're using your own hosting server, you just need to copy/clone the content of `__site` there.
 
 Services like Netlify also provide an easy setup to link to a repo that contains your website.
 
-### On GitHub
+### Setting up
 
-The first step is to create a repository for a personal or a project website:
+If you haven't done so already, you need to make your website folder a git repository and link it with either a GitHub or GitLab repository; the steps below need to be done only once.
 
-* Follow the [guide on GitHub](https://pages.github.com/#user-site).
-
-Once the repository is created, clone it on your computer, remove whatever GitHub added there for you and copy the content of your website folder.
-
-If it's your personal website (base URL: `username.github.io/`) just use `publish()` and your website will be live in a matter of minutes.
-
-If it's a project website (base URL: `username.github.io/MyProject/`) there is one extra step needed, add this line in your `src/config.md` file:
-
-```markdown
-@def prepath = "MyProject"
-```
-
-then use `publish()`.
-This will make sure all links are adjusted to reflect the base URL.
-
-### On GitLab
-
-The first step is to create a repository for a personal or a project website:
-
-* Follow the [guide on GitLab](https://about.gitlab.com/product/pages/).
-
-Then there are two small differences with the GitHub process:
 @@tlist
-1. your website needs to be in a `public/` directory of the repository,
-1. you need to specify a CI/CD script that tells GitLab how to deploy the website.
+1. Create an empty repo on Git*; if you want a personal page you will need to  specify `username.github.io` or `username.gitlab.io` as the repo name (see [here for github](https://pages.github.com/), [here for gitlab](https://about.gitlab.com/stages-devops-lifecycle/pages/)).
+1. (GitHub only) set up secrets (see next point)
+1. In your local folder do
+  - `git init && git add -A && git commit -am "initial files"`
+  - `git remote add origin https://URL_TO_YOUR_REPO`
+  - `git push -u origin master`
 @@
-Luckily both of these can be done in one shot, all you need to do is add the following script to the `.gitlab-ci.yml` file in your repository:
 
-```yaml
-pages:
-  stage: deploy
-  script:
-    - mkdir .public
-    - cp -r * .public
-    - mv .public public
-  artifacts:
-    paths:
-      - public
-  only:
-    - master
-```
+and... that's it. The `newsite` command that you will have used initially also generated CI files for both GitHub and GitLab that, when pushed, will trigger a page deploy. In a few minutes your site will be online.
 
-The `script:` section tells the GitLab runner to copy all your files in a "virtual" `public/` directory.
-Note that this will not create a directory in your repo; it will just create one on GitLab in such a way that files can be rendered.
+### Setting up access tokens on GitHub
 
-\note{If your repository is private and you would like to avoid for some files to be in the `public/` folder, just add lines like `rm public/path/to/file1` in the `script:` section or use `rsync` instead of `cp`.}
+In order for the deployment action to work on GitHub, you need to set up an access token on GitHub. The steps are explained below but you [can read more on the topic here](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
+
+There are two steps: first you need to create the token, then you need to tell your site repo to use it.
+
+**STEP 1**:
+
+@@tlist
+1. Go to the [tokens generation page](https://github.com/settings/tokens) in your *Settings > Developper settings > Personal access tokens*  and click on _Generate new token_.
+1. Name the token `FRANKLIN` and click on the `repo` scope; then scroll to the bottom and click on **Generate token**.
+1. Click on the button to copy the key:
+@@
+
+![](/assets/img/generate_token.png)
+
+**STEP 2**:
+
+@@tlist
+* Go to the repository hosting your website and select *Settings > Secrets* then click on **Add new secret**,
+* Name the secret `FRANKLIN` and copy the key from the previous step. *Make sure that no whitespace is introduce before or after the key*.
+@@
+
+![](/assets/img/add_secret.png)
 
 
-## Publication step
+### Updating your website
 
-The `publish` function is an easy way to deploy your website after making some changes locally.
-Basically it:
+You essentially just need to commit and push changes. Franklin also provides a convenient `publish` function which:
+
 @@tlist
 - applies an optional optimisation step (see below)
 - does a `git add -A; git commit -am "franklin-update"; git push`
 @@
+
+See `?publish` for more information.
 
 ### Verification
 
@@ -238,8 +233,26 @@ See `?optimize` for options.
 Those two steps may lead to faster loading pages.
 Note that in order to run them, you will need a couple of external dependencies as mentioned in the [installation section](/index.html#installing_optional_extras).
 
-### Final step
+### Post-processing
 
 The `publish` function accepts a `final=` keyword to which you can pass any function `() -> nothing` which may do some final post-processing before pushing updates online.
 
 For instance you can pass `final=lunr` where `lunr` is a function exported by Franklin which generates a Lunr search index (see [this tutorial](http://localhost:8000/pub/extras/lunr.html) for more details).
+
+## Summary
+
+@@tlist
+1. use `newsite` to generate a website folder,
+1. use `serve` to build it and edit it,
+1. create a repository on GitHub or GitLab, if on GitHub create access tokens as explained earlier,
+1. initialise your website folder as a git repository and link it to the remote repository (you can use the git commands indicated earlier),
+1. when appropriate, use the `publish` function to push updates and trigger a deployment of the website.
+@@
+
+\note{If the site is a **project** site with a root URL of the form `[base]/myProject/`, make sure to add the line `@def prepath = "myProject"` in your `config.md` before using `publish`.}
+
+### Other providers
+
+* **Netlify**: just specify  `__site` as the build directory and that's it.
+
+\note{Help is welcome to complete these instructions}

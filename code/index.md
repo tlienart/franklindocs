@@ -88,22 +88,24 @@ The `[subpath]` here is the _exact same sub-path structure_ than to the page whe
 To clarify, let's say you wrote the above code-block in
 
 ```
-/src/pages/folder1/page1.md
+/folder1/page1.md
 ```
 
 then with the syntax above, the script will be saved in
 
 ```
-/assets/pages/folder1/code/ex1.jl
+/__site/assets/folder1/code/ex1.jl
 ```
 
 ### More on paths
 
 There are three ways you can specify where the script corresponding to a code-block should be saved.
 
+@@tlist
 1. _relative to the page_: `./[p]/script` is as above, it will write the code block to `/assets/[subpath]/p/script.jl` where `subpath` corresponds to the sub-path of the page where the code block is inserted (path below `/src/`)
 1. _relative to the assets dir_: `p/script` will write the code block to `/assets/p/script.jl`
 1. _full path_: `/p/script` will write the code block to `/p/script.jl`
+@@
 
 **Note**: when code blocks are evaluated, their output (`STDOUT`) is captured and saved at `[path]/output/script.out` where `[path]` is what precedes `script.jl` in the cases above.
 

@@ -37,13 +37,13 @@ julia> newsite("jemdoc", template="basic")
 
 You can serve the site in order to see the modifications directly in your browser which can be useful to fine tune the port of the layout.
 
-We will need to provide the appropriate stylesheet in `src/_css` and adjust the layout part in `src/_html_parts`.
+We will need to provide the appropriate stylesheet in `_css/` and adjust the layout part in `_layout/`.
 
 ### Adapting the head and foot
 
-The file `src/_html_parts/head.html` is the most important one you will have to adjust.
+The file `_html_parts/head.html` is the most important one you will have to adjust.
 
-Let us first change the name of the main stylesheet `src/_css/basic.css` to `src/_css/jemdoc.css` which is more appropriate.
+Let us first change the name of the main stylesheet `_css/basic.css` to `_css/jemdoc.css` which is more appropriate.
 The reference to the stylesheet in `head.html` consequently has to be changed to mention `jemdoc.css` instead of `basic.css`:
 
 ```html
@@ -69,11 +69,11 @@ Stripped from its content and simplified it looks like:
   <tr valign="top">
     <td id="layout-menu">
       <div class="menu-category">jemdoc</div>
-      <div class="menu-item"><a href="index.html" class="current">home</a></div>
+      <div class="menu-item"><a href="/" class="current">home</a></div>
     <div class="menu-category">topics</div>
-      <div class="menu-item"><a href="/pub/menu1.html">Menu 1</a></div>
-      <div class="menu-item"><a href="/pub/menu2.html">Menu 2</a></div>
-      <div class="menu-item"><a href="/pub/menu3.html">Menu 3</a></div>
+      <div class="menu-item"><a href="/menu1/">Menu 1</a></div>
+      <div class="menu-item"><a href="/menu2/">Menu 2</a></div>
+      <div class="menu-item"><a href="/menu3/">Menu 3</a></div>
     </td>
     <td id="layout-content">
       <p> CONTENT HERE </p>
@@ -127,9 +127,9 @@ The `head.html` should be adapted to:
         <div class="menu-category">jemdoc</div>
         <div class="menu-item"><a href="index.html" class="current">home</a></div>
       <div class="menu-category">topics</div>
-        <div class="menu-item"><a href="/pub/menu1.html">Menu 1</a></div>
-        <div class="menu-item"><a href="/pub/menu2.html">Menu 2</a></div>
-        <div class="menu-item"><a href="/pub/menu3.html">Menu 3</a></div>
+        <div class="menu-item"><a href="/menu1/">Menu 1</a></div>
+        <div class="menu-item"><a href="/menu2/">Menu 2</a></div>
+        <div class="menu-item"><a href="/menu3/">Menu 3</a></div>
       </td>
       <td id="layout-content">
 
@@ -161,7 +161,7 @@ By now the page looks pretty bad:
 
 the content is not centred in its box and overflows on the right, the menu looks ridiculous, time to do some CSS styling!
 
-Let's start by removing everything from `src/_css/jemdoc.css`.
+Let's start by removing everything from `_css/jemdoc.css`.
 Most of what's in there was used for the styling of the top navbar which we don't have anymore (note that the styling of the content itself is in `franklin.css`, don't change that for now; note also that `jemdoc.css` is loaded *after* `franklin.css` so that you can overwrite the styles there).
 
 Let's now just copy paste the content of the [two](http://jemdoc.jaboc.net/jemdoc.css) [original](http://jemdoc.jaboc.net/jacob.css) stylesheets into ours and hope for the best, we may have some fine-tuning to do after this.
@@ -243,6 +243,7 @@ It should be fairly straightforward to adapt that to your needs.
 ## Making a PR to the theme repo
 
 Let's say you've built your own template and are pretty happy with the result and you'd like to share it for other users, great, thanks!
+The steps are outlined below but don't hesitate to ping me should you need a hand with something.
 
 ### Create a new folder
 
@@ -261,23 +262,21 @@ Imitate the structure corresponding to [`basic`](https://github.com/tlienart/Fra
 
 ```
 .
-└── src
-    ├── _css
-    │   └── basic.css
-    └── _html_parts
-        └── head.html
+├── _css
+│   └── basic.css
+└── _layout
+    └── head.html
 ```
 
-So in the case of `jemdoc`, I will create a new folder `jemdoc` in `src/templates/` with
+So in the case of `jemdoc`, I will create a new folder `jemdoc` in `templates/` with
 
 ```
 .
-└── src
-    ├── _css
-    │   └── jemdoc.css
-    └── _html_parts
-        ├── foot.html
-        └── head.html
+├── _css
+│   └── jemdoc.css
+└── _layout
+    ├── foot.html
+    └── head.html
 ```
 
 ### Add your template to the list

@@ -59,7 +59,7 @@ In the first case, you can access variables in your HTML template via one of the
 
 ## HTML functions
 
-HTML functions can be used in any one of your `src/_html_parts/*.html` files such as `head.html`.
+HTML functions can be used in any one of your `*.html` file and in particular in any of the `_layout/*.html` files such as `head.html`.
 They are always called with the syntax `{{fname pv1 pv2 ...}}` where `pv1 pv2 ...` are page variable names.
 
 ### Basic functions
@@ -115,15 +115,15 @@ You can also use some dedicated conditional blocks:
 | `{{isnotdef vname}}` | opposite of previous
 @@
 
-The `{{ispage ...}}` and `{{isnotpage ...}}` accept `*` as joker symbol; for instance `{{ispage pub/maths/*}}` is allowed.
+The `{{ispage ...}}` and `{{isnotpage ...}}` accept `*` as joker symbol; for instance `{{ispage maths/*}}` is allowed.
 
 Consider the following example (very similar to what is used on the current page):
 
 ```html
-<li class="{{ispage pub/syntax/*}}active{{end}}">• Syntax
+<li class="{{ispage syntax/*}}active{{end}}">• Syntax
 <ul>
   <!-- ... -->
-  <li class="{{ispage pub/syntax/page-variables}}active{{end}}">Page Variables
+  <li class="{{ispage syntax/page-variables}}active{{end}}">Page Variables
   <!-- ... -->
 </ul>
 ```
@@ -145,6 +145,7 @@ These variables are best defined in your `config.md` file though you can overwri
 | `website_descr`| `String` | `""` | (RSS)
 | `website_url`  | `String` | `""` | (RSS)
 | `generate_rss` | `Bool` | `true` |
+| `folder_structure` | `VersionNumber` | `v"0.2"` | only relevant for users of Franklin < 0.5, see [NEWS.md](http://github.com/tlienart/Franklin.jl/NEWS.md)
 @@
 
 **Notes**:\\
@@ -178,7 +179,7 @@ Note that variables shown below that have a  name starting with  `fd_` are _not 
 | `maxtoclevel` | `Int` | `10` | maximum title level to go in the table of content
 | `fd_ctime` | `Date` |  | time of creation of the markdown file
 | `fd_mtime` | `Date` |  | time of last modification of the markdown file
-| `fd_rpath` | `String` |  | relative path to file `src/[(...)/thispage.md]`
+| `fd_rpath` | `String` |  | relative path to file `[(...)/thispage.md]`
 @@
 
 **Notes**:\\
@@ -188,7 +189,7 @@ Note that variables shown below that have a  name starting with  `fd_` are _not 
 
 ### Code evaluation
 
-For more informations on these, see the section on [inserting and evaluating code](/pub/code/inserting-code.html).
+For more informations on these, see the section on [inserting and evaluating code](/code/).
 
 @@lalign
 | Name | Type | Default value | Comment
