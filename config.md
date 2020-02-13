@@ -9,8 +9,6 @@
 
 @def hasplotly = false
 
-@def folder_structure = v"0.1"
-
 <!--
 Useful HTML snippets
 * \blurb{...} for a blurb at the top of a page
