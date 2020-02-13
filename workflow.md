@@ -183,6 +183,8 @@ There are two steps: first you need to create the token, then you need to tell y
 
 ![](/assets/img/generate_token.png)
 
+\note{You may want to save that key somewhere safe as you will need it again if you create another Franklin repo.}
+
 **STEP 2**:
 
 @@tlist
