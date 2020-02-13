@@ -284,7 +284,7 @@ A simple example is if you want to colour your text; for instance with a `<span 
 
 You could also use this to locally customise a layout etc.
 
-\note{Inside a raw HTML block, you cannot use markdown, maths, etc. For this reason, it is often preferable to use nested `@@divname...@@` blocks instead of raw HTML since those _can_ have markdown, maths, etc. in them. (See [inserting divs](/pub/syntax/divs-commands.html).)}
+\note{Inside a raw HTML block, you cannot use markdown, maths, etc. For this reason, it is often preferable to use nested `@@divname...@@` blocks instead of raw HTML since those _can_ have markdown, maths, etc. in them. (See [inserting divs](/syntax/divs-commands.html).)}
 
 ## File insertions
 A few commands are defined to help you with insertions of content; you can also define your own commands using custom HTML as was discussed before.

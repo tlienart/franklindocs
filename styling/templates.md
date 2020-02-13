@@ -258,7 +258,7 @@ In the example above the following files were changed:
 @@
 
 The Franklin Templates repository automatically fills in the gap so you just have to provide the files that have changed.
-Imitate the structure corresponding to [`basic`](https://github.com/tlienart/FranklinTemplates.jl/tree/master/src/templates/basic/src):
+Imitate the structure corresponding to [`basic`](https://github.com/tlienart/FranklinTemplates.jl/tree/master/src/templates/basic/):
 
 ```
 .

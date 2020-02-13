@@ -239,7 +239,7 @@ Note that in order to run them, you will need a couple of external dependencies 
 
 The `publish` function accepts a `final=` keyword to which you can pass any function `() -> nothing` which may do some final post-processing before pushing updates online.
 
-For instance you can pass `final=lunr` where `lunr` is a function exported by Franklin which generates a Lunr search index (see [this tutorial](http://localhost:8000/pub/extras/lunr.html) for more details).
+For instance you can pass `final=lunr` where `lunr` is a function exported by Franklin which generates a Lunr search index (see [this tutorial](/extras/lunr.html) for more details).
 
 ## Summary
 
@@ -249,7 +249,9 @@ For instance you can pass `final=lunr` where `lunr` is a function exported by Fr
 1. create a repository on GitHub or GitLab, if on GitHub create access tokens as explained earlier,
 1. initialise your website folder as a git repository and link it to the remote repository (you can use the git commands indicated earlier),
 1. when appropriate, use the `publish` function to push updates and trigger a deployment of the website.
+1. wait a few minutes for the site to appear online (even if the GitHub/GitLab action has completed, the site won't appear immediately).
 @@
+
 
 \note{If the site is a **project** site with a root URL of the form `[base]/myProject/`, make sure to add the line `@def prepath = "myProject"` in your `config.md` before using `publish`.}
 
