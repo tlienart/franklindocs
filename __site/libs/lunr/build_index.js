@@ -77,7 +77,7 @@ function buildPreviews(docs) {
         var doc = docs[i];
         result[doc["id"]] = {
             "t": doc["t"],
-            "l": doc["l"].replace(/^\.\.\/\.\./gi, '../' + PATH_PREPEND)
+            "l": doc["l"].replace(/^\.\.\/\.\./gi, '/' + PATH_PREPEND)
         }
     }
     return result;
