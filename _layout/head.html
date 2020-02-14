@@ -46,7 +46,11 @@
           <!-- HOME -->
           <li class="menu-list-item {{ispage index}}active{{end}}"><a href="/" class="menu-list-link">• Home</a>
           <!-- WORKFLOW -->
-          <li class="menu-list-item {{ispage workflow}}active{{end}}"><a href="/workflow/" class="menu-list-link">• Workflow</a>
+		  <li class="menu-list-parent {{ispage workflow/*}}active{{end}}"><a href="/workflow/" class="menu-list-link">• Workflow</a>
+			  <ul class="menu-list-child-list ">
+				<li class="menu-list-item {{ispage workflow/index.html}}active{{end}}"><a href="/workflow/" class="menu-list-link">Create and edit</a>
+				<li class="menu-list-item {{ispage workflow/deploy}}active{{end}}"><a href="/workflow/deploy/" class="menu-list-link">Deploy</a>
+			  </ul>
           <!-- SYNTAX -->
           <!-- NOTE: if adding a menu item, add ref to first item! -->
           <li class="menu-list-parent {{ispage syntax/*}}active{{end}}"><a href="/syntax/markdown/" class="menu-list-link">• Syntax</a>
@@ -71,7 +75,7 @@
 		  <!-- EXTRAs -->
 		  <li class="menu-list-parent {{ispage extras/*}}active{{end}}"><a href="/extras/" class="menu-list-link">• Extras</a>
 			  <ul class="menu-list-child-list ">
-				<li class="menu-list-item {{ispage extras/index.html}}active{{end}}"><a href="/extras/" class="menu-list-link">Extras</a>
+				<li class="menu-list-item {{ispage extras/index.html}}active{{end}}"><a href="/extras/" class="menu-list-link">Overview</a>
 				<li class="menu-list-item {{ispage extras/lunr}}active{{end}}"><a href="/extras/lunr/" class="menu-list-link">Lunr search</a>
 				<li class="menu-list-item {{ispage extras/literate}}active{{end}}"><a href="/extras/literate/" class="menu-list-link">Literate</a>
 				<li class="menu-list-item {{ispage extras/plotly}}active{{end}}"><a href="/extras/plotly/" class="menu-list-link">Plotly</a>
