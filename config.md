@@ -2,8 +2,6 @@
 @def hasmath = false              <!-- mostly there's no maths on pages -->
 @def generate_rss = false
 
-@def prepath = "franklindocs"     <!-- it's a GitHub project website -->
-
 @def mintoclevel = 2              <!-- TOCS only for level h2 and higher -->
 @def maxtoclevel = 3              <!-- TOCS only up to level 3 included -->
 
