@@ -8,7 +8,7 @@ The Julia wrapper [PlotlyJS.jl](https://github.com/sglyon/PlotlyJS.jl) can be us
 
 ## Pre-requisites
 
-Download [`plotly.min.js`](https://cdn.plot.ly/plotly-latest.min.js) saving it to `/libs/plotly/plotly.min.js`.
+Download [`plotly.min.js`](https://cdn.plot.ly/plotly-latest.min.js) saving it to `/_libs/plotly/plotly.min.js`.
 
 Then create a variable `hasplotly` with default value `false`: in your `config.md` write
 
