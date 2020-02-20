@@ -66,7 +66,7 @@ Now you need to synchronise your repository and your local website folder; to do
 
 It is **crucial** to change branch to `dev` (or any other name that you like that is not `master`). This is because a user/org site **must** be deployed from the `master` branch.
 
-Now, in an editor, open the file `.github/workflows/` and change the `on` section to
+Now, in an editor, open the file `.github/workflows/deploy.yml` and change the `on` section to
 
 ```yaml
 on:
