@@ -85,7 +85,7 @@ data   = contour(; z=z)
 layout = Layout(; title="Basic Contour Plot")
 plt    = plot(data, layout)
 
-fdplotly(plt) # hide
+fdplotly(json(plt)) # hide
 ```
 \textoutput{ex1}
 `````
