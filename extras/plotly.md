@@ -16,7 +16,7 @@ Then create a variable `hasplotly` with default value `false`: in your `config.m
 @def hasplotly = false
 ```
 
-Finally, in your `src/_html_parts/head.html` add
+Finally, in your `src/_layout/head.html` add
 
 ```html
 {{if hasplotly}} <script src="/libs/plotly/plotly.min.js"></script> {{end}}
