@@ -36,23 +36,32 @@ There are two steps: first you need to create the token, then you need to tell y
 **STEP 1**:
 
 @@tlist
-1. Go to the [tokens generation page](https://github.com/settings/tokens) in your *Settings > Developper settings > Personal access tokens*  and click on _Generate new token_.
-1. Name the token `FRANKLIN` and toggle the `repo` scope; then scroll to the bottom and click on **Generate token**.
-1. Click on the button to copy the key:
+* Make a public/private key pair on your local machine `ssh-keygen -N "" -f franklin`.
+* This creates 2 files, the private key: `franklin`, and the public key `franklin.pub`
+* [See here](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) for more information about generating ssh keys
 @@
 
-![](/assets/img/generate_token.png)
-
-\note{You may want to save that key somewhere safe as you will need it again if you create another Franklin repo and there will be no way of getting it again from GitHub.}
+<!-- I think this is no longer true, right? One can use a separate key pair for each repo? -->
+\note{You may want to save the keys somewhere safe as you will need it again if you create another Franklin repo and there will be no way of getting it again from GitHub.}
 
 **STEP 2**:
 
 @@tlist
 * Go to the repository and select *Settings > Secrets* then click on **Add new secret**,
-* Name the secret `FRANKLIN` and copy the key from the previous step. *Make sure that no whitespace is introduced before or after the key*.
+* Name the secret `DEPLOY_KEY` and copy the contents of the **private key** (`franklin`) from the previous step. *Make sure that no whitespace is introduced before or after the key*.
 @@
 
 ![](/assets/img/add_secret.png)
+
+**STEP 3**:
+
+@@tlist
+* Go to the repository and select *Settings > Deploy keys* then click on **Add deploy key**,
+* Name the deploy key `FRANKLIN` and copy the contents of the **public key** (`franklin.pub`) from step 1. *Make sure that no whitespace is introduced before or after the key*.
+@@
+
+![](/assets/img/add_deploy_key.png)
+
 
 ### Synchronise your local folder [User/Org website]
 
