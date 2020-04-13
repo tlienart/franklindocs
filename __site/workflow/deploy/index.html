@@ -5,11 +5,12 @@
 FOLDER: __site</code></pre> <p>With all this, if you push changes to <code>dev</code> with</p> <pre><code class=language-julia >git push -u origin dev</code></pre>
 <p>the GitHub action will be triggered and deploy the content of the <code>__site</code> folder to  the <code>master</code> branch. GitHub pages will then deploy the website from the master branch.</p>
 <div class=note ><div class=title >⚠ Note</div> <div class=content >It takes a couple of minutes for the whole process to complete and your site to be available online.</div></div>
-<div class=note ><div class=title >⚠ Note</div> <div class=content >It is recommended to change your default branch on the repository to <code>dev</code> &#40;GitHub may have done that automatically for you&#41;. To do this, click on <em>Settings &gt; Branches</em> and select the default branch.</div></div><code>dev</code> &#40;GitHub may have done that automatically for you&#41;. To do this, click on <em>Settings &gt; Branches</em> and select the default branch.&#125;</p>
+<div class=note ><div class=title >⚠ Note</div> <div class=content >It is recommended to change your default branch on the repository to <code>dev</code> &#40;GitHub may have done that automatically for you&#41;. To do this, click on <em>Settings &gt; Branches</em> and select the default branch.</div></div>
 <h3 id=synchronise_your_local_folder_project_website ><a href="#synchronise_your_local_folder_project_website">Synchronise your local folder &#91;Project website&#93;</a></h3>
 <blockquote>
 <p>This assumes that you&#39;re working on a user folder with base URL looking like  <code>username.github.io/myWebsite</code>. See <a href="https://github.com/tlienart2/myWebsite">this example</a> for instance.</p>
 </blockquote>
+<div class=note ><div class=title >⚠ Note</div> <div class=content >A <code>B</code> C</div></div>
 <p>Now you need to synchronise your repository and your local website folder; to do so, go to your terminal, <code>cd</code> to the website folder and follow the steps below:</p>
 <div class=tlist ><ul>
 <li><p><code>git init &amp;&amp; git remote add origin URL_TO_YOUR_REPO</code></p>

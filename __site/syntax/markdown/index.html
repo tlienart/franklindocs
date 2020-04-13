@@ -2,7 +2,7 @@
 "&lt;p&gt;Set &lt;code&gt;x&lt;/code&gt; to 1, see &lt;a href&#61;&quot;http://example.com&quot;&gt;the docs&lt;/a&gt;.&lt;/p&gt;\n"</code></pre> <h2 id=basics ><a href="#basics">Basics</a></h2> <p>If you&#39;re already familiar with Markdown, you can skip this section, though it may serve as a useful reminder.</p> <h3 id=headers ><a href="#headers">Headers</a></h3> <pre><code class=language-markdown ># Level 1
 ## Level 2
 ...
-###### Level 6</code></pre> <p>will generate the various header levels.</p> <div class=note ><div class=title >⚠ Note</div> <div class=content >Franklin makes headers into links to help with internal links and automatic table of contents &#40;which you can include anywhere using <code>\toc</code>&#41;.</div></div><code>\toc</code>&#41;.&#125;</p> <h3 id=text_styling ><a href="#text_styling">Text styling</a></h3> <pre><code class=language-plaintext >**Bold text**, *italic* or _italic_, **_bold italic_**, `inline code`.</code></pre>
+###### Level 6</code></pre> <p>will generate the various header levels.</p> <div class=note ><div class=title >⚠ Note</div> <div class=content >Franklin makes headers into links to help with internal links and automatic table of contents &#40;which you can include anywhere using <code>\toc</code>&#41;.</div></div> <h3 id=text_styling ><a href="#text_styling">Text styling</a></h3> <pre><code class=language-plaintext >**Bold text**, *italic* or _italic_, **_bold italic_**, `inline code`.</code></pre>
 <p>Inserting a horizontal rule can be done with</p>
 <pre><code class=language-markdown >---</code></pre>
 <p>For a blockquote, start the line with <code>&gt;</code>:</p>
@@ -137,12 +137,12 @@ $$ \mathcal W_\psi[f] = \int_{\mathbb R} f(s)\psi(s)\mathrm{d}s $$</code></pre>
   \exp(i\pi)+1 &= 0\\
   1+1 &= 2
 \end{aligned}\]
-<div class=note ><div class=title >⚠ Note</div> <div class=content >In proper LaTeX, the use of <code>\eqnarray</code> is discouraged due to possible interference with array column spacing. In Franklin this does not happen and so the only practical difference is that <code>\eqnarray</code> will give you a bit more horizontal spacing around the <code>&#61;</code> signs.</div></div><code>\eqnarray</code> is discouraged due to possible interference with array column spacing. In Franklin this does not happen and so the only practical difference is that <code>\eqnarray</code> will give you a bit more horizontal spacing around the <code>&#61;</code> signs.&#125;</p>
+<div class=note ><div class=title >⚠ Note</div> <div class=content >In proper LaTeX, the use of <code>\eqnarray</code> is discouraged due to possible interference with array column spacing. In Franklin this does not happen and so the only practical difference is that <code>\eqnarray</code> will give you a bit more horizontal spacing around the <code>&#61;</code> signs.</div></div>
 <h2 id=raw_html ><a href="#raw_html">Raw HTML</a></h2>
 <p>You can inject raw HTML by fencing it with <code>~~~...~~~</code> which can be useful for custom formatting.</p>
 <p>A simple example is if you want to colour your text; for instance with a <code>&lt;span style&#61;&quot;color:magenta;&quot;&gt;...&lt;/span&gt;</code> you would get: some <span style="color:magenta;">coloured</span> text.</p>
 <p>You could also use this to locally customise a layout etc.</p>
-<div class=note ><div class=title >⚠ Note</div> <div class=content >Inside a raw HTML block, you cannot use markdown, maths, etc. For this reason, it is often preferable to use nested <code>@@divname...@@</code> blocks instead of raw HTML since those <em>can</em> have markdown, maths, etc. in them. &#40;See <a href="/syntax/divs-commands.html">inserting divs</a>.&#41;</div></div><code>@@divname...@@</code> blocks instead of raw HTML since those <em>can</em> have markdown, maths, etc. in them. &#40;See <a href="/syntax/divs-commands.html">inserting divs</a>.&#41;&#125;</p>
+<div class=note ><div class=title >⚠ Note</div> <div class=content >Inside a raw HTML block, you cannot use markdown, maths, etc. For this reason, it is often preferable to use nested <code>@@divname...@@</code> blocks instead of raw HTML since those <em>can</em> have markdown, maths, etc. in them. &#40;See <a href="/syntax/divs-commands.html">inserting divs</a>.&#41;</div></div>
 <h2 id=file_insertions ><a href="#file_insertions">File insertions</a></h2>  A few commands are defined to help you with insertions of content; you can also define your own commands using custom HTML as was discussed before.</p>
 <h3 id=inserting_a_figure ><a href="#inserting_a_figure">Inserting a figure</a></h3>
 <p>The commands <div class=tlist ><ul>

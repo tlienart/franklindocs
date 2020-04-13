@@ -10,7 +10,7 @@ $> npm install cheerio</code></pre> <p>&#40;you might have to add <code>sudo</co
 </ul>
 </div>
 <p>By default, the index built is fairly barebone to reduce the size of the generated index. If you want fancier search, you might want to modify this a bit to add a preview of the page, boost results depending on where there are &#40;title, keyword, ...&#41;, add stop words, etc. &#40;Refer to the <a href="https://lunrjs.com/docs/index.html">Lunr docs</a> for this as well as <a href="https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites">the example repo</a> mentioned earlier or <a href="https://github.com/JuliaDocs/Documenter.jl/blob/master/assets/html/search.js">Documenter.jl</a>&#39;s version&#41;.</p>
-<div class=note ><div class=title >⚠ Note</div> <div class=content >Modify this file at will but be careful with the lines with <code>PATH_PREPEND</code> if your website is a project website &#40;i.e. the root URL is something like <code>username.github.io/project/</code>&#41;. These lines help ensure that the generated links are valid. See also the section on <a href="#buildingupdating_the_index">updating the index</a>.</div></div><code>PATH_PREPEND</code> if your website is a project website &#40;i.e. the root URL is something like <code>username.github.io/project/</code>&#41;. These lines help ensure that the generated links are valid. See also the section on <a href="#buildingupdating_the_index">updating the index</a>. &#125;</p>
+<div class=note ><div class=title >⚠ Note</div> <div class=content >Modify this file at will but be careful with the lines with <code>PATH_PREPEND</code> if your website is a project website &#40;i.e. the root URL is something like <code>username.github.io/project/</code>&#41;. These lines help ensure that the generated links are valid. See also the section on <a href="#buildingupdating_the_index">updating the index</a>.</div></div>
 <h3 id=client ><a href="#client">Client</a></h3>
 <p>The file <code>lunrclient.js</code> &#40;and its minified version&#41; does the following:</p>
 <div class=tlist ><ul>
@@ -21,7 +21,7 @@ $> npm install cheerio</code></pre> <p>&#40;you might have to add <code>sudo</co
 </ul>
 </div>
 <p>You might want to modify the <code>parseLunrResults</code> if you want the results to be  displayed differently.</p>
-<div class=note ><div class=title >⚠ Note</div> <div class=content >If you modify this file, make sure it&#39;s called properly in the <code>src/_html_parts/index.html</code> and, eventually, <a href="https://jscompress.com/">minify it</a>.</div></div><code>src/_html_parts/index.html</code> and, eventually, <a href="https://jscompress.com/">minify it</a>.   &#125;</p>
+<div class=note ><div class=title >⚠ Note</div> <div class=content >If you modify this file, make sure it&#39;s called properly in the <code>src/_html_parts/index.html</code> and, eventually, <a href="https://jscompress.com/">minify it</a>.</div></div>
 <h2 id=adding_a_search_box ><a href="#adding_a_search_box">Adding a search box</a></h2>
 <h3 id=adding_a_form_in_headhtml ><a href="#adding_a_form_in_headhtml">Adding a form in <code>head.html</code></a></h3>
 <p>The search box on this website is added with the following HTML in <code>_layout/head.html</code>:</p>
