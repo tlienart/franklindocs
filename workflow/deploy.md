@@ -110,8 +110,6 @@ GitHub pages will then deploy the website from the master branch.
 
 > This assumes that you're working on a user folder with base URL looking like  `username.github.io/myWebsite`. See [this example](https://github.com/tlienart2/myWebsite) for instance.
 
-\note{A `B` C}
-
 Now you need to synchronise your repository and your local website folder; to do so, go to your terminal, `cd` to the website folder and follow the steps below:
 
 @@tlist
