@@ -140,8 +140,12 @@ These variables are best defined in your `config.md` file though you can overwri
 | :--: | :-----: | :-----------: | :-----:
 | `author` | `String, Nothing` | `"THE AUTHOR"` |
 | `date_format` | `String`  | `"U dd, yyyy"` | Must be a format recognised by Julia's `Dates.format`
-| `prepath`     | `String`  | `""` | Use if your website is a project website (\*)
-| `website_title`| `String` | `""` | (RSS) (\*\*)
+| `date_days` | `Vector{String}`  | `String[]` | Names for days of the week (\*)
+| `date_shortdays` | `Vector{String}`  | `String[]` | Short names for the days of the week (\*)
+| `date_months` | `Vector{String}`  | `String[]` | Names for months (\*)
+| `date_shortmonths` | `Vector{String}`  | `String[]` | Short names for months (\*)
+| `prepath`     | `String`  | `""` | Use if your website is a project website (\*\*)
+| `website_title`| `String` | `""` | (RSS) (\*\*\*)
 | `website_descr`| `String` | `""` | (RSS)
 | `website_url`  | `String` | `""` | (RSS)
 | `generate_rss` | `Bool` | `true` |
@@ -149,8 +153,9 @@ These variables are best defined in your `config.md` file though you can overwri
 @@
 
 **Notes**:\\
-\smindent{(\*)} say you're using GitHub pages and your username is `darth`, by default Franklin will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`.\\
-\smindent{(\*\*)} these **must** be defined for RSS to be generated for your site (on top of `generate_rss` being `true`). See also the [RSS subsection](#rss) below.
+\smindent{(\*)} must be in a format recognized by Julia's `Dates.DateLocale`. Defaults to English. If left unset, the short names are created automatically by using the first three characters of the full names.\\
+\smindent{(\*\*)} say you're using GitHub pages and your username is `darth`, by default Franklin will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`.\\
+\smindent{(\*\*\*)} these **must** be defined for RSS to be generated for your site (on top of `generate_rss` being `true`). See also the [RSS subsection](#rss) below.
 
 ## Local page variables
 
