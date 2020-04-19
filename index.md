@@ -6,7 +6,7 @@ reviewed: 23/11/19
 
 # Building static websites in Julia
 
-\blurb{Franklin is a simple static site generator oriented towards technical blogging and light, fast-loading pages.}
+\blurb{Franklin is a simple, customisable static site generator oriented towards technical blogging and light, fast-loading pages.}
 
 ## Key features
 
@@ -26,7 +26,7 @@ reviewed: 23/11/19
 To install Franklin with Julia **≥ 1.1**,
 
 ```julia-repl
-(v1.3) pkg> add Franklin
+(v1.4) pkg> add Franklin
 ```
 
 You can then just try it out:
@@ -62,4 +62,6 @@ julia> using NodeJS
 julia> run(`sudo $(npm_cmd()) install highlight.js`)
 ```
 
-Assuming you have `python3`, Franklin will try to install the python package [`css_html_js_minify`](https://github.com/juancarlospaco/css-html-js-minify) via `pip3`.
+**Note**: a key advantage of using `NodeJS` for this instead of using `npm` yourself is that it puts the libraries in the "right place" for Julia to find them.
+
+Assuming you have `python3`, Franklin will try to install the python package [`css_html_js_minify`](https://github.com/juancarlospaco/css-html-js-minify) if via `pip3`.

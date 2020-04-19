@@ -1,4 +1,6 @@
-@def hascode = true
+<!--
+reviewed: 18/4/20
+-->
 
 # Deploying your website
 
@@ -15,8 +17,10 @@ Deploying the website is trivial on Gitlab and services like Netlify. On GitHub 
 ## Deploying on GitHub
 
 **Warning**: the setup to synchronise your local folder and the remote repository is _different_ based on whether you want a user/org website:
+@@tlist
 * a _user_ website has a base URL looking like `username.github.io`.
 * a _project_ website has a base URL looking like `username.github.io/project/`.
+@@
 Make sure to follow the appropriate instructions!
 
 ### Creating a repo on GitHub
@@ -60,7 +64,7 @@ In order for the deployment action to work on GitHub, you need to set up an acce
 
 **STEP 4**:
 
-Remove both files from your local folder.
+Remove both files (`franklin`, `franklin.pub`) from your local folder.
 
 ### Synchronise your local folder [User/Org website]
 
@@ -74,7 +78,7 @@ You need to synchronise your repository and your local website folder; to do so,
 - `git add -A && git commit -am "initial files"`
 @@
 
-It is **crucial** to change branch to `dev` (or any other name that you like that is not `master`).
+It is **crucial** to change the branch to `dev` (or any other name that you like that is not `master`).
 This is because a user/org site **must** be deployed from the `master` branch on GitHub.
 
 Now, in an editor, open the file [`.github/workflows/deploy.yml`](https://github.com/tlienart2/tlienart2.github.io/blob/dev/.github/workflows/deploy.yml) and change the `on` section to

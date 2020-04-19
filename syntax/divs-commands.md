@@ -1,8 +1,6 @@
-@def hascode = true
-@def hasmath = true
 
 <!--
-reviewed: 23/11/19
+reviewed: 18/4/20
 -->
 
 # Divs and Commands

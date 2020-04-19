@@ -18,13 +18,16 @@ Below we detail the default classes as well as some tricks that can be useful to
 @@lalignb
 | Name | Function |
 | ------ | ---- |
-| `franklin-content` | wraps around the content of a page, so when a `mypage.md` is converted to some html, it gets inserted in the scaffolding as `<div class="franklin-content"> some html </div>`
+| `franklin-content` | wraps around the content of a page, so when a `mypage.md` is converted to some html, it gets inserted in the scaffolding as `<div class="franklin-content"> some html </div>` (\*)
 | `franklin-toc` | wraps around the inserted table of contents
 | `fnref` | wraps around a footnote reference
 | `fndef` | wraps around footnote definitions
 | `fndef-content` | wraps around the content of footnote definitions
 | `fndef-backref` | wraps around the back-reference of a footnote definition
 @@
+
+**Notes**:\\
+\smindent{(\*)} \smnote{you can change this name setting the global page variable `div_content` in your `config.md`}.\\
 
 ## Simple tricks
 
@@ -60,4 +63,4 @@ and for instance:
 
 gives you: \spstyle{font-variant:small-caps;font-size:15px;color:cornflowerblue}{formatted text}.
 
-in fact, that one is pre-defined in Franklin, `\textcss{style}{text}` does precisely that.
+In fact, that one is pre-defined in Franklin, `\style{style}{text}` does precisely that.

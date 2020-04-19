@@ -1,7 +1,5 @@
-@def hascode = true
-
 <!--
-reviewed: 22/12/19
+reviewed: 18/4/20
 -->
 
 # Working with Franklin
@@ -15,7 +13,7 @@ reviewed: 22/12/19
 ## Creating your website
 
 To get started, the easiest is to use the `newsite` function to generate a website folder which you can then modify to your heart's content.
-The command takes one mandatory argument: the _name_ of the folder.
+The command takes one mandatory argument: the _name_ of the folder (which can be `"."` if you want to set things up in your current directory).
 You can optionally specify a template:
 
 ```julia-repl
@@ -132,12 +130,12 @@ The `serve` function can be used to launch a server which will track and render 
 There are a few useful options you can use beyond the barebone `serve()`, do `?serve` in your REPL for all options, we list a few noteworthy one below:
 
 @@tlist
-* `clear=true`, erases `__site` and starts from a blank slate,
-* `single=false`, if set to `true`, does a single build pass generating all pages and does not start the server.
-* `prerender=false`, if set to `true`, will prerender code blocks and maths (see the [optimisation step](#optimisation_step))
+* `clear=false`, whether to erases `__site` and starts from a blank slate,
+* `single=false`, whether to do a single build pass generating all pages and not start the server.
+* `prerender=false`, whether to prerender code blocks and maths (see the [optimisation step](#optimisation_step))
 * `verb=false`, whether to show information about which page is being processed etc,
-* `silent=false`, if set to `true`, will suppress any informative messages that could otherwise appear in  your console when editing your site, this goes one step further than `verb=false` as it also  applies for code evaluation,
-* `eval_all=false`, if set to `true`, will re-evaluate all code blocks on all pages.
+* `silent=false`, whether to suppress any informative messages that could otherwise appear in  your console when editing your site, this goes one step further than `verb=false` as it also  applies for code evaluation,
+* `eval_all=false`, whether to re-evaluate all code blocks on all pages.
 @@
 
 ## Post-processing
@@ -176,6 +174,8 @@ Note that in order to run them, you will need a couple of external dependencies 
 The `optimize` function is called by default in the `publish` function which can be used to help deploy your website.
 
 ### Publish
+
+\note{If you use GitHub or GitLab with a deployment action on those platforms, you do not need to use `publish`, you can just push your changes and let the relevant action do the rest on the platform. See the section on [deployment](/workflow/deploy/).}
 
 Once you have synched your local folder with a remote repository (see [deployment instructions](/workflow/deploy/)), the `publish` function can be called to deploy your website; it essentially:
 

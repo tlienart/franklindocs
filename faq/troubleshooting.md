@@ -7,17 +7,6 @@ If you encounter an error that is not mentioned here, then it's probably a bug a
 
 \toc
 
-## Why is my code lousy?
-
-You should write `@def hascode=true` on the top of pages containing code.
-
-`@def hascode=true` ensures that the local file `highlight.pack.js` is loaded on the page via `<script…>`;
-otherwise the page does not have it and so your code will only display as a lousy pre block (see `_layout/head.html`, 
-in the first few lines you’ll see a conditional on hascode).
-
-This kind of conditional loading allows to have some pages loading javascript and some others not if not necessary.
-
-
 ## Error on interruption
 
 You may (rarely) get an an error thrown at you when interrupting the server with `<CTRL>+C`, particularly when using Juno.

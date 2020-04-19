@@ -30,7 +30,7 @@ a = 2
 ```
 `````
 
-* **code blocks 2**: you can also use indented code blocks (lines starting with four spaces or a tab) but _fenced code blocks should be preferred_
+* **code blocks 2**: you can also use indented code blocks (lines starting with four spaces or a tab) but _fenced code blocks should be preferred_ and you now have to opt-in to use them by setting `@def indented_code = true`
 
 `````
 This is some code:

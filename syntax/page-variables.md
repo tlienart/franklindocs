@@ -3,10 +3,9 @@
 # Page variables
 
 <!--
-reviewed: Dec 22, 2019
+reviewed: Apr 19, 2020
 -->
 
-\newcommand{\smindent}[1]{\span{width:45px;text-align:right;color:slategray;}{#1}}
 
 
 \blurb{Page variables offer a straightforward way to interact with the HTML templating from the markdown.}
@@ -23,9 +22,15 @@ The general syntax to define a page variable is to write `@def varname = value` 
 @def author = "Septimia Zenobia"
 ```
 
-where you could set the variable to a string, a number, a date,... anything, as long as it's on a single line.
+where you could set the variable to a string, a number, a date,... anything. Definitions can span multiple lines but if they do, the subsequent lines **must** be indented e.g.:
 
-These variables can serve multiple purposes but, primarily, they can be accessed from the HTML template via things like
+```
+@def some_str = """A string
+    on several lines is ok
+    but lines must be indented"""
+```
+
+These variables can serve multiple purposes but, primarily, they can be accessed from the HTML template blocks e.g.:
 
 ```html
 <footer>
@@ -33,12 +38,14 @@ These variables can serve multiple purposes but, primarily, they can be accessed
 </footer>
 ```
 
-where `{{ ... }}` indicates a HTML _function_, `fill` is the function name and the rest of the bracket elements are _page variables_ (here `author`) serving as arguments of the function.
+which could be useful as footer on all pages.
 
-_Local_ page variables denote the variables that are defined on a single page and accessible on that page only by contrast to _global_ page variables which are set globally (in the `config.md` file) and accessible on all pages.
+The syntax `{{ ... }}` indicates a HTML _function_, `fill` is the function name and the rest of the bracket elements are _page variables_ (here `author`) serving as arguments of the function.
+
+_Local_ page variables denote variables that are defined on a single page and accessible on that page only by contrast to _global_ page variables which are set globally (in the `config.md` file) and accessible on all pages.
 
 In both cases there are _default_ page variables with default values which you can change and use.
-You can also define your own variables.
+You can also define your own variables, both global and local.
 
 ### Using page variables
 
@@ -69,7 +76,8 @@ A few functions are available with the `{{fill ...}}` arguably the most likely t
 @@lalign
 | Format | Role |
 | :----: | :--: |
-| `{{fill vname}}` | place the value of page variable `vname`
+| `{{fill vname}}` or `{{vname}}` | place the value of page variable `vname`
+| `{{fill vname rpath}}` | same but taking the value from the page at `rpath` where `rpath` is a relative path like `blog/pg1`
 | `{{insert fpath}}` | insert the content of the file at `fpath`
 | `{{href  vname}}` | inserts a reference (_mostly internal use_)
 | `{{toc}}` | places a table of content (_mostly internal use_)
@@ -100,8 +108,8 @@ where `vname` and `vname2` are expected to be page variable evaluating to a bool
 Of course you don't have to specify the `{{elseif ...}}` or `{{else}}` if you don't need them.
 
 \note{
-  The conditional blocks are currently fairly rudimentary; in particular operations between page variables are not supported, so you can't write something like `{{if hasmath && hascode}}`.
-  This may come in the future if deemed useful.
+  The conditional blocks are fairly basic; in particular operations between page variables are not supported, so you can't write something like `{{if hasmath && hascode}}`.
+  For more complex use cases, consider defining your own HTML functions using the [utils file](/syntax/utils/).
 }
 
 You can also use some dedicated conditional blocks:
@@ -117,6 +125,8 @@ You can also use some dedicated conditional blocks:
 
 The `{{ispage ...}}` and `{{isnotpage ...}}` accept `*` as joker symbol; for instance `{{ispage maths/*}}` is allowed.
 
+**Note**: for the `C` users out there, you can also use `ifdef`, `ifndef`.
+
 Consider the following example (very similar to what is used on the current page):
 
 ```html
@@ -130,6 +140,26 @@ Consider the following example (very similar to what is used on the current page
 
 This allows a simple, javascript-free, way of having a navigation menu that is styled depending on which page is currently active.
 
+### For loops
+
+You can define iterable page variables (array, tuple, ...) and loop over them using the following syntax:
+
+```html
+{{for x in vname}}
+  ...{{fill x}}...
+{{end}}
+```
+
+Only `{{fill vname}}` and `{{fill vname rpath}}` are allowed in such a for loop. You can also unpack an iterable like
+
+```html
+{{for (x, y) in vname}}
+  ...{{fill x}}...{{fill y}}
+{{end}}
+```
+
+where `vname` would refer to something like `[(1,2),(3,4)]`.
+
 ## Global page variables
 
 The table below list global page variables that you can set.
@@ -139,13 +169,17 @@ These variables are best defined in your `config.md` file though you can overwri
 | Name | Type(s) | Default value | Comment
 | :--: | :-----: | :-----------: | :-----:
 | `author` | `String, Nothing` | `"THE AUTHOR"` |
+| `autocode` | `Bool` | `true` | whether to detect the presence of code blocks and set the local var `hascode` automatically
+| `automath` | `Bool` | `true` | whether to detect the presence of math blocks and set the local var `hasmath` automatically
 | `date_format` | `String`  | `"U dd, yyyy"` | Must be a format recognised by Julia's `Dates.format`
 | `date_days` | `Vector{String}`  | `String[]` | Names for days of the week (\*)
 | `date_shortdays` | `Vector{String}`  | `String[]` | Short names for the days of the week (\*)
 | `date_months` | `Vector{String}`  | `String[]` | Names for months (\*)
 | `date_shortmonths` | `Vector{String}`  | `String[]` | Short names for months (\*)
-| `prepath`     | `String`  | `""` | Use if your website is a project website (\*\*)
-| `website_title`| `String` | `""` | (RSS) (\*\*\*)
+| `div_content` | `String`  | `"franklin-content"` | Name of the div that will englobe the processed content between `head` and `foot`
+| `ignore` | `Vector{String}` | `String[]` | Files that should be ignored by Franklin (\*\*)
+| `prepath`     | `String`  | `""` | Use if your website is a project website (\*\*\*)
+| `website_title`| `String` | `""` | (RSS) (\*\*\*\*)
 | `website_descr`| `String` | `""` | (RSS)
 | `website_url`  | `String` | `""` | (RSS)
 | `generate_rss` | `Bool` | `true` |
@@ -153,9 +187,10 @@ These variables are best defined in your `config.md` file though you can overwri
 @@
 
 **Notes**:\\
-\smindent{(\*)} must be in a format recognized by Julia's `Dates.DateLocale`. Defaults to English. If left unset, the short names are created automatically by using the first three characters of the full names.\\
-\smindent{(\*\*)} say you're using GitHub pages and your username is `darth`, by default Franklin will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`.\\
-\smindent{(\*\*\*)} these **must** be defined for RSS to be generated for your site (on top of `generate_rss` being `true`). See also the [RSS subsection](#rss) below.
+\smindent{(\*)} \smnote{must be in a format recognized by Julia's `Dates.DateLocale`. Defaults to English. If left unset, the short names are created automatically by using the first three characters of the full names.}\\
+\smindent{(\*\*)} \smnote{to ignore a file add it's relative path like `"path/to/file.md"`, to ignore a directory end the path with a `/` like `"path/to/dir/"`.}\\
+\smindent{(\*\*\*)} \smnote{say you're using GitHub pages and your username is `darth`, by default Franklin will assume the root URL to  be `darth.github.io/`. However, if you want to build a project page so that the base URL is `darth.github.io/vador/` then use `@def prepath = "vador"`}.\\
+\smindent{(\*\*\*\*)} \smnote{these **must** be defined for RSS to be generated for your site (on top of `generate_rss` being `true`). See also the [RSS subsection](#rss) below}.
 
 ## Local page variables
 
@@ -179,7 +214,7 @@ Note that variables shown below that have a  name starting with  `fd_` are _not 
 | `date`    | `String, Date, Nothing` | `Date(1)` | a date object (e.g. if you want to set a publication date)
 | `lang` | `String` | `julia` | default highlighting for code on the page
 | `reflinks` | `Bool` | `true`  | whether there are things like `[ID]: URL` on your page (\*\*)
-| `indented_code` | `Bool` | `true` | whether indented blocks should be considered as code (\*\*\*)
+| `indented_code` | `Bool` | `false` | whether indented blocks should be considered as code (\*\*\*)
 | `mintoclevel` | `Int` | `1` | minimum title level to go in the table of content (often you'll want this to  be `2`)
 | `maxtoclevel` | `Int` | `10` | maximum title level to go in the table of content
 | `fd_ctime` | `Date` |  | time of creation of the markdown file
@@ -188,9 +223,9 @@ Note that variables shown below that have a  name starting with  `fd_` are _not 
 @@
 
 **Notes**:\\
-\smindent{(\*)} if the title is not set, the first header will be used as title.\\
-\smindent{(\*\*)} there may  be cases where you want to literally type `]:` in some code without it indicating a link reference. In such case, set `reflinks` to `false` to avoid ambiguities.\\
-\smindent{(\*\*\*)} it is recommended to fence your code blocks (use backticks) as it's not ambiguous for the parser whereas indented blocks can be. If you're fine with only using fenced code blocks then set `indented_code` to `false` and it will reduce the risk of ambiguities if you use indentation elsewhere in your markdown (e.g. in div blocks or LaTeX).
+\smindent{(\*)} \smnote{if the title is not set, the first header will be used as title}.\\
+\smindent{(\*\*)} \smnote{there may  be cases where you want to literally type `]:` in some code without it indicating a link reference. In such case, set `reflinks` to `false` to avoid ambiguities}.\\
+\smindent{(\*\*\*)} \smnote{it is recommended to fence your code blocks (use backticks) as it's not ambiguous for the parser whereas indented blocks can be. If you do want to use indented blocks as code blocks, it's your responsibility to make sure there are no ambiguities}.
 
 ### Code evaluation
 

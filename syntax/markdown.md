@@ -1,9 +1,5 @@
-@def hascode = true
-@def hasmath = true
-@def showall = true
-
 <!--
-reviewed: 23/11/19
+reviewed: 18/4/20
 -->
 
 # Markdown syntax
@@ -38,7 +34,7 @@ If you're already familiar with Markdown, you can skip this section, though it m
 
 will generate the various header levels.
 
-\note{Franklin makes headers into links to help with internal links and automatic table of contents (which you can include anywhere using `\toc`).}
+\note{Franklin makes headers into links to help with internal links and automatic table of contents generation (which you can include anywhere using `\toc`).}
 
 ### Text styling
 
@@ -155,18 +151,21 @@ println(a)
 ```
 `````
 
-You're not obliged to specify the language, if you don't it will assume the language corresponds to the page variable `lang` (set to `julia` by default).
+You're not obliged to specify the language, if you don't it will assume the language corresponds to the [page variable](/syntax/page-variables/) `lang` (set to `julia` by default).
 If you want the block to be considered as plaintext, use  `plaintext` as the language specifier.
 
-Finally you can also use indented code blocks (which will also take its highlighting hint from `lang`):
+Finally you can also use indented code blocks (which will also take its highlighting hint from `lang`) but this is **not recommended** and you have to explicitly opt-in by setting `indented_code` on a page that would use them:
 
 ```markdown
+@def indented_code = true
 Code block:
 
     a = 5
     println(a)
 
 ```
+
+Indented code blocks are _ambiguous_ with how other Franklin blocks can be defined such as div blocks and latex blocks. If you really want to use them, you will have to ensure that your div blocks and latex commands on that page do **not use** indentation as it might cause problems.
 
 ### Highlighting
 
@@ -191,7 +190,7 @@ If you do this, you might want to slightly modify it to ensure that the Julia-re
 * look for `hljs.registerLanguage("julia-repl"` and modify the entry to:
 @@
 
-```plaintext
+```javascript
 hljs.registerLanguage("julia-repl",function(a){return{c:[{cN:"meta",b:/^julia>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"julia"}},{cN:"metas",b:/^shell>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"bash"}},{cN:"metap",b:/^\(.*\)\spkg>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"julia"}}]}});
 ```
 
@@ -232,7 +231,7 @@ For more information on using evaluated code blocks, please head to the [section
 
 Inserting maths is done pretty much like in LaTeX:
 
-```markdown
+```plaintext
 Inline: $x=5$ or display:
 
 $$ \mathcal W_\psi[f] = \int_{\mathbb R} f(s)\psi(s)\mathrm{d}s $$
@@ -246,6 +245,13 @@ You can  also use `\[...\]` for display maths.
 
 One thing to keep in mind when adding maths on your page is that you should be generous in your use of whitespace, particularly  around inequality  operators to avoid ambiguity that could confuse KaTeX.
 So for instance prefer: `$0 < C$` to `$0<C$` (the latter will not render properly).
+Also if you have to write double braces, make sure to add a space in between so `{ {` or `} }` and not `{{` or `}}` since that has a specific meaning in Franklin:
+
+```plaintext
+$$ \dfrac{ {101}_{2} } $$
+```
+
+$$\dfrac{1}{ {101}_{2} }$$
 
 
 ### Aligned maths
@@ -280,7 +286,15 @@ For aligned environment you can use `\begin{eqnarray}...\end{eqnarray}` or `\beg
 
 You can inject raw HTML by fencing it with `~~~...~~~` which can be useful for custom formatting.
 
-A simple example is if you want to colour your text; for instance with a `<span style="color:magenta;">...</span>` you would get: some ~~~<span style="color:magenta;">coloured</span>~~~ text.
+A simple example is if you want to colour your text; for instance with
+
+```html
+~~~
+<span style="color:magenta;">coloured</span>
+~~~
+```
+
+you get: some ~~~<span style="color:magenta;">coloured</span>~~~ text (note that it all can be on a single line.)
 
 You could also use this to locally customise a layout etc.
 
@@ -325,7 +339,7 @@ savefig(joinpath(@OUTPUT, "test.png"))
   \fig{./output/test}
 @@
 
-In fact the syntax `\fig{./test}` is also allowed, Franklin will then first look in the `[script_dir]` for a `test.*` figure and, if it doesn't find one, will try to  look in `[script_dir]/output/` for a `test.*` figure.
+In fact the syntax `\fig{./test}` is also allowed, Franklin will then first look in the `[script_dir]` for a `test.*` figure and, if it doesn't find one, will try to  look in `[script_dir]/output/` for a `test.*` figure:
 
 @@small-img
   \fig{./test}
@@ -346,13 +360,13 @@ As an example you could have in `/assets/ccc/sidefile.md`:
 some **markdown** in a side file.
 ```
 
-whereas in `/src/index.md`:
+whereas in `index.md`:
 
 ```markdown
 This is the index then \textinput{ccc/sidefile}
 ```
 
-and this will be equivalent to just having in `/src/index.md`:
+and this will be equivalent to just having in `index.md`:
 
 ```markdown
 This is the index then some **markdown** in a side file.
