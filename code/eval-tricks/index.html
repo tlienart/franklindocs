@@ -42,17 +42,17 @@ println("@@")
 <p>You may want to have a page with responsive team cards for instance where every card would follow the same layout but the content would be different. There are multiple ways you can do this with Franklin and a simple one below &#40;adapted from <a href="https://www.w3schools.com/howto/howto_css_team.asp">this tutorial</a>&#41;. The advantage of doing something like this is that it can help separate the content from the layout making both arguably easier more maintainable.</p>
 <h3 id=preview__3 ><a href="#preview__3">Preview</a></h3>
 
-<div class=cards ><div class=row ><div class=column ><div class=card ><img src="/assets/pages/code/img/postcard.jpg" alt=" Jane Doe" />     <div class=container >
+<div class=cards ><div class=row ><div class=column ><div class=card ><img src="/assets/img/team/beth.jpg" alt=" Jane Doe" />     <div class=container >
       <h2> Jane Doe</h2>
              <div class=title >CEO &amp; Founder</div>       <div class=vitae >Phasellus eget enim eu lectus faucibus vestibulum</div>       <div class=email >example@example.com</div>       
       <p><button class=button >Contact</button></p>
       </div></div></div>
-<div class=column ><div class=card ><img src="/assets/pages/code/img/postcard.jpg" alt=" Mike Ross" />     <div class=container >
+<div class=column ><div class=card ><img src="/assets/img/team/rick.jpg" alt=" Mike Ross" />     <div class=container >
       <h2> Mike Ross</h2>
              <div class=title >Art Director</div>       <div class=vitae >Phasellus eget enim eu lectus faucibus vestibulum</div>       <div class=email >example@example.com</div>       
       <p><button class=button >Contact</button></p>
       </div></div></div>
-<div class=column ><div class=card ><img src="/assets/pages/code/img/postcard.jpg" alt=" John Doe" />     <div class=container >
+<div class=column ><div class=card ><img src="/assets/img/team/meseeks.jpg" alt=" John Doe" />     <div class=container >
       <h2> John Doe</h2>
              <div class=title >Designer</div>       <div class=vitae >Phasellus eget enim eu lectus faucibus vestibulum</div>       <div class=email >example@example.com</div>       
       <p><button class=button >Contact</button></p>
@@ -120,16 +120,16 @@ println("@@")
 
 <h3 id=code__3 ><a href="#code__3">Code</a></h3>
 <p>In order to do this you could first define a <code>\card</code> command:</p>
-<pre><code class=language-html >\newcommand&#123;\card&#125;&#91;4&#93;&#123;
+<pre><code class=language-html >\newcommand&#123;\card&#125;&#91;5&#93;&#123;
   @@card
-    &#33;&#91;#1&#93;&#40;/assets/pages/code/img/postcard.jpg&#41;
+    &#33;&#91;#1&#93;&#40;/assets/img/team/&#33;#2.jpg&#41;
     @@container
       ~~~
       &lt;h2&gt;#1&lt;/h2&gt;
       ~~~
-      @@title #2 @@
-      @@vitae #3 @@
-      @@email #4 @@
+      @@title #3 @@
+      @@vitae #4 @@
+      @@email #5 @@
       ~~~
       &lt;p&gt;&lt;button class&#61;&quot;button&quot;&gt;Contact&lt;/button&gt;&lt;/p&gt;
       ~~~
@@ -140,16 +140,16 @@ println("@@")
 <pre><code class=language-plaintext >```julia:teamcards
 #hideall
 team = [
-  (name="Jane Doe", title="CEO & Founder", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
-  (name="Mike Ross", title="Art Director", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
-  (name="John Doe", title="Designer", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com")
+  (name="Jane Doe", pic="beth", title="CEO & Founder", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
+  (name="Mike Ross", pic="rick", title="Art Director", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
+  (name="John Doe", pic="meseeks", title="Designer", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com")
   ]
 
 "@@cards @@row" |> println
 for person in team
   """
   @@column
-    \\card{$(person.name)}{$(person.title)}{$(person.vitae)}{$(person.email)}
+    \\card{$(person.name)}{$(person.pic)}{$(person.title)}{$(person.vitae)}{$(person.email)}
   @@
   """ |> println
 end
@@ -234,7 +234,7 @@ println(py"res")
 }</code></pre>
 <div class=page-foot >
   <div class=copyright >
-    &copy; Thibaut Lienart. Last modified: February 13, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; Thibaut Lienart. Last modified: April 20, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 
