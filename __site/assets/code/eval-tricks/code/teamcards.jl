@@ -1,16 +1,16 @@
 # This file was generated, do not modify it. # hide
 #hideall
 team = [
-  (name="Jane Doe", title="CEO & Founder", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
-  (name="Mike Ross", title="Art Director", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
-  (name="John Doe", title="Designer", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com")
+  (name="Jane Doe", pic="beth", title="CEO & Founder", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
+  (name="Mike Ross", pic="rick", title="Art Director", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
+  (name="John Doe", pic="meseeks", title="Designer", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com")
   ]
 
 "@@cards @@row" |> println
 for person in team
   """
   @@column
-    \\card{$(person.name)}{$(person.title)}{$(person.vitae)}{$(person.email)}
+    \\card{$(person.name)}{$(person.pic)}{$(person.title)}{$(person.vitae)}{$(person.email)}
   @@
   """ |> println
 end

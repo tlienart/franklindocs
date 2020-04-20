@@ -1,14 +1,14 @@
 @@cards @@row
 @@column
-  \card{Jane Doe}{CEO & Founder}{Phasellus eget enim eu lectus faucibus vestibulum}{example@example.com}
+  \card{Jane Doe}{beth}{CEO & Founder}{Phasellus eget enim eu lectus faucibus vestibulum}{example@example.com}
 @@
 
 @@column
-  \card{Mike Ross}{Art Director}{Phasellus eget enim eu lectus faucibus vestibulum}{example@example.com}
+  \card{Mike Ross}{rick}{Art Director}{Phasellus eget enim eu lectus faucibus vestibulum}{example@example.com}
 @@
 
 @@column
-  \card{John Doe}{Designer}{Phasellus eget enim eu lectus faucibus vestibulum}{example@example.com}
+  \card{John Doe}{meseeks}{Designer}{Phasellus eget enim eu lectus faucibus vestibulum}{example@example.com}
 @@
 
 @@ @@

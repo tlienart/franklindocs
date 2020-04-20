@@ -154,16 +154,16 @@ The advantage of doing something like this is that it can help separate the cont
 
 ### Preview
 
-\newcommand{\card}[4]{
+\newcommand{\card}[5]{
   @@card
-    ![#1](/assets/pages/code/img/postcard.jpg)
+    ![#1](/assets/img/team/!#2.jpg)
     @@container
       ~~~
       <h2>#1</h2>
       ~~~
-      @@title #2 @@
-      @@vitae #3 @@
-      @@email #4 @@
+      @@title #3 @@
+      @@vitae #4 @@
+      @@email #5 @@
       ~~~
       <p><button class="button">Contact</button></p>
       ~~~
@@ -174,16 +174,16 @@ The advantage of doing something like this is that it can help separate the cont
 ```julia:teamcards
 #hideall
 team = [
-  (name="Jane Doe", title="CEO & Founder", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
-  (name="Mike Ross", title="Art Director", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
-  (name="John Doe", title="Designer", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com")
+  (name="Jane Doe", pic="beth", title="CEO & Founder", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
+  (name="Mike Ross", pic="rick", title="Art Director", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
+  (name="John Doe", pic="meseeks", title="Designer", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com")
   ]
 
 "@@cards @@row" |> println
 for person in team
   """
   @@column
-    \\card{$(person.name)}{$(person.title)}{$(person.vitae)}{$(person.email)}
+    \\card{$(person.name)}{$(person.pic)}{$(person.title)}{$(person.vitae)}{$(person.email)}
   @@
   """ |> println
 end
@@ -262,16 +262,16 @@ raw"""
 In order to do this you could first define a `\card` command:
 
 ```html
-\newcommand{\card}[4]{
+\newcommand{\card}[5]{
   @@card
-    ![#1](/assets/pages/code/img/postcard.jpg)
+    ![#1](/assets/img/team/!#2.jpg)
     @@container
       ~~~
       <h2>#1</h2>
       ~~~
-      @@title #2 @@
-      @@vitae #3 @@
-      @@email #4 @@
+      @@title #3 @@
+      @@vitae #4 @@
+      @@email #5 @@
       ~~~
       <p><button class="button">Contact</button></p>
       ~~~
@@ -286,16 +286,16 @@ And then use it in a loop that goes over each person:
 ```julia:teamcards
 #hideall
 team = [
-  (name="Jane Doe", title="CEO & Founder", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
-  (name="Mike Ross", title="Art Director", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
-  (name="John Doe", title="Designer", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com")
+  (name="Jane Doe", pic="beth", title="CEO & Founder", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
+  (name="Mike Ross", pic="rick", title="Art Director", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com"),
+  (name="John Doe", pic="meseeks", title="Designer", vitae="Phasellus eget enim eu lectus faucibus vestibulum", email="example@example.com")
   ]
 
 "@@cards @@row" |> println
 for person in team
   """
   @@column
-    \\card{$(person.name)}{$(person.title)}{$(person.vitae)}{$(person.email)}
+    \\card{$(person.name)}{$(person.pic)}{$(person.title)}{$(person.vitae)}{$(person.email)}
   @@
   """ |> println
 end
