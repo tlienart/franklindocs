@@ -47,7 +47,6 @@ The initial call to `newsite` generates a folder with the following structure:
 ├── _assets/
 ├── _layout/
 ├── _libs/
-├── _layout/
 ├── config.md
 └── index.md
 ```
