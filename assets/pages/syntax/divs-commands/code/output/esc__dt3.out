@@ -1,6 +1,0 @@
-`````plaintext  \newcommand&#123;\definition&#125;&#91;2&#93;&#123;
-  @@definition
-  **Definition**: &#40;_&#33;#1_&#41;
-  #2
-  @@
-&#125; `````
