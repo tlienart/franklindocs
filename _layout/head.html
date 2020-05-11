@@ -10,9 +10,15 @@
   {{isdef title}} <title>{{fill title}}</title>  {{end}}
 
   <!-- LUNR -->
-  <script src="/libs/lunr/lunr.min.js"></script> <!-- https://unpkg.com/lunr/lunr.js -->
-  <script src="/libs/lunr/lunr_index.js"></script>
-  <script src="/libs/lunr/lunrclient.min.js"></script>
+  <!-- <script src="/libs/lunr/lunr.min.js"></script> -->  <!-- https://unpkg.com/lunr/lunr.js -->
+<!--  <script src="/libs/lunr/lunr_index.js"></script>
+  <script src="/libs/lunr/lunrclient.min.js"></script> -->
+
+<script>
+window.onload = function() {
+document.getElementById("focus").focus();
+};
+</script>
 
   <!-- PLOTLY -->
   {{if hasplotly}} <script src="/libs/plotly/plotly.min.js"></script> {{end}}
@@ -108,6 +114,6 @@
 		  <span style="width:30px; text-align: center;color:lightgray;">|</span>
 		  <a id="github" href="https://github.com/tlienart/Franklin.jl">GitHub Repository</a>
         </div>
-
+		<div id="focus" tabindex="-1" style="outline:0;">
 
 <!-- Content appended here (in class franklin-content) -->
