@@ -23,7 +23,7 @@ reviewed: 23/11/19
 
 ## Quick start
 
-To install Franklin with Julia **≥ 1.1**,
+To install Franklin with Julia **≥ 1.3**,
 
 ```julia-repl
 (v1.4) pkg> add Franklin
