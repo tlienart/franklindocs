@@ -56,7 +56,9 @@ function escapeHtml(unsafe) {
 
 function showResultCount(total) {
     var element = document.getElementById(LUNR_CONFIG["countElementId"])
-    element.innerHTML = total + ".";
+    if (element !== null) {
+        element.innerHTML = total + ".";
+    }
 }
 
 
@@ -82,4 +84,5 @@ window.onload = function() {
         // empty query: show 0 results (no query)
         showResultCount("0 (empty query)");
     }
+    document.getElementById("focus").focus();
 };
