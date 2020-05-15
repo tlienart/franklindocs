@@ -84,4 +84,5 @@ window.onload = function() {
         // empty query: show 0 results (no query)
         showResultCount("0 (empty query)");
     }
+    document.getElementById("focus").focus();
 };
