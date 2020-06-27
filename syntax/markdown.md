@@ -429,3 +429,13 @@ There's a couple of rules that you have to keep in mind when using the `\tablein
 * Columns must be separated by a comma (`,`).
 * If a header is specified, its length must match the number of columns in the file.
 @@
+
+The standard way of creating tables in Markdown, namely using:
+
+```markdown
+| Heading 1 | Heading 2 | Heading 3 |
+|-----------|-----------|-----------|
+| LaTeX     | KaTeX     | MikTeX    |
+```
+
+can also be used. It is also possible to use HTML to create a table with the HTML fenced between `~~~`. 
