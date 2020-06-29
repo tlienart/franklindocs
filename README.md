@@ -1,6 +1,6 @@
 # Franklin Docs
 
-Website for [Franklin.jl](https://github.com/tlienart/Franklin.jl).
+Website & documentation for [Franklin.jl](https://github.com/tlienart/Franklin.jl).
 
 ## Dev note
 
