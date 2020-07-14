@@ -15,7 +15,7 @@ These functions are defined in plain Julia and can themselves call other functio
 For instance, to locally use custom styling of text, Franklin comes with the following command:
 
 ```html
-\newcommand{\style}[2]{~~~<span style="#!1">#!2</span>~~~}
+\newcommand{\style}[2]{~~~<span style="!#1">!#2</span>~~~}
 ```
 
 which allows you to do something like `\style{color:red}{hello}`: \style{color:red}{hello}. No need for a `hfun_*` or `lx_*` function here...
@@ -129,7 +129,7 @@ end
 In this case it would have been simpler to just define this as a simple newcommand:
 
 ```html
-\newcommand{\h2}[2]{~~~<h2 id="#!1">#2</h2>~~~}
+\newcommand{\h2}[2]{~~~<h2 id="!#1">#2</h2>~~~}
 ```
 
 which you would have called `\h2{foo}{Bar}`.
