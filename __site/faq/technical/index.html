@@ -40,11 +40,14 @@ $$ 3+3 = 7-1 $$
 
 Numbered again:
 $$ 7 + 1 = 8 $$</code></pre>
-<p>by adding in the CSS: <pre><code class=language-css >.no-number .katex-display::after {
+<p>by adding in the CSS:</p>
+<pre><code class=language-css >.no-number .katex-display::after {
   counter-increment: nothing;
   content: "";
 }</code></pre>
-<p>And possibly <a href="/syntax/divs-commands/#latex-like_commands">define a command</a> in <code>config.md</code>:<br /><pre><code class=language-markdown >\newcommand{\nalign}[1]{@@no-number \begin{align}#1\end{align}@@}</code></pre> if you feel it is more convenient to write <code>\nalign&#123;3&#43;3 &#61; 6&#125;</code>.</p>
+<p>And possibly <a href="/syntax/divs-commands/#latex-like_commands">define a command</a> in <code>config.md</code>:<br /></p>
+<pre><code class=language-markdown >\newcommand{\nalign}[1]{@@no-number \begin{align}#1\end{align}@@}</code></pre>
+<p>if you feel it is more convenient to write <code>\nalign&#123;3&#43;3 &#61; 6&#125;</code>.</p>
 <h2 id=code ><a href="#code">Code</a></h2>
 <h3 id=how_to_use_loops_for_templating ><a href="#how_to_use_loops_for_templating">How to use loops for templating?</a></h3>
 <p><strong>Reference</strong>: <a href="https://github.com/tlienart/Franklin.jl/issues/251">issue 251</a>, <strong>more on this</strong>: <a href="/code/eval-tricks/">code tricks</a>.</p>
@@ -68,7 +71,8 @@ end
 &lt;div class&#61;&quot;card&quot;&gt;&lt;h3 id&#61;&quot;christine&quot;&gt;&lt;a href&#61;&quot;/index.html#christine&quot;&gt;Christine&lt;/a&gt;&lt;/h3&gt;  &lt;img src&#61;&quot;christine.jpg&quot; alt&#61;&quot;&quot; /&gt;&lt;/div&gt;</code></pre>
 <h3 id=how_to_insert_plotly_plots ><a href="#how_to_insert_plotly_plots">How to insert Plotly plots?</a></h3>
 <p><strong>Reference</strong>: <a href="https://github.com/tlienart/Franklin.jl/issues/322">issue 322</a>.</p>
-<p>See <a href="/extras/plotly/">this tutorial</a> for a way to do this.<div class=page-foot >
+<p>See <a href="/extras/plotly/">this tutorial</a> for a way to do this.</p>
+<div class=page-foot >
   <div class=copyright >
     &copy; Thibaut Lienart. Last modified: June 29, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
