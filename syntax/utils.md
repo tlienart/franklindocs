@@ -54,7 +54,7 @@ function hfun_recentblogposts()
     io = IOBuffer()
     write(io, "<ul>")
     for (k, i) in enumerate(idxs)
-        fi = "/blog/" * splitext(list[i])[1]) * "/"
+        fi = "/blog/" * splitext(list[i])[1] * "/"
         write(io, """<li><a href="$fi">Post $k</a></li>\n""")
     end
     write(io, "</ul>")
