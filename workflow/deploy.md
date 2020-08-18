@@ -161,6 +161,10 @@ That's it! when you push your updates to the `master` branch, the GitLab CI will
 
 ## Deploying on Netlify
 
+### Local Build
 Synchronise your local website folder with a repository (e.g. a GitHub or GitLab repository) then select that repository on Netlify and indicate you want to deploy the `__site` folder.
+
+### Github Action
+You can follow the directions for the Project Website above, letting the GitHub Action build and optimize your site. To deploy with Netlify, point Netlify to your `gh-pages` branch. 
 
 That's it!
